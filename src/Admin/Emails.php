@@ -392,10 +392,19 @@ final class Emails {
 	private function should_display_prompt_for_email( \WC_Email $email ) {
 
 		$email_ids = [
+
+			// core
 			'customer_on_hold_order',
 			'customer_processing_order',
 			'customer_completed_order',
 			'customer_refunded_order',
+
+			// subscriptions
+			'customer_processing_renewal_order',
+			'customer_completed_renewal_order',
+			'customer_on_hold_renewal_order',
+			'customer_completed_switch_order',
+			'customer_renewal_invoice',
 		];
 
 		/**
@@ -482,7 +491,20 @@ final class Emails {
 
 			break;
 
-			// TODO: handle all Subscriptions email IDs
+			// all subscription emails
+			case 'customer_processing_renewal_order':
+			case 'customer_completed_renewal_order':
+			case 'customer_on_hold_renewal_order':
+			case 'customer_completed_switch_order':
+			case 'customer_renewal_invoice':
+
+				$description = sprintf(
+					/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
+					__( 'Keep your subscribers in the loop: create personalized, automated emails using a drag-and-drop editor with %1$sJilt%2$s. Send welcome or winback series, pre-renewal notifications, subscriber newsletters, and more.', 'woocommerce-plugin-framework' ),
+					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>'
+				);
+
+			break;
 
 			default:
 				$description = $this->get_default_prompt_description();
