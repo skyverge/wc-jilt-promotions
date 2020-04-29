@@ -98,7 +98,15 @@ final class Emails {
 
 			wp_localize_script( 'sv-wc-jilt-prompt-email-scripts', 'sv_wc_jilt_email_prompt', [
 				'nonces' => [
+					'install_plugin' => wp_create_nonce( self::AJAX_ACTION_INSTALL ),
 					'hide_prompt'    => wp_create_nonce( self::AJAX_ACTION_HIDE_PROMPT ),
+				],
+				'i18n' => [
+					'install_error' => sprintf(
+						/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
+						__( 'Whoops, looks like there was an error installing Jilt for WooCommerce - please install manually %1$sfrom the Plugins menu%2$s.', 'sv-wc-jilt-promotions' ),
+						'<a href="' . esc_url( admin_url( 'wp-admin/plugin-install.php?s=jilt+for+woocommerce&tab=search&type=term' ) ) . '">', '</a>'
+					),
 				],
 			] );
 
