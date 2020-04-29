@@ -212,7 +212,7 @@ final class Emails {
 
 		?>
 
-		<tr valign="top">
+		<tr id="sv-wc-jilt-emails-install-prompt" valign="top">
 
 			<th scope="row" class="titledesc">
 				<label>
@@ -226,8 +226,8 @@ final class Emails {
 					<p><?php echo wp_kses_post( $description ); ?></p>
 				<?php endif; ?>
 
-				<a href="#" id="sv-wc-jilt-prompt-install-cta" class="button"><span class="dashicons dashicons-email"></span><?php esc_html_e( 'Install Jilt', 'woocommerce-plugin-framework' ); ?></a>
-				<a href="#" id="sv-wc-jilt-prompt-hide-cta" ><?php esc_html_e( 'Hide this setting', 'woocommerce-plugin-framework' ); ?></a>
+				<a href="#" class="sv-wc-jilt-prompt-install-cta button"><span class="dashicons dashicons-email"></span><?php esc_html_e( 'Install Jilt', 'woocommerce-plugin-framework' ); ?></a>
+				<a href="#" class="sv-wc-jilt-prompt-hide-cta" ><?php esc_html_e( 'Hide this setting', 'woocommerce-plugin-framework' ); ?></a>
 
 			</td>
 
