@@ -28,8 +28,9 @@ jQuery( document ).ready( function( $ ) {
 		$.post(
 			ajaxurl,
 			{
-				action: 'sv_wc_jilt_install_jilt',
-				nonce:  sv_wc_jilt_email_prompt.nonces.install_plugin,
+				action:   'sv_wc_jilt_install_jilt',
+				nonce:    sv_wc_jilt_email_prompt.nonces.install_plugin,
+				email_id: sv_wc_jilt_email_prompt.email_id,
 			}
 		).then( function( response ) {
 
