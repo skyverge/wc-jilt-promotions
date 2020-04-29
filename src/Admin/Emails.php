@@ -187,7 +187,10 @@ final class Emails {
 
 		try {
 
-			// TODO: install Jilt
+			\WC_Install::background_installer( 'jilt-for-woocommerce', [
+				'name'      => __( 'Jilt for WooCommerce', 'sv-wc-jilt-promotions' ),
+				'repo-slug' => 'jilt-for-woocommerce'
+			] );
 
 			$email_id = ! empty( $_POST['email_id'] ) ? $_POST['email_id'] : self::UTM_TERM_GLOBAL;
 
