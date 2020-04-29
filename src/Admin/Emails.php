@@ -466,7 +466,7 @@ final class Emails {
 				$description = sprintf(
 					/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
 					__( 'Personalize your receipts using a drag-and-drop editor with %1$sJilt%2$s. Send different versions of your receipt based on customer or order details (change it for international orders!), cross-sell other products, include a dynamic coupon for the next order, and more.', 'woocommerce-plugin-framework' ),
-					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '">', '</a>'
+					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>'
 				);
 
 			break;
@@ -476,7 +476,7 @@ final class Emails {
 				$description = sprintf(
 					/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
 					__( 'Personalize your shipment notifications using a drag-and-drop editor with %1$sJilt%2$s. Send beautiful transactional emails, change customer messaging, cross-sell other products, include a dynamic coupon for the next order, and more.', 'woocommerce-plugin-framework' ),
-					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '">', '</a>'
+					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>'
 				);
 
 			break;
@@ -486,7 +486,7 @@ final class Emails {
 				$description = sprintf(
 					/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
 					__( 'Save the sale! Create beautiful, personalized transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Show refund details, sell related products, or include a discount for the next order.', 'woocommerce-plugin-framework' ),
-					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '">', '</a>'
+					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>'
 				);
 
 			break;
