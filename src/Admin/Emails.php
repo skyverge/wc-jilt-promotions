@@ -96,6 +96,9 @@ final class Emails {
 
 			wp_enqueue_script( 'sv-wc-jilt-prompt-email-scripts', Package::get_assets_url() . '/admin/js/emails.js', [ 'jquery' ], Package::VERSION );
 
+			wp_localize_script( 'sv-wc-jilt-prompt-email-scripts', 'sv_wc_jilt_email_prompt', [
+			] );
+
 		} );
 	}
 
