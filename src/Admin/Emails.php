@@ -179,7 +179,7 @@ final class Emails {
 			'type'  => 'title',
 			'title' => __( 'Advanced emails', 'woocommerce-plugin-framework' ),
 			'desc'  => sprintf(
-			/* translators: Placeholders; %1$s - <a> tag, %2$s - </a> tag, %3$s - <a> tag, %4$s - </a> tag, %5$s - <a> tag, %6$s - </a> tag */
+				/* translators: Placeholders; %1$s - <a> tag, %2$s - </a> tag, %3$s - <a> tag, %4$s - </a> tag, %5$s - <a> tag, %6$s - </a> tag */
 				__( 'Create beautiful automated, transactional, and marketing emails using a drag-and-drop editor with %1$sJilt%2$s. Learn more about free and paid plans in the %3$sdocumentation%4$s. Brought to you by %5$sSkyVerge%6$s.', 'woocommerce-plugin-framework' ),
 				'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>',
 				'<a href="' . esc_url( $this->get_documentation_url() ) . '" target="_blank">', '</a>',
