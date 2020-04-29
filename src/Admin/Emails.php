@@ -129,7 +129,7 @@ final class Emails {
 					'install_error' => sprintf(
 						/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
 						__( 'Whoops, looks like there was an error installing Jilt for WooCommerce - please install manually %1$sfrom the Plugins menu%2$s.', 'sv-wc-jilt-promotions' ),
-						'<a href="' . esc_url( admin_url( 'wp-admin/plugin-install.php?s=jilt+for+woocommerce&tab=search&type=term' ) ) . '">', '</a>'
+						'<a href="' . esc_url( admin_url( 'plugin-install.php?s=jilt+for+woocommerce&tab=search&type=term' ) ) . '">', '</a>'
 					),
 				],
 			] );
