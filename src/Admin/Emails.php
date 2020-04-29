@@ -80,6 +80,11 @@ final class Emails {
 			add_action( 'wp_ajax_' . self::AJAX_ACTION_HIDE_PROMPT, [ $this, 'ajax_hide_prompt' ] );
 
 			// TODO: filter the Jilt connection URL params if the flag is present
+
+			// add the modal markup
+			add_action( 'admin_footer', function() {
+				include_once( Package::get_package_path() . '/views/admin/html-install-plugin-modal.php' );
+			} );
 		}
 	}
 

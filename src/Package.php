@@ -46,4 +46,17 @@ class Package {
 	}
 
 
+	/**
+	 * Gets the package path.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string
+	 */
+	public static function get_package_path() {
+
+		return untrailingslashit( __DIR__ );
+	}
+
+
 }
