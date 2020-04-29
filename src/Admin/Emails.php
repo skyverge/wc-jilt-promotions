@@ -328,7 +328,15 @@ final class Emails {
 
 		$display = $display && ! wc_string_to_bool( get_user_meta( $user_id, self::META_KEY_HIDE_PROMPT, true ) );
 
-		return $display;
+		/**
+		 * Filters whether the Jilt install prompt should be displayed.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param bool $should_display whether the Jilt install prompt should be displayed
+		 * @param int $user_id WordPress user ID
+		 */
+		return (bool) apply_filters( 'sv_wc_jilt_prompt_should_display', $display, $user_id );
 	}
 
 
@@ -349,7 +357,24 @@ final class Emails {
 			'customer_refunded_order',
 		];
 
-		return in_array( $email->id, $email_ids, true );
+		/**
+		 * Filters the email IDs that should have the Jilt install prompt.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param string[] $email_ids email IDs
+		 */
+		$email_ids = (array) apply_filters( 'sv_wc_jilt_prompt_email_ids', $email_ids );
+
+		/**
+		 * Filters whether the Jilt install prompt should be displayed for the given email.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param bool $should_display whether the Jilt install prompt should be displayed
+		 * @param \WC_Email $email email object
+		 */
+		return (bool) apply_filters( 'sv_wc_jilt_prompt_should_display_for_email', in_array( $email->id, $email_ids, true ), $email );
 	}
 
 
@@ -416,15 +441,21 @@ final class Emails {
 
 			break;
 
-			// TODO: handle all Memberships email IDs
-
 			// TODO: handle all Subscriptions email IDs
 
 			default:
 				$description = $this->get_default_prompt_description();
 		}
 
-		return $description;
+		/**
+		 * Filters the Jilt install prompt description.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param string $description Jilt install prompt description
+		 * @param string $email_id WooCommerce email ID
+		 */
+		return apply_filters( 'sv_wc_jilt_prompt_description', $description, $email_id );
 	}
 
 
@@ -437,11 +468,20 @@ final class Emails {
 	 */
 	private function get_default_prompt_description() {
 
-		return sprintf(
+		$description = sprintf(
 			/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
 			__( 'Create beautiful automated and transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Personalize email content with customer and order details — include cross-sells, remind customers to complete payment, or easily share vital order information.', 'woocommerce-plugin-framework' ),
 			'<a href="' . esc_url( $this->get_jilt_details_url() ) . '">', '</a>'
 		);
+
+		/**
+		 * Filters the Jilt install default prompt description.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param string $description Jilt install default prompt description
+		 */
+		return apply_filters( 'sv_wc_jilt_prompt_default_description', $description );
 	}
 
 
