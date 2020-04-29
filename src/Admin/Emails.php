@@ -42,6 +42,9 @@ final class Emails {
 		// add the Jilt install prompt hooks
 		if ( $this->should_display_prompt() ) {
 
+			// enqueue the assets
+			$this->enqueue_assets();
+
 			// render the Jilt install prompt setting HTML for the general Emails settings page
 			add_action( 'woocommerce_admin_field_jilt_prompt', [ $this, 'render_general_setting_html'] );
 
@@ -63,6 +66,26 @@ final class Emails {
 
 			// TODO: filter the Jilt connection URL params if the flag is present
 		}
+	}
+
+
+	/**
+	 * Enqueues the assets.
+	 *
+	 * @since 1.0.0
+	 */
+	private function enqueue_assets() {
+
+		// only load on WooCommerce settings pages
+		if ( empty( $_GET['page'] ) || 'wc-settings' !== $_GET['page'] ) {
+			return;
+		}
+
+		// only load on the Emails settings pages
+		if ( empty( $_GET['tab'] ) || 'email' !== $_GET['tab'] ) {
+			return;
+		}
+
 	}
 
 
