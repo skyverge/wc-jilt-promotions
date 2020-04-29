@@ -161,9 +161,7 @@ final class Emails {
 
 		check_ajax_referer( self::AJAX_ACTION_HIDE_PROMPT, 'nonce' );
 
-		if ( ! empty( $_POST['user_id'] ) ) {
-			update_user_meta( (int) $_POST['user_id'], self::META_KEY_HIDE_PROMPT, 'yes' );
-		}
+		update_user_meta( get_current_user_id(), self::META_KEY_HIDE_PROMPT, 'yes' );
 	}
 
 
