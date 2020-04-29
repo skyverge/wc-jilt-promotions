@@ -2,6 +2,8 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Package;
+
 /**
  * The emails handler.
  */
@@ -60,8 +62,6 @@ final class Emails {
 			// hide the Jilt install prompt via AJAX
 			add_action( 'wp_ajax_' . self::AJAX_ACTION_HIDE_PROMPT, [ $this, 'ajax_hide_prompt' ] );
 
-			// TODO: enqueue styles
-
 			// TODO: enqueue JS
 
 			// TODO: filter the Jilt connection URL params if the flag is present
@@ -86,6 +86,12 @@ final class Emails {
 			return;
 		}
 
+		// admin styles
+		add_action( 'admin_init', function() {
+
+			wp_enqueue_style( 'sv-wc-jilt-prompt-email-styles', Package::get_assets_url() . '/admin/css/emails.css', [], Package::VERSION );
+
+		} );
 	}
 
 
