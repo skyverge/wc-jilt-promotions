@@ -62,8 +62,6 @@ final class Emails {
 			// hide the Jilt install prompt via AJAX
 			add_action( 'wp_ajax_' . self::AJAX_ACTION_HIDE_PROMPT, [ $this, 'ajax_hide_prompt' ] );
 
-			// TODO: enqueue JS
-
 			// TODO: filter the Jilt connection URL params if the flag is present
 		}
 	}
@@ -90,6 +88,13 @@ final class Emails {
 		add_action( 'admin_init', function() {
 
 			wp_enqueue_style( 'sv-wc-jilt-prompt-email-styles', Package::get_assets_url() . '/admin/css/emails.css', [], Package::VERSION );
+
+		} );
+
+		// admin scripts
+		add_action( 'admin_enqueue_scripts', function() {
+
+			wp_enqueue_script( 'sv-wc-jilt-prompt-email-scripts', Package::get_assets_url() . '/admin/js/emails.js', [ 'jquery' ], Package::VERSION );
 
 		} );
 	}
