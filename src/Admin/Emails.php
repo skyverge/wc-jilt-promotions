@@ -39,6 +39,12 @@ final class Emails {
 	/** @var string the option name to flag whether Jilt was installed via a prompt */
 	const OPTION_INSTALLED_FROM_PROMPT = 'sv_wc_jilt_installed_from_emails_prompt';
 
+	/** @var string the campaign value for the connection arguments */
+	const UTM_CAMPAIGN = 'wc-email-settings';
+
+	/** @var string the content value for the connection arguments */
+	const UTM_CONTENT = 'install-jilt-button';
+
 	/** @var string the global term value for the connection arguments */
 	const UTM_TERM_GLOBAL = 'global-email-settings';
 
@@ -82,13 +88,39 @@ final class Emails {
 			// hide the Jilt install prompt via AJAX
 			add_action( 'wp_ajax_' . self::AJAX_ACTION_HIDE_PROMPT, [ $this, 'ajax_hide_prompt' ] );
 
-			// TODO: filter the Jilt connection URL params if the flag is present
-
 			// add the modal markup
 			add_action( 'admin_footer', function() {
 				include_once( Package::get_package_path() . '/views/admin/html-install-plugin-modal.php' );
 			} );
 		}
+
+		// add the connection redirect args if the plugin was installed from this prompt
+		add_filter( 'wc_jilt_app_connection_redirect_args', [ $this, 'add_connection_redirect_args' ] );
+	}
+
+
+	/**
+	 * Adds the connection redirect args if the plugin was installed from this prompt.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $args redirect args
+	 * @return array
+	 */
+	public function add_connection_redirect_args( $args ) {
+
+		if ( $email_id = get_option( self::OPTION_INSTALLED_FROM_PROMPT, false ) ) {
+
+			$utm_term = str_replace( '_', '-', wc_clean( $email_id ) );
+
+			$args['utm_campaign'] = self::UTM_CAMPAIGN;
+			$args['utm_content']  = self::UTM_CONTENT;
+			$args['utm_term']     = $utm_term;
+			$args['partner']      = '1';
+			$args['campaign']     = self::UTM_CAMPAIGN;
+		}
+
+		return $args;
 	}
 
 
