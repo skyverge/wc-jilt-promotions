@@ -67,9 +67,12 @@ jQuery( document ).ready( function( $ ) {
 
 		event.preventDefault();
 
-		$( this ).parents( 'table' ).hide();
+		$table = $( this ).parents( 'table' );
 
-		// TODO: hide the Emails screen title & description
+		$table.hide();
+
+		// hide the preceding h2 & description
+		$table.prevUntil( 'table' ).hide();
 
 		$.post(
 			ajaxurl,
