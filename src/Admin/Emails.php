@@ -240,16 +240,27 @@ final class Emails {
 	 */
 	public function add_emails_setting( $settings ) {
 
+		$description = sprintf(
+			/* translators: Placeholders; %1$s - <a> tag, %2$s - </a> tag, %3$s - <a> tag, %4$s - </a> tag, %5$s - <a> tag, %6$s - </a> tag */
+			__( 'Create beautiful automated, transactional, and marketing emails using a drag-and-drop editor with %1$sJilt%2$s. Learn more about free and paid plans in the %3$sdocumentation%4$s. Brought to you by %5$sSkyVerge%6$s.', 'sv-wc-jilt-promotions' ),
+			'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>',
+			'<a href="' . esc_url( $this->get_documentation_url() ) . '" target="_blank">', '</a>',
+			'<a href="' . esc_url( $this->get_skyverge_details_url() ) . '" target="_blank">', '</a>'
+		);
+
+		/**
+		 * Filters the Jilt install prompt setting description that's displayed on the general Emails settings page.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param string $description setting description
+		 */
+		$description = apply_filters( 'sv_wc_jilt_general_prompt_description', $description );
+
 		$settings[] = [
 			'type'  => 'title',
-			'title' => __( 'Advanced emails', 'woocommerce-plugin-framework' ),
-			'desc'  => sprintf(
-				/* translators: Placeholders; %1$s - <a> tag, %2$s - </a> tag, %3$s - <a> tag, %4$s - </a> tag, %5$s - <a> tag, %6$s - </a> tag */
-				__( 'Create beautiful automated, transactional, and marketing emails using a drag-and-drop editor with %1$sJilt%2$s. Learn more about free and paid plans in the %3$sdocumentation%4$s. Brought to you by %5$sSkyVerge%6$s.', 'woocommerce-plugin-framework' ),
-				'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>',
-				'<a href="' . esc_url( $this->get_documentation_url() ) . '" target="_blank">', '</a>',
-				'<a href="' . esc_url( $this->get_skyverge_details_url() ) . '" target="_blank">', '</a>'
-			),
+			'title' => __( 'Advanced emails', 'sv-wc-jilt-promotions' ),
+			'desc'  => $description,
 		];
 
 		$settings[] = [
