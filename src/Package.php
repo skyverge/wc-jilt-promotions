@@ -33,6 +33,34 @@ class Package {
 	const VERSION = '1.0.0';
 
 
+	/** @var Package single instance of this package */
+	private static $instance;
+
+
+	/**
+	 * Package constructor.
+	 *
+	 * @since 1.0.0
+	 */
+	public function __construct() {
+
+		$this->includes();
+	}
+
+
+	/**
+	 * Include the files.
+	 *
+	 * @since 1.0.0
+	 */
+	private function includes() {
+
+		require_once( self::get_package_path() . '/Admin/Emails.php' );
+
+		new Admin\Emails();
+	}
+
+
 	/**
 	 * Gets the package assets URL.
 	 *
@@ -56,6 +84,23 @@ class Package {
 	public static function get_package_path() {
 
 		return untrailingslashit( __DIR__ );
+	}
+
+
+	/**
+	 * Gets the one true instance of Package.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return Package
+	 */
+	public static function instance() {
+
+		if ( null === self::$instance ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
 	}
 
 
