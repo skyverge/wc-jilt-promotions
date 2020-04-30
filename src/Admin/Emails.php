@@ -39,6 +39,12 @@ final class Emails {
 	/** @var string the option name to flag whether Jilt was installed via a prompt */
 	const OPTION_INSTALLED_FROM_PROMPT = 'sv_wc_jilt_installed_from_emails_prompt';
 
+	/** @var string the source value for the connection arguments */
+	const UTM_SOURCE = 'jilt-for-woocommerce';
+
+	/** @var string the medium value for the connection arguments */
+	const UTM_MEDIUM = 'oauth';
+
 	/** @var string the campaign value for the connection arguments */
 	const UTM_CAMPAIGN = 'wc-email-settings';
 
@@ -113,6 +119,8 @@ final class Emails {
 
 			$utm_term = str_replace( '_', '-', wc_clean( $email_id ) );
 
+			$args['utm_source']   = self::UTM_SOURCE;
+			$args['utm_medium']   = self::UTM_MEDIUM;
 			$args['utm_campaign'] = self::UTM_CAMPAIGN;
 			$args['utm_content']  = self::UTM_CONTENT;
 			$args['utm_term']     = $utm_term;
