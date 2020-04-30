@@ -26,7 +26,7 @@ if ( ! function_exists( 'sv_wc_jilt_promotions_initialize_1_0_0' ) ) {
 
 		require_once( 'src/Versions.php' );
 
-		add_action( 'plugins_loaded', [ \SkyVerge\WooCommerce\Jilt_Promotions\Versions::class, 'initialize_latest_version' ], 1, 0 );
+		add_action( 'plugins_loaded', [ \SkyVerge\WooCommerce\Jilt_Promotions\Versions::class, 'initialize_latest_version' ], 99, 0 );
 	}
 
 	// register v1.0.0
