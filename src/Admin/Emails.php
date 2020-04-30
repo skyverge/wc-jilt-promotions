@@ -198,7 +198,7 @@ final class Emails {
 			update_option( self::OPTION_INSTALLED_FROM_PROMPT, wc_clean( $email_id ) );
 
 			wp_send_json_success( [
-				'message'      => __( 'Jilt for WooCommerce successfully installed', 'woocommerce-plugin-framework' ),
+				'message'      => __( 'Jilt for WooCommerce successfully installed', 'sv-wc-jilt-promotions' ),
 				'redirect_url' => admin_url( 'admin.php?page=wc-jilt' ),
 			] );
 
@@ -207,7 +207,7 @@ final class Emails {
 			wp_send_json_error( [
 				'message' => sprintf(
 					/* translators: Placeholders: %s - install error message */
-					__( 'Could not install Jilt for WooCommerce. %s', 'woocommerce-plugin-framework' ),
+					__( 'Could not install Jilt for WooCommerce. %s', 'sv-wc-jilt-promotions' ),
 					$exception->getMessage()
 				),
 			] );
@@ -299,7 +299,7 @@ final class Emails {
 		<table class="form-table">
 
 			<?php $this->render_setting_html(
-				__( 'Customize this email', 'woocommerce-plugin-framework' ),
+				__( 'Customize this email', 'sv-wc-jilt-promotions' ),
 				$this->get_prompt_description( $email->id )
 			); ?>
 
@@ -318,7 +318,7 @@ final class Emails {
 	 */
 	public function render_general_setting_html() {
 
-		$this->render_setting_html( __( 'Enhanced emails with Jilt', 'woocommerce-plugin-framework' ) );
+		$this->render_setting_html( __( 'Enhanced emails with Jilt', 'sv-wc-jilt-promotions' ) );
 	}
 
 
@@ -338,7 +338,7 @@ final class Emails {
 
 			<th scope="row" class="titledesc">
 				<label>
-					<?php echo esc_html( $title ); ?> <?php echo wc_help_tip( __( 'This setting is shown because you currently have a SkyVerge plugin active.', 'woocommerce-plugin-framework' ) ); ?>
+					<?php echo esc_html( $title ); ?> <?php echo wc_help_tip( __( 'This setting is shown because you currently have a SkyVerge plugin active.', 'sv-wc-jilt-promotions' ) ); ?>
 				</label>
 			</th>
 
@@ -348,8 +348,8 @@ final class Emails {
 					<p><?php echo wp_kses_post( $description ); ?></p>
 				<?php endif; ?>
 
-				<a href="#" class="sv-wc-jilt-prompt-install-cta button"><span class="dashicons dashicons-email"></span><?php esc_html_e( 'Install Jilt', 'woocommerce-plugin-framework' ); ?></a>
-				<a href="#" class="sv-wc-jilt-prompt-hide-cta" ><?php esc_html_e( 'Hide this setting', 'woocommerce-plugin-framework' ); ?></a>
+				<a href="#" class="sv-wc-jilt-prompt-install-cta button"><span class="dashicons dashicons-email"></span><?php esc_html_e( 'Install Jilt', 'sv-wc-jilt-promotions' ); ?></a>
+				<a href="#" class="sv-wc-jilt-prompt-hide-cta" ><?php esc_html_e( 'Hide this setting', 'sv-wc-jilt-promotions' ); ?></a>
 
 			</td>
 
@@ -476,7 +476,7 @@ final class Emails {
 
 				$description = sprintf(
 					/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
-					__( 'Personalize your receipts using a drag-and-drop editor with %1$sJilt%2$s. Send different versions of your receipt based on customer or order details (change it for international orders!), cross-sell other products, include a dynamic coupon for the next order, and more.', 'woocommerce-plugin-framework' ),
+					__( 'Personalize your receipts using a drag-and-drop editor with %1$sJilt%2$s. Send different versions of your receipt based on customer or order details (change it for international orders!), cross-sell other products, include a dynamic coupon for the next order, and more.', 'sv-wc-jilt-promotions' ),
 					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>'
 				);
 
@@ -486,7 +486,7 @@ final class Emails {
 
 				$description = sprintf(
 					/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
-					__( 'Personalize your shipment notifications using a drag-and-drop editor with %1$sJilt%2$s. Send beautiful transactional emails, change customer messaging, cross-sell other products, include a dynamic coupon for the next order, and more.', 'woocommerce-plugin-framework' ),
+					__( 'Personalize your shipment notifications using a drag-and-drop editor with %1$sJilt%2$s. Send beautiful transactional emails, change customer messaging, cross-sell other products, include a dynamic coupon for the next order, and more.', 'sv-wc-jilt-promotions' ),
 					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>'
 				);
 
@@ -496,7 +496,7 @@ final class Emails {
 
 				$description = sprintf(
 					/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
-					__( 'Save the sale! Create beautiful, personalized transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Show refund details, sell related products, or include a discount for the next order.', 'woocommerce-plugin-framework' ),
+					__( 'Save the sale! Create beautiful, personalized transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Show refund details, sell related products, or include a discount for the next order.', 'sv-wc-jilt-promotions' ),
 					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>'
 				);
 
@@ -511,7 +511,7 @@ final class Emails {
 
 				$description = sprintf(
 					/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
-					__( 'Keep your subscribers in the loop: create personalized, automated emails using a drag-and-drop editor with %1$sJilt%2$s. Send welcome or winback series, pre-renewal notifications, subscriber newsletters, and more.', 'woocommerce-plugin-framework' ),
+					__( 'Keep your subscribers in the loop: create personalized, automated emails using a drag-and-drop editor with %1$sJilt%2$s. Send welcome or winback series, pre-renewal notifications, subscriber newsletters, and more.', 'sv-wc-jilt-promotions' ),
 					'<a href="' . esc_url( $this->get_jilt_details_url() ) . '" target="_blank">', '</a>'
 				);
 
@@ -544,7 +544,7 @@ final class Emails {
 
 		$description = sprintf(
 			/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
-			__( 'Create beautiful automated and transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Personalize email content with customer and order details — include cross-sells, remind customers to complete payment, or easily share vital order information.', 'woocommerce-plugin-framework' ),
+			__( 'Create beautiful automated and transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Personalize email content with customer and order details — include cross-sells, remind customers to complete payment, or easily share vital order information.', 'sv-wc-jilt-promotions' ),
 			'<a href="' . esc_url( $this->get_jilt_details_url() ) . '">', '</a>'
 		);
 
