@@ -448,7 +448,7 @@ final class Emails {
 	 */
 	private function is_plugin_installed() {
 
-		return function_exists( 'wc_jilt' ); // TODO: distinguish between installed and active
+		return function_exists( 'wc_jilt' );
 	}
 
 
