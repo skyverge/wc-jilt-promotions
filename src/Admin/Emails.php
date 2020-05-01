@@ -422,7 +422,6 @@ final class Emails {
 			'customer_processing_renewal_order',
 			'customer_completed_renewal_order',
 			'customer_on_hold_renewal_order',
-			'customer_completed_switch_order',
 			'customer_renewal_invoice',
 		];
 
