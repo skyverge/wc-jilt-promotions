@@ -152,7 +152,7 @@ final class Emails {
 		// admin styles
 		add_action( 'admin_init', function() {
 
-			wp_enqueue_style( 'sv-wc-jilt-prompt-email-styles', Package::get_assets_url() . '/admin/css/emails.css', [], Package::VERSION );
+			wp_enqueue_style( 'sv-wc-jilt-prompt-email-styles', Package::get_assets_url() . 'css/admin/emails.css', [], Package::VERSION );
 
 		} );
 
@@ -161,7 +161,7 @@ final class Emails {
 
 			wp_enqueue_script( 'wc-backbone-modal', null, [ 'backbone' ] );
 
-			wp_enqueue_script( 'sv-wc-jilt-prompt-email-scripts', Package::get_assets_url() . '/admin/js/emails.js', [ 'jquery', 'wc-backbone-modal' ], Package::VERSION );
+			wp_enqueue_script( 'sv-wc-jilt-prompt-email-scripts', Package::get_assets_url() . '/js/admin/emails.min.js', [ 'jquery', 'wc-backbone-modal' ], Package::VERSION );
 
 			wp_localize_script( 'sv-wc-jilt-prompt-email-scripts', 'sv_wc_jilt_email_prompt', [
 				'email_id' => ! empty( $_GET['section'] ) ? wc_clean( str_replace( '_', '-', $_GET['section'] ) ) : self::UTM_TERM_GLOBAL,
