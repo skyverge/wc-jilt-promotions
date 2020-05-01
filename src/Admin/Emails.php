@@ -152,7 +152,7 @@ final class Emails {
 		// admin styles
 		add_action( 'admin_init', function() {
 
-			wp_enqueue_style( 'sv-wc-jilt-prompt-email-styles', Package::get_assets_url() . 'css/admin/emails.css', [], Package::VERSION );
+			wp_enqueue_style( 'sv-wc-jilt-prompt-email-styles', Package::get_assets_url() . '/css/admin/emails.css', [], Package::VERSION );
 
 		} );
 
