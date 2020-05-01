@@ -528,6 +528,13 @@ final class Emails {
 				$description = $this->get_default_prompt_description();
 		}
 
+		// add the SkyVerge tag line
+		$description .= ' ' . sprintf(
+			/* translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag */
+			__( 'Brought to you by %1$sSkyVerge%2$s.', 'sv-wc-jilt-promotions' ),
+			'<a href="' . esc_url( $this->get_skyverge_details_url() ) . '" target="_blank">', '</a>'
+		);
+
 		/**
 		 * Filters the Jilt install prompt description.
 		 *
