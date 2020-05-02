@@ -1,6 +1,10 @@
 # WooCommerce Jilt Promotions
 A self-contained package for WooCommerce extensions to promote Jilt services.
 
+## Requirements
+- PHP 5.6+
+- WooCommerce 3.0+
+
 ## Installation
 
 1. Require via composer:
