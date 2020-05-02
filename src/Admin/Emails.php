@@ -28,7 +28,7 @@ final class Emails {
 
 
 	/** @var string the "hide jilt prompt" meta key */
-	const META_KEY_HIDE_PROMPT = 'sv_wc_jilt_hide_emails_prompt';
+	const META_KEY_HIDE_PROMPT = '_sv_wc_jilt_hide_emails_prompt';
 
 	/** @var string the AJAX action for installing Jilt */
 	const AJAX_ACTION_INSTALL = 'sv_wc_jilt_install_jilt';
