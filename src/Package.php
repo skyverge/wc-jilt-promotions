@@ -30,7 +30,7 @@ class Package {
 	const ID = 'sv-wc-jilt-promotions';
 
 	/** @var string the package version */
-	const VERSION = '1.0.0';
+	const VERSION = '1.0.1';
 
 
 	/** @var Package single instance of this package */

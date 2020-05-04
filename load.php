@@ -19,7 +19,7 @@
  */
 
 // only proceed if some other plugin hasn't already loaded this version
-if ( ! function_exists( 'sv_wc_jilt_promotions_initialize_1_0_0' ) ) {
+if ( ! function_exists( 'sv_wc_jilt_promotions_initialize_1_0_1' ) ) {
 
 	// load the versions handler unless already loaded
 	if ( ! class_exists( '\SkyVerge\WooCommerce\Jilt_Promotions\Versions' ) ) {
@@ -29,17 +29,17 @@ if ( ! function_exists( 'sv_wc_jilt_promotions_initialize_1_0_0' ) ) {
 		add_action( 'plugins_loaded', [ \SkyVerge\WooCommerce\Jilt_Promotions\Versions::class, 'initialize_latest_version' ], 99, 0 );
 	}
 
-	// register v1.0.0
-	\SkyVerge\WooCommerce\Jilt_Promotions\Versions::register( '1.0.0', 'sv_wc_jilt_promotions_initialize_1_0_0' );
+	// register v1.0.1
+	\SkyVerge\WooCommerce\Jilt_Promotions\Versions::register( '1.0.1', 'sv_wc_jilt_promotions_initialize_1_0_1' );
 
 	/**
-	 * Initializes the Jilt Promotions package v1.0.0.
+	 * Initializes the Jilt Promotions package v1.0.1.
 	 *
 	 * This function should not be called directly.
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.1
 	 */
-	function sv_wc_jilt_promotions_initialize_1_0_0() {
+	function sv_wc_jilt_promotions_initialize_1_0_1() {
 
 		require_once( 'src/Package.php' );
 
