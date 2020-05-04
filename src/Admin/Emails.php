@@ -74,7 +74,7 @@ final class Emails {
 	private function add_hooks() {
 
 		// add the Jilt install prompt hooks
-		if ( $this->should_display_prompt() ) {
+		if ( is_admin() && $this->should_display_prompt() ) {
 
 			// enqueue the assets
 			$this->enqueue_assets();
