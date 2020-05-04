@@ -195,6 +195,11 @@ final class Emails {
 
 		try {
 
+			// sanity check, just in case a valid nonce is passed
+			if ( ! current_user_can( 'install_plugins' ) ) {
+				throw new \Exception( 'User cannot install plugins' );
+			}
+
 			\WC_Install::background_installer( 'jilt-for-woocommerce', [
 				'name'      => __( 'Jilt for WooCommerce', 'sv-wc-jilt-promotions' ),
 				'repo-slug' => 'jilt-for-woocommerce'
@@ -375,18 +380,13 @@ final class Emails {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param int|null WordPress user ID
 	 * @return bool
 	 */
-	private function should_display_prompt( $user_id = null ) {
+	private function should_display_prompt() {
 
-		$display = ! $this->is_plugin_installed();
+		$display = current_user_can( 'install_plugins' ) && ! $this->is_plugin_installed();
 
-		if ( ! $user_id ) {
-			$user_id = get_current_user_id();
-		}
-
-		$display = $display && ! wc_string_to_bool( get_user_meta( $user_id, self::META_KEY_HIDE_PROMPT, true ) );
+		$display = $display && ! wc_string_to_bool( get_user_meta( get_current_user_id(), self::META_KEY_HIDE_PROMPT, true ) );
 
 		/**
 		 * Filters whether the Jilt install prompt should be displayed.
@@ -394,9 +394,8 @@ final class Emails {
 		 * @since 1.0.0
 		 *
 		 * @param bool $should_display whether the Jilt install prompt should be displayed
-		 * @param int $user_id WordPress user ID
 		 */
-		return (bool) apply_filters( 'sv_wc_jilt_prompt_should_display', $display, $user_id );
+		return (bool) apply_filters( 'sv_wc_jilt_prompt_should_display', $display );
 	}
 
 
