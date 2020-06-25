@@ -47,6 +47,11 @@ class Package {
 	 */
 	public function __construct() {
 
+		// bail if WooCommerce is not active or compatible
+		if ( ! self::is_woocommerce_compatible() ) {
+			return;
+		}
+
 		$this->includes();
 
 		// load the translation files
