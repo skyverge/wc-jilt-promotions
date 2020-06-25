@@ -110,6 +110,29 @@ class Package {
 	}
 
 
+	/** Conditional methods *******************************************************************************************/
+
+
+	/**
+	 * Determines if WooCommerce is active.
+	 *
+	 * @since x.y.z
+	 *
+	 * @return bool
+	 */
+	private static function is_woocommerce_active() {
+
+		if ( ! did_action( 'plugins_loaded' ) ) {
+			_doing_it_wrong( __METHOD__, 'Cannot be called before plugins_loaded is fired', 'x.y.z' );
+		}
+
+		return function_exists( 'WC' );
+	}
+
+
+	/** Utility methods ***********************************************************************************************/
+
+
 	/**
 	 * Gets the one true instance of Package.
 	 *
