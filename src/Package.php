@@ -32,6 +32,9 @@ class Package {
 	/** @var string the package version */
 	const VERSION = '1.0.1';
 
+	/** @var string the minimum required version of WooCommerce */
+	const MINIMUM_WOOCOMMERCE_VERSION = '3.0';
+
 
 	/** @var Package single instance of this package */
 	private static $instance;
@@ -127,6 +130,19 @@ class Package {
 		}
 
 		return function_exists( 'WC' );
+	}
+
+
+	/**
+	 * Determines if the current version WooCommerce is compatible with this package.
+	 *
+	 * @since x.y.z
+	 *
+	 * @return bool
+	 */
+	private static function is_woocommerce_compatible() {
+
+		return self::is_woocommerce_active() && defined( 'WC_VERSION' ) && version_compare( WC_VERSION, self::MINIMUM_WOOCOMMERCE_VERSION, '>=' );
 	}
 
 
