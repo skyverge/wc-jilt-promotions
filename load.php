@@ -18,6 +18,11 @@
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
+// PHP 5.6+ required
+if ( PHP_VERSION_ID < 50600 ) {
+	return;
+}
+
 // only proceed if some other plugin hasn't already loaded this version
 if ( ! function_exists( 'sv_wc_jilt_promotions_initialize_1_0_1' ) ) {
 
