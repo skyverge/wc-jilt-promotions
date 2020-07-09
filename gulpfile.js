@@ -20,7 +20,7 @@ gulp.task('makepot', function () {
 });
 
 gulp.task('minify', function() {
-	return gulp.src('src/assets/js/**/*.js')
+	return gulp.src(['src/assets/js/**/*.js', '!src/assets/js/**/*.min.js'])
 		.pipe(minify( {
 			ext: {
 				min: '.min.js'
