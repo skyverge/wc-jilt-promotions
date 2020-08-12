@@ -77,6 +77,47 @@ abstract class Prompt {
 
 
 	/**
+	 * Adds the connection redirect args if the plugin was installed from this prompt.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @param array $args redirect args
+	 * @return array
+	 */
+	public function add_connection_redirect_args( $args ) {
+
+		if ( $new_args = $this->get_connection_redirect_args() && ! empty( $new_args['utm_term'] ) ) {
+
+			$utm_campaign = isset( $new_args['utm_campaign'] ) ? $new_args['utm_campaign'] : self::UTM_CAMPAIGN;
+
+			$args['utm_source']   = isset( $new_args['utm_source'] )   ? $new_args['utm_source']   : self::UTM_SOURCE;
+			$args['utm_medium']   = isset( $new_args['utm_medium'] )   ? $new_args['utm_medium']   : self::UTM_MEDIUM;
+			$args['utm_campaign'] = $utm_campaign;
+			$args['utm_content']  = isset( $new_args['utm_content' ] ) ? $new_args['utm_content']  : self::UTM_CONTENT;
+			$args['utm_term']     = str_replace( '_', '-', wc_clean( $new_args['utm_term'] ) );
+			$args['partner']      = '1';
+			$args['campaign']     = $utm_campaign;
+		}
+
+		return $args;
+	}
+
+
+	/**
+	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
+	 *
+	 * The returned array will be used only if it includes the utm_term arg.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @return array
+	 */
+	abstract protected function get_connection_redirect_args();
+
+
+	/**
 	 * Whether the Jilt install prompt should be displayed.
 	 *
 	 * @since 1.1.0-dev.1
