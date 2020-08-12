@@ -20,7 +20,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Handlers;
 defined( 'ABSPATH' ) or exit;
 
 /**
- * The installation handler.
+ * The Jilt installation handler.
  *
  * @since 1.1.0
  */
@@ -32,6 +32,16 @@ class Installation {
 
 	/** @var string the AJAX action hook name to install Jilt */
 	const AJAX_ACTION_INSTALL_JILT = 'sv_wc_jilt_install_jilt';
+
+
+	/**
+	 * Jilt installation constructor.
+	 *
+	 * @since 1.1.0
+	 */
+	public function __construct() {
+
+	}
 
 
 	/**
