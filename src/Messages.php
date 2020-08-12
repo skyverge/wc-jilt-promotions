@@ -73,4 +73,16 @@ class Messages {
 	}
 
 
+	/**
+	 * Marks a message as dismissed.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string $message_id message identifier
+	 */
+	public static function dismiss_message( $message_id ) {
+
+	}
+
+
 }
