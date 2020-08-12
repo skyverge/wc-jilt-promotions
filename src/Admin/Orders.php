@@ -34,6 +34,18 @@ class Orders extends Prompt {
 
 
 	/**
+	 * Callback for the views_edit-shop_order filter.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @param array $views
+	 */
+	public function add_abandoned_carts_view( $views ) {
+
+	}
+
+
+	/**
 	 * {@inheritDoc}
 	 *
 	 * @since 1.1.0-dev.1
