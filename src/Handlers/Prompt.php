@@ -17,6 +17,8 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Handlers;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Admin\Emails;
+
 defined( 'ABSPATH' ) or exit;
 
 /**
@@ -50,6 +52,8 @@ abstract class Prompt {
 	protected function should_display_prompt() {
 
 		$display = current_user_can( 'install_plugins' ) && ! $this->is_jilt_plugin_installed();
+
+		$display = $display && ! wc_string_to_bool( get_user_meta( get_current_user_id(), Emails::META_KEY_HIDE_PROMPT, true ) );
 
 		/**
 		 * Filters whether the Jilt install prompt should be displayed.
