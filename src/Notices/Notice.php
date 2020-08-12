@@ -26,4 +26,12 @@ defined( 'ABSPATH' ) or exit;
  */
 class Notice {
 
+
+	/** @var string "button" notice action type */
+	const ACTION_TYPE_BUTTON = 'button';
+
+	/** @var string "link" notice action type */
+	const ACTION_TYPE_LINK = 'link';
+
+
 }
