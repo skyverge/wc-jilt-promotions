@@ -26,6 +26,7 @@ defined( 'ABSPATH' ) or exit;
  */
 class Package {
 
+
 	/** @var string the package ID */
 	const ID = 'sv-wc-jilt-promotions';
 
@@ -66,10 +67,12 @@ class Package {
 	 */
 	private function includes() {
 
+		require_once( self::get_package_path() . '/Messages.php' );
 		require_once( self::get_package_path() . '/Handlers/Installation.php' );
 		require_once( self::get_package_path() . '/Handlers/Prompt.php' );
 		require_once( self::get_package_path() . '/Admin/Emails.php' );
 
+		new Messages();
 		new Admin\Emails();
 	}
 
