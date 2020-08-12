@@ -86,4 +86,17 @@ class Notice {
 	}
 
 
+	/**
+	 * Gets the notice title.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return string
+	 */
+	public function get_title() {
+
+		return $this->title;
+	}
+
+
 }
