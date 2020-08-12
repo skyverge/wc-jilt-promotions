@@ -56,6 +56,19 @@ class Orders extends Prompt {
 
 
 	/**
+	 * Returns the estimated number of abandoned carts for the last 30 days.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @retun float
+	 */
+	private function get_abandoned_carts_count() {
+
+		return 0.0;
+	}
+
+
+	/**
 	 * {@inheritDoc}
 	 *
 	 * @since 1.1.0-dev.1
