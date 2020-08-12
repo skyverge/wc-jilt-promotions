@@ -107,7 +107,7 @@ class Messages {
 	 */
 	public static function get_dismissed_messages() {
 
-		return [];
+		return get_user_meta( get_current_user_id(), self::AJAX_ACTION_DISMISS_MESSAGE );
 	}
 
 
