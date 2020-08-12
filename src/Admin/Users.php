@@ -104,6 +104,17 @@ class Users extends Prompt {
 	 */
 	public function maybe_enable_users_customer_role_message() {
 
+		$current_screen = get_current_screen();
+
+		// determines if the ID of the current screen is the Users screen ID
+		$is_user_current_screen = isset( $current_screen->id ) && $current_screen->id === $this->users_screen_id;
+
+		// determines if the role parameter is set to customer
+		$is_role_parameter_customer = isset( $_GET['role'] ) && $_GET['role'] === $this->customer_role;
+
+		if ( $is_user_current_screen && $is_role_parameter_customer ) {
+			Messages::enable_message( $this->customer_role_message_id );
+		}
 	}
 
 
