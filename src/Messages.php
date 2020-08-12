@@ -51,4 +51,14 @@ class Messages {
 	}
 
 
+	/**
+	 * Adds hooks.
+	 *
+	 * @since 1.1.0
+	 */
+	private function add_hooks() {
+
+	}
+
+
 }
