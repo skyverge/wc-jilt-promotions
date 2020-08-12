@@ -111,6 +111,7 @@ class Notice {
 		$this->content = $content;
 	}
 
+
 	/**
 	 * Gets the notice content.
 	 *
@@ -121,6 +122,52 @@ class Notice {
 	public function get_content() {
 
 		return $this->content;
+	}
+
+
+	/**
+	 * Parses a set of actions.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param array $actions actions to parse
+	 * @return array
+	 */
+	private function parse_actions( array $actions ) {
+
+		return wp_parse_args( $actions, [
+			'label'   => '',
+			'name'    => '',
+			'url'     => '',
+			'primary' => false,
+			'type'    => self::ACTION_TYPE_LINK,
+		] );
+	}
+
+
+	/**
+	 * Sets the notice actions.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param array $actions the notice actions
+	 */
+	public function set_actions( array $actions ) {
+
+		$this->actions = $this->parse_actions( $actions );
+	}
+
+
+	/**
+	 * Gets the notice actions.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return array
+	 */
+	public function get_actions() {
+
+		return $this->parse_actions( $this->actions );
 	}
 
 
