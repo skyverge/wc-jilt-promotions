@@ -34,4 +34,17 @@ class Notice {
 	const ACTION_TYPE_LINK = 'link';
 
 
+	/** @var string the notice identifier */
+	private $message_id = '';
+
+	/** @var string the notice title */
+	private $title = '';
+
+	/** @var string the notice content */
+	private $content = '';
+
+	/** @var array the notice actions */
+	private $actions = [];
+
+
 }
