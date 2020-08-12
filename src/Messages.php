@@ -70,6 +70,11 @@ class Messages {
 	 */
 	public static function enable_message( $message_id ) {
 
+		if ( self::is_message_enabled( $message_id ) ) {
+
+			return;
+		}
+
 	}
 
 
@@ -94,7 +99,7 @@ class Messages {
 	 */
 	public static function get_enabled_messages() {
 
-		return get_user_meta( get_current_user_id(), self::AJAX_ACTION_ENABLE_MESSAGE );
+		return get_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES );
 	}
 
 
@@ -107,7 +112,7 @@ class Messages {
 	 */
 	public static function get_dismissed_messages() {
 
-		return get_user_meta( get_current_user_id(), self::AJAX_ACTION_DISMISS_MESSAGE );
+		return get_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES );
 	}
 
 
