@@ -83,7 +83,7 @@ class Installation {
 
 			// sanity check, just in case a valid nonce is passed
 			if ( ! current_user_can( 'install_plugins' ) ) {
-				throw new \Exception( 'User cannot install plugins' );
+				throw new \Exception( __( 'User cannot install plugins', 'sv-wc-jilt-promotions' ) );
 			}
 
 			\WC_Install::background_installer( 'jilt-for-woocommerce', [
