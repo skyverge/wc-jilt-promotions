@@ -17,6 +17,8 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
+
 defined( 'ABSPATH' ) or exit;
 
 /**
@@ -24,11 +26,32 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since 1.1.0-dev.1
  */
-class Orders {
+class Orders extends Prompt {
 
 
 	/** @var string the id associated with the message */
 	private $abandoned_carts_filter_message_id = 'orders-abandoned-carts-filter';
+
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	protected function add_prompt_hooks() {
+
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	protected function get_connection_redirect_args() {
+
+		return [];
+	}
 
 
 }
