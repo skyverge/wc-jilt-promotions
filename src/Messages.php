@@ -62,7 +62,7 @@ class Messages {
 
 
 	/**
-	 * Marks a message as enabled.
+	 * Marks a message as enabled for the current user.
 	 *
 	 * @since 1.1.0
 	 *
@@ -74,7 +74,7 @@ class Messages {
 
 
 	/**
-	 * Marks a message as dismissed.
+	 * Marks a message as dismissed for the current user.
 	 *
 	 * @since 1.1.0
 	 *
@@ -112,7 +112,7 @@ class Messages {
 
 
 	/**
-	 * Determines whether a message is enabled.
+	 * Determines whether a message is enabled for the current user.
 	 *
 	 * @since 1.1.0
 	 *
@@ -125,7 +125,7 @@ class Messages {
 	}
 
 	/**
-	 * Determines whether a message has been dismissed.
+	 * Determines whether a message has been dismissed for the current user.
 	 *
 	 * @since 1.1.0
 	 *
