@@ -60,4 +60,18 @@ class Notice {
 	}
 
 
+
+	/**
+	 * Gets the notice message ID.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return string
+	 */
+	public function get_message_id() {
+
+		return $this->message_id;
+	}
+
+
 }
