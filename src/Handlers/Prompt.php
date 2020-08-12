@@ -43,6 +43,17 @@ abstract class Prompt {
 
 
 	/**
+	 * Constructor.
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function __construct() {
+
+		$this->add_hooks();
+	}
+
+
+	/**
 	 * Adds the necessary action & filter hooks.
 	 *
 	 * @since 1.1.0-dev.1
