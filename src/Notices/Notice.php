@@ -60,7 +60,6 @@ class Notice {
 	}
 
 
-
 	/**
 	 * Gets the notice message ID.
 	 *
@@ -71,6 +70,19 @@ class Notice {
 	public function get_message_id() {
 
 		return $this->message_id;
+	}
+
+
+	/**
+	 * Sets the notice title.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string $title the notice title
+	 */
+	public function set_title( $title ) {
+
+		$this->title = $title;
 	}
 
 
