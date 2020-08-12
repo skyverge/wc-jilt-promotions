@@ -30,6 +30,9 @@ class Installation {
 	/** @var string the option name storing where Jilt was installed from */
 	const OPTION_INSTALLED_FROM_PROMPT = 'sv_wc_jilt_installed_from_prompt';
 
+	/** @var string WordPress handle name of the installation script */
+	const INSTALL_SCRIPT_HANDLE = 'sv-wc-jilt-prompt-install';
+
 	/** @var string the AJAX action hook name to install Jilt */
 	const AJAX_ACTION_INSTALL_JILT = 'sv_wc_jilt_install_jilt';
 
@@ -130,6 +133,35 @@ class Installation {
 	 */
 	public function render_install_jilt_plugin_modal() {
 
+		// bail if the script to handle modal and installation prompt isn't loaded
+		if ( ! wp_script_is( self::INSTALL_SCRIPT_HANDLE, 'enqueued' ) ) {
+			return;
+		}
+
+		?>
+		<script type="text/template" id="tmpl-sv-wc-jilt-promotions-install-plugin-modal">
+			<div id="sv-wc-jilt-install-modal" class="wc-backbone-modal">
+				<div class="wc-backbone-modal-content">
+					<section class="wc-backbone-modal-main" role="main">
+						<header class="wc-backbone-modal-header">
+							<h1><?php esc_html_e( 'Install Jilt', 'sv-wc-jilt-promotions' ); ?></h1>
+							<button class="modal-close modal-close-link dashicons dashicons-no-alt">
+								<span class="screen-reader-text"><?php esc_html_e( 'Close modal panel', 'sv-wc-jilt-promotions' ); ?></span>
+							</button>
+						</header>
+						<article><?php esc_html_e( 'Click "install" to automatically install Jilt for WooCommerce and activate the plugin. You can then connect to Jilt with one click!', 'sv-wc-jilt-promotions' ); ?></article>
+						<footer>
+							<div class="inner">
+								<button id="sv-wc-jilt-install-button-cancel" class="button button-large modal-close"><?php esc_html_e( 'Cancel', 'sv-wc-jilt-promotions' ); ?></button>
+								<button id="sv-wc-jilt-install-button-install" class="button button-large button-primary"><?php esc_html_e( 'Install', 'sv-wc-jilt-promotions' ); ?></button>
+							</div>
+						</footer>
+					</section>
+				</div>
+			</div>
+			<div class="wc-backbone-modal-backdrop modal-close"></div>
+		</script>
+		<?php
 	}
 
 
