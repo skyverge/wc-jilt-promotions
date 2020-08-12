@@ -85,4 +85,17 @@ class Messages {
 	}
 
 
+	/**
+	 * Gets the enabled messages for the current user.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return array
+	 */
+	public static function get_enabled_messages() {
+
+		return [];
+	}
+
+
 }
