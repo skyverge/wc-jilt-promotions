@@ -26,4 +26,9 @@ defined( 'ABSPATH' ) or exit;
  */
 class Orders {
 
+
+	/** @var string the id associated with the message */
+	private $abandoned_carts_filter_message_id = 'orders-abandoned-carts-filter';
+
+
 }
