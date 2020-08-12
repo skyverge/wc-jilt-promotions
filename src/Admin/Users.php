@@ -17,6 +17,8 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
+
 defined( 'ABSPATH' ) or exit;
 
 /**
@@ -24,7 +26,7 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since 1.1.0
  */
-class Users {
+class Users extends Prompt {
 
 
 	/** @var string the id associated with the message */
@@ -35,4 +37,17 @@ class Users {
 
 	/** @var string customer role to match with role parameter */
 	private $customer_role = 'customer';
+
+	/**
+	 * {@inheritDoc}
+	 */
+	protected function add_prompt_hooks() { }
+
+	/**
+	 * {@inheritDoc}
+	 */
+	protected function get_connection_redirect_args() {
+
+		return [];
+	}
 }
