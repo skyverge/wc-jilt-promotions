@@ -39,6 +39,15 @@ class Users extends Prompt {
 	private $customer_role = 'customer';
 
 	/**
+	 * Renders a Notice object if the users customer role message is enabled.
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	private function add_admin_notices() {
+
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	protected function add_prompt_hooks() { }
