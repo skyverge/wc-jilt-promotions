@@ -111,4 +111,18 @@ class Messages {
 	}
 
 
+	/**
+	 * Determines whether a message is enabled.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string $message_id message identifier
+	 * @return bool
+	 */
+	public static function is_message_enabled( $message_id ) {
+
+		return false;
+	}
+
+
 }
