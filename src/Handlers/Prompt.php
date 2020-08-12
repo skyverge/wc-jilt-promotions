@@ -40,6 +40,26 @@ abstract class Prompt {
 	const UTM_CONTENT = 'install-jilt-button';
 
 
+	/**
+	 * Whether the Jilt install prompt should be displayed.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @return bool
+	 */
+	protected function should_display_prompt() {
+
+		$display = current_user_can( 'install_plugins' ) && ! $this->is_jilt_plugin_installed();
+
+		/**
+		 * Filters whether the Jilt install prompt should be displayed.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param bool $should_display whether the Jilt install prompt should be displayed
+		 */
+		return (bool) apply_filters( 'sv_wc_jilt_prompt_should_display', $display );
+	}
 
 
 	/**
