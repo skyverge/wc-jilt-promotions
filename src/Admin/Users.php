@@ -17,6 +17,7 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 use SkyVerge\WooCommerce\Jilt_Promotions\Notices\Notice;
@@ -84,7 +85,13 @@ class Users extends Prompt {
 	 */
 	protected function get_connection_redirect_args() {
 
-		return [];
+		$redirect_args = [];
+
+		if( Installation::get_jilt_installed_from() === $this->customer_role_message_id ) {
+			$redirect_args['utm_term'] = $this->customer_role_message_id;
+		}
+
+		return $redirect_args;
 	}
 
 
