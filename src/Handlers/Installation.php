@@ -26,4 +26,12 @@ defined( 'ABSPATH' ) or exit;
  */
 class Installation {
 
+
+	/** @var string the option name storing where Jilt was installed from */
+	const OPTION_INSTALLED_FROM_PROMPT = 'sv_wc_jilt_installed_from_prompt';
+
+	/** @var string the AJAX action hook name to install Jilt */
+	const AJAX_ACTION_INSTALL_JILT = 'sv_wc_jilt_install_jilt';
+
+
 }
