@@ -63,6 +63,9 @@ abstract class Prompt {
 		if ( is_admin() && $this->should_display_prompt() ) {
 			$this->add_prompt_hooks();
 		}
+
+		// add the connection redirect args if the plugin was installed from this prompt
+		add_filter( 'wc_jilt_app_connection_redirect_args', [ $this, 'add_connection_redirect_args' ] );
 	}
 
 
