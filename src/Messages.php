@@ -26,4 +26,18 @@ defined( 'ABSPATH' ) or exit;
  */
 class Messages {
 
+
+	/** @var string user meta key name for storing enabled messages */
+	const META_KEY_ENABLED_MESSAGES = '_sv_wc_jilt_enabled_messages';
+
+	/** @var string user meta key name for storing disabled messages */
+	const META_KEY_DISMISSED_MESSAGES = '_sv_wc_jilt_dismissed_messages';
+
+	/** @var string AJAX action hook name for enabling messages */
+	const AJAX_ACTION_ENABLE_MESSAGE = 'sv_wc_jilt_enable_message';
+
+	/** @var string AJAX action hook name for disabling messages */
+	const AJAX_ACTION_DISABLE_MESSAGE = 'sv_wc_jilt_disable_message';
+
+
 }
