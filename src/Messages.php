@@ -96,7 +96,10 @@ class Messages {
 			return;
 		}
 
-		add_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES, $message_id, true );
+		$dismissed_messages   = self::get_dismissed_messages();
+		$dismissed_messages[] = $message_id;
+
+		update_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES, $dismissed_messages );
 	}
 
 
@@ -122,7 +125,7 @@ class Messages {
 	 */
 	public static function get_dismissed_messages() {
 
-		return get_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES );
+		return array_filter( (array) get_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES, true ) );
 	}
 
 
