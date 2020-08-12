@@ -124,5 +124,18 @@ class Messages {
 		return false;
 	}
 
+	/**
+	 * Determines whether a message has been dismissed.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string $message_id message identifier
+	 * @return bool
+	 */
+	public static function is_message_dismissed( $message_id ) {
+
+		return false;
+	}
+
 
 }
