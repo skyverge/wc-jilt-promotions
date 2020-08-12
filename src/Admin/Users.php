@@ -26,4 +26,13 @@ defined( 'ABSPATH' ) or exit;
  */
 class Users {
 
+
+	/** @var string the id associated with the message */
+	private $customer_role_message_id = 'users-customers-role';
+
+	/** @var string user page identifier */
+	private $users_screen_id = 'users';
+
+	/** @var string customer role to match with role parameter */
+	private $customer_role = 'customer';
 }
