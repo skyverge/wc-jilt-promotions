@@ -88,6 +88,12 @@ class Messages {
 	 */
 	public static function dismiss_message( $message_id ) {
 
+		if ( self::is_message_dismissed( $message_id ) ) {
+
+			return;
+		}
+
+		add_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES, $message_id, true );
 	}
 
 
