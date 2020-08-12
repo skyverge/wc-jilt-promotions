@@ -171,4 +171,34 @@ class Notice {
 	}
 
 
+	/**
+	 * Outputs the notice.
+	 *
+	 * @since 1.1.0
+	 */
+	public function render() {
+
+	}
+
+
+	/**
+	 * Outputs the notice content.
+	 *
+	 * @since 1.1.0
+	 */
+	private function render_content() {
+
+	}
+
+
+	/**
+	 * Outputs the notice actions.
+	 *
+	 * @since 1.1.0
+	 */
+	private function render_actions() {
+
+	}
+
+
 }
