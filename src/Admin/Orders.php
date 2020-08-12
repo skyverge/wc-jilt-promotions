@@ -80,6 +80,61 @@ class Orders extends Prompt {
 
 
 	/**
+	 * Returns the number of orders placed in the last 30 days.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @return int
+	 */
+	private function get_orders_count() {
+
+		return 0;
+	}
+
+
+	/**
+	 * Returns the gross sales for the last 30 days.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @return float
+	 */
+	private function get_orders_revenue() {
+
+		return 0.0;
+	}
+
+
+	/**
+	 * Returns the estimated recovered revenue from abandoned carts fort the last 30 days.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @return float
+	 */
+	private function get_recovered_revenue() {
+
+		return 0.0;
+	}
+
+
+	/**
+	 * Returns the number of orders placed in the last 30 days and the gross sales for that period.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @return array
+	 */
+	private function get_sales_data() {
+
+		return [
+			'number_of_orders' => 0,
+			'gross_sales'      => 0.0,
+		];
+	}
+
+
+	/**
 	 * Retrieves the abandoned carts count and the recovered revenue to render the recover carts modal.
 	 *
 	 * @since 1.1.0-dev.1
