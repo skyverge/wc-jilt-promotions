@@ -197,7 +197,7 @@ class Messages {
 
 			wp_send_json_error( [
 				'message' => sprintf(
-				/* translators: Placeholders: %s - enable message */
+					/* translators: Placeholder: %s - enable message */
 					__( 'Could not enable promotion message. %s', 'sv-wc-jilt-promotions' ),
 					$exception->getMessage()
 				),
