@@ -25,4 +25,19 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.1.0-dev.1
  */
 abstract class Prompt {
+
+
+	/** @var string the source value for the connection arguments */
+	const UTM_SOURCE = 'jilt-for-woocommerce';
+
+	/** @var string the medium value for the connection arguments */
+	const UTM_MEDIUM = 'oauth';
+
+	/** @var string the campaign value for the connection arguments */
+	const UTM_CAMPAIGN = 'wc-plugin-promo';
+
+	/** @var string the content value for the connection arguments */
+	const UTM_CONTENT = 'install-jilt-button';
+
+
 }
