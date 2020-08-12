@@ -99,4 +99,17 @@ class Notice {
 	}
 
 
+	/**
+	 * Sets the notice content.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string $content the notice content
+	 */
+	public function set_content( $content ) {
+
+		$this->content = $content;
+	}
+
+
 }
