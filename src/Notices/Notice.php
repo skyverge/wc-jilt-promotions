@@ -20,7 +20,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions;
 defined( 'ABSPATH' ) or exit;
 
 /**
- * The base package class.
+ * The notice object.
  *
  * @since 1.0.0
  */
