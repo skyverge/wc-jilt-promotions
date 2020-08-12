@@ -66,7 +66,7 @@ class Package {
 	 */
 	private function includes() {
 
-		require_once ( self::get_package_path() . '/Notices/Notice.php' );
+		require_once( self::get_package_path() . '/Notices/Notice.php' );
 		require_once( self::get_package_path() . '/Handlers/Prompt.php' );
 		require_once( self::get_package_path() . '/Admin/Emails.php' );
 
