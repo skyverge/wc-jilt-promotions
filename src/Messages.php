@@ -75,7 +75,10 @@ class Messages {
 			return;
 		}
 
-		add_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES, $message_id, true );
+		$enabled_messages   = self::get_enabled_messages();
+		$enabled_messages[] = $message_id;
+
+		update_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES, $enabled_messages );
 	}
 
 
@@ -106,7 +109,7 @@ class Messages {
 	 */
 	public static function get_enabled_messages() {
 
-		return get_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES );
+		return array_filter( (array) get_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES, true ) );
 	}
 
 
