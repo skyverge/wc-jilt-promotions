@@ -17,6 +17,8 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Handlers;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Package;
+
 defined( 'ABSPATH' ) or exit;
 
 /**
@@ -121,6 +123,12 @@ class Installation {
 	 */
 	public function register_assets() {
 
+		$assets_url = Package::get_assets_url();
+		$script_src = $assets_url . '/js/admin/' . self::INSTALL_SCRIPT_HANDLE . '.min.js';
+		$style_src  = $assets_url . '/css/admin/' . self::INSTALL_SCRIPT_HANDLE . '.min.css';
+
+		wp_register_script( self::INSTALL_SCRIPT_HANDLE, $script_src, [ 'jquery', 'wc-backbone-modal' ], Package::VERSION, true);
+		wp_register_style( self::INSTALL_SCRIPT_HANDLE, $style_src, [ 'woocommerce_admin_styles' ], Package::VERSION );
 	}
 
 
