@@ -180,7 +180,7 @@ class Installation {
 	 *
 	 * @return string empty string if Jilt wasn't installed from Jilt Promotions
 	 */
-	public static function get_installed_from() {
+	public static function get_jilt_installed_from() {
 
 		return get_option( self::OPTION_INSTALLED_FROM_PROMPT, '' );
 	}
