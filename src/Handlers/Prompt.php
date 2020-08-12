@@ -43,6 +43,29 @@ abstract class Prompt {
 
 
 	/**
+	 * Adds the necessary action & filter hooks.
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	private function add_hooks() {
+
+		if ( is_admin() && $this->should_display_prompt() ) {
+			$this->add_prompt_hooks();
+		}
+	}
+
+
+	/**
+	 * Adds the necessary action & filter hooks.
+	 *
+	 * Subclasses can use this method to setup hooks only when the prompt should be displayed.
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	abstract protected function add_prompt_hooks();
+
+
+	/**
 	 * Whether the Jilt install prompt should be displayed.
 	 *
 	 * @since 1.1.0-dev.1
