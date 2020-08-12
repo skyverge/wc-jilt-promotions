@@ -40,4 +40,19 @@ abstract class Prompt {
 	const UTM_CONTENT = 'install-jilt-button';
 
 
+
+
+	/**
+	 * Whether Jilt is already installed.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @return bool
+	 */
+	protected function is_jilt_plugin_installed() {
+
+		return function_exists( 'wc_jilt' );
+	}
+
+
 }
