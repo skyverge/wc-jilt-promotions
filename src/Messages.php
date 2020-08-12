@@ -196,17 +196,15 @@ class Messages {
 				throw new \Exception( __( 'Message already enabled', 'sv-wc-jilt-promotions' ) );
 			}
 
-			self::enable_message( $message_id );
-
 			wp_send_json_success( [
-				'is_enabled' => self::is_message_enabled( $message_id ),
+				'is_enabled' => self::enable_message( $message_id ),
 			] );
 
 		} catch ( \Exception $exception ) {
 
 			wp_send_json_error( [
 				'message' => sprintf(
-				/* translators: Placeholder: %s - enable message */
+					/* translators: Placeholder: %s - enable message */
 					__( 'Could not enable promotion message. %s', 'sv-wc-jilt-promotions' ),
 					$exception->getMessage()
 				),
@@ -240,17 +238,15 @@ class Messages {
 				throw new \Exception( __( 'Message already dismissed', 'sv-wc-jilt-promotions' ) );
 			}
 
-			self::dismiss_message( $message_id );
-
 			wp_send_json_success( [
-				'is_dismissed' => self::is_message_dismissed( $message_id ),
+				'is_dismissed' => self::dismiss_message( $message_id ),
 			] );
 
 		} catch ( \Exception $exception ) {
 
 			wp_send_json_error( [
 				'message' => sprintf(
-				/* translators: Placeholder: %s - enable message */
+					/* translators: Placeholder: %s - enable message */
 					__( 'Could not enable promotion message. %s', 'sv-wc-jilt-promotions' ),
 					$exception->getMessage()
 				),
