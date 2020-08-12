@@ -34,4 +34,17 @@ class Installation {
 	const AJAX_ACTION_INSTALL_JILT = 'sv_wc_jilt_install_jilt';
 
 
+	/**
+	 * Gets the information where Jilt was installed from.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return string empty string if Jilt wasn't installed from Jilt Promotions
+	 */
+	public static function get_installed_from() {
+
+		return get_option( self::OPTION_INSTALLED_FROM_PROMPT, '' );
+	}
+
+
 }
