@@ -138,4 +138,28 @@ class Messages {
 	}
 
 
+	/**
+	 * Enables a message via AJAX.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0
+	 */
+	public function ajax_enable_message() {
+
+	}
+
+
+	/**
+	 * Dismisses a message via AJAX.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0
+	 */
+	public function ajax_dismiss_message() {
+
+	}
+
+
 }
