@@ -75,6 +75,7 @@ class Messages {
 			return;
 		}
 
+		add_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES, $message_id, true );
 	}
 
 
