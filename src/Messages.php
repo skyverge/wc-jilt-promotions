@@ -121,7 +121,9 @@ class Messages {
 	 */
 	public static function is_message_enabled( $message_id ) {
 
-		return false;
+		$enabled_messages = self::get_enabled_messages();
+
+		return in_array( $message_id, $enabled_messages, true );
 	}
 
 	/**
