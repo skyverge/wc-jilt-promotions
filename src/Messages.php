@@ -70,7 +70,7 @@ class Messages {
 	 */
 	public static function enable_message( $message_id ) {
 
-		if ( self::is_message_enabled( $message_id ) ) {
+		if ( ! is_string( $message_id ) || self::is_message_enabled( $message_id ) ) {
 
 			return;
 		}
