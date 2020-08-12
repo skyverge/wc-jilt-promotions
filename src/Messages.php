@@ -40,4 +40,15 @@ class Messages {
 	const AJAX_ACTION_DISABLE_MESSAGE = 'sv_wc_jilt_disable_message';
 
 
+	/**
+	 * Messages constructor.
+	 *
+	 * @since 1.1.0
+	 */
+	public function __construct() {
+
+		$this->add_hooks();
+	}
+
+
 }
