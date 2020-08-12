@@ -98,4 +98,17 @@ class Messages {
 	}
 
 
+	/**
+	 * Gets the dismissed messages for the current user.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return array
+	 */
+	public static function get_dismissed_messages() {
+
+		return [];
+	}
+
+
 }
