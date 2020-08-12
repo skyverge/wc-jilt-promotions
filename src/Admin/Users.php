@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Handler for the notice shown when the merchant filters users by the Customer role.
  *
- * @since 1.1.0
+ * @since 1.1.0-dev.1
  */
 class Users extends Prompt {
 
@@ -49,11 +49,15 @@ class Users extends Prompt {
 
 	/**
 	 * {@inheritDoc}
+	 *
+	 * @since 1.1.0-dev.1
 	 */
 	protected function add_prompt_hooks() { }
 
 	/**
 	 * {@inheritDoc}
+	 *
+	 * @since 1.1.0-dev.1
 	 */
 	protected function get_connection_redirect_args() {
 
