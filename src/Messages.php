@@ -136,7 +136,9 @@ class Messages {
 	 */
 	public static function is_message_dismissed( $message_id ) {
 
-		return false;
+		$dismissed_messages = self::get_dismissed_messages();
+
+		return in_array( $message_id, $dismissed_messages, true );
 	}
 
 
