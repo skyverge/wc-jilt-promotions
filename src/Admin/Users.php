@@ -19,6 +19,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
+use SkyVerge\WooCommerce\Jilt_Promotions\Notices\Notice;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -47,6 +48,19 @@ class Users extends Prompt {
 	 */
 	private function add_admin_notices() {
 
+		$notice = new Notice();
+		$notice->set_message_id( $this->customer_role_message_id );
+		$notice->set_actions( [
+			'label'   => __( 'Email my customers', 'sv-wc-jilt-promotions' ),
+			'name'    => 'email-my-customers-cta',
+			'url'     => 'https://www.skyverge.com/go/email-customers',
+			'primary' => true,
+			'type'    => 'link,'
+		] );
+		$notice->set_title( __( 'Show your customers you care by keeping in touch!', 'sv-wc-jilt-promotions' ) );
+		$notice->set_content( __( 'Use Jilt to send welcome emails, thank customers for purchases, and encourage lapsed customers to shop again. Do you want to install Jilt for WooCommerce to start emailing customers? You’ll be able to connect with one click!', 'sv-wc-jilt-promotions' ) );
+
+		$notice->render();
 	}
 
 
