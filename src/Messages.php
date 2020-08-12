@@ -20,7 +20,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions;
 defined( 'ABSPATH' ) or exit;
 
 /**
- * The base package class.
+ * The messages handler class.
  *
  * @since 1.1.0
  */
