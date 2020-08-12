@@ -41,6 +41,61 @@ class Installation {
 	 */
 	public function __construct() {
 
+		$this->add_hooks();
+	}
+
+
+	/**
+	 * Taps into WordPress hooks.
+	 *
+	 * @since 1.1.0
+	 */
+	private function add_hooks() {
+
+		// handles Jilt installation via AJAX (admins only)
+		add_action( 'wp_ajax_' . self::AJAX_ACTION_INSTALL_JILT, [ $this, 'ajax_install_jilt_plugin' ] );
+
+		// registers installation scripts and styles
+		add_action( 'admin_init', [ $this, 'register_assets' ] );
+
+		// outputs the modal to use for an installation prompt
+		add_action( 'admin_footer', [ $this, 'render_install_jilt_plugin_modal' ] );
+	}
+
+
+	/**
+	 * Installs the Jilt plugin via AJAX.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0
+	 */
+	public function ajax_install_jilt_plugin() {
+
+	}
+
+
+	/**
+	 * Registers installation scripts and styles.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0
+	 */
+	public function register_assets() {
+
+	}
+
+
+	/**
+	 * Outputs the modal template for Jilt installation.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0
+	 */
+	public function render_install_jilt_plugin_modal() {
+
 	}
 
 
