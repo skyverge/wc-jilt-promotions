@@ -111,5 +111,17 @@ class Notice {
 		$this->content = $content;
 	}
 
+	/**
+	 * Gets the notice content.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return string
+	 */
+	public function get_content() {
+
+		return $this->content;
+	}
+
 
 }
