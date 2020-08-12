@@ -70,6 +70,15 @@ class Messages {
 	 */
 	public static function enable_message( $message_id ) {
 
+		if ( ! is_string( $message_id ) || self::is_message_enabled( $message_id ) ) {
+
+			return;
+		}
+
+		$enabled_messages   = self::get_enabled_messages();
+		$enabled_messages[] = $message_id;
+
+		update_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES, $enabled_messages );
 	}
 
 
@@ -82,6 +91,15 @@ class Messages {
 	 */
 	public static function dismiss_message( $message_id ) {
 
+		if ( ! is_string( $message_id ) || self::is_message_dismissed( $message_id ) ) {
+
+			return;
+		}
+
+		$dismissed_messages   = self::get_dismissed_messages();
+		$dismissed_messages[] = $message_id;
+
+		update_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES, $dismissed_messages );
 	}
 
 
@@ -94,7 +112,7 @@ class Messages {
 	 */
 	public static function get_enabled_messages() {
 
-		return [];
+		return array_filter( (array) get_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES, true ) );
 	}
 
 
@@ -107,7 +125,7 @@ class Messages {
 	 */
 	public static function get_dismissed_messages() {
 
-		return [];
+		return array_filter( (array) get_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES, true ) );
 	}
 
 
@@ -121,7 +139,9 @@ class Messages {
 	 */
 	public static function is_message_enabled( $message_id ) {
 
-		return false;
+		$enabled_messages = self::get_enabled_messages();
+
+		return in_array( $message_id, $enabled_messages, true );
 	}
 
 	/**
@@ -134,7 +154,9 @@ class Messages {
 	 */
 	public static function is_message_dismissed( $message_id ) {
 
-		return false;
+		$dismissed_messages = self::get_dismissed_messages();
+
+		return in_array( $message_id, $dismissed_messages, true );
 	}
 
 
