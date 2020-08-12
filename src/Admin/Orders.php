@@ -66,4 +66,15 @@ class Orders extends Prompt {
 	}
 
 
+	/**
+	 * Retrieves the abandoned carts count and the recovered revenue to render the recover carts modal.
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function render_recover_carts_modal() {
+
+
+	}
+
+
 }
