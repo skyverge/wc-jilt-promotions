@@ -38,6 +38,7 @@ class Users extends Prompt {
 	/** @var string customer role to match with role parameter */
 	private $customer_role = 'customer';
 
+
 	/**
 	 * Renders a Notice object if the users customer role message is enabled.
 	 *
@@ -47,12 +48,14 @@ class Users extends Prompt {
 
 	}
 
+
 	/**
 	 * {@inheritDoc}
 	 *
 	 * @since 1.1.0-dev.1
 	 */
 	protected function add_prompt_hooks() { }
+
 
 	/**
 	 * {@inheritDoc}
@@ -64,6 +67,7 @@ class Users extends Prompt {
 		return [];
 	}
 
+
 	/**
 	 * A callback for the admin_enqueue_scripts action.
 	 *
@@ -74,4 +78,6 @@ class Users extends Prompt {
 	public function maybe_enable_users_customer_role_message() {
 
 	}
+
+
 }
