@@ -15,14 +15,14 @@
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace SkyVerge\WooCommerce\Jilt_Promotions;
+namespace SkyVerge\WooCommerce\Jilt_Promotions\Notices;
 
 defined( 'ABSPATH' ) or exit;
 
 /**
  * The notice object.
  *
- * @since 1.0.0
+ * @since 1.1.0
  */
 class Notice {
 
