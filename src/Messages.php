@@ -217,6 +217,38 @@ class Messages {
 	 */
 	public function ajax_dismiss_message() {
 
+		check_ajax_referer( self::AJAX_ACTION_DISMISS_MESSAGE, 'nonce' );
+
+		$message_id = ! empty( $_POST['message_id'] ) ? wc_clean( $_POST['message_id'] ) : '';
+
+		try {
+
+			if ( '' === $message_id || empty( $message_id ) ) {
+				throw new \Exception( __( 'Message ID is required', 'sv-wc-jilt-promotions' ) );
+			}
+
+			if ( self::is_message_dismissed( $message_id ) ) {
+				throw new \Exception( __( 'Message already dismissed', 'sv-wc-jilt-promotions' ) );
+			}
+
+			self::dismiss_message( $message_id );
+
+			wp_send_json_success( [
+				'is_dismissed' => self::is_message_dismissed( $message_id ),
+			] );
+
+		} catch ( \Exception $exception ) {
+
+			wp_send_json_error( [
+				'message' => sprintf(
+				/* translators: Placeholders: %s - enable message */
+					__( 'Could not enable promotion message. %s', 'sv-wc-jilt-promotions' ),
+					$exception->getMessage()
+				),
+			] );
+
+		}
+
 	}
 
 
