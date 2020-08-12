@@ -50,4 +50,15 @@ class Users extends Prompt {
 
 		return [];
 	}
+
+	/**
+	 * A callback for the admin_enqueue_scripts action.
+	 *
+	 * Enables the customer role message, if the ID of the current screen is the Users screen ID and the role parameter is set to customer.
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function maybe_enable_users_customer_role_message() {
+
+	}
 }
