@@ -34,7 +34,7 @@ class Notice {
 	const ACTION_TYPE_LINK = 'link';
 
 
-	/** @var string the notice identifier */
+	/** @var string the notice message identifier */
 	private $message_id = '';
 
 	/** @var string the notice title */
@@ -45,6 +45,19 @@ class Notice {
 
 	/** @var array the notice actions */
 	private $actions = [];
+
+
+	/**
+	 * Sets the notice message ID.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string $message_id message identifier
+	 */
+	public function set_message_id( $message_id ) {
+
+		$this->message_id = $message_id;
+	}
 
 
 }
