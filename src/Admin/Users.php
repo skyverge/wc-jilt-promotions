@@ -18,6 +18,7 @@
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
+use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -54,7 +55,12 @@ class Users extends Prompt {
 	 *
 	 * @since 1.1.0-dev.1
 	 */
-	protected function add_prompt_hooks() { }
+	protected function add_prompt_hooks() {
+
+		if ( ! Messages::is_message_dismissed( $this->customer_role_message_id ) ) {
+			add_action( 'admin_notices', array( $this, 'add_admin_notices' ), 15 );
+		}
+	}
 
 
 	/**
