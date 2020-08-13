@@ -168,7 +168,7 @@ jQuery( document ).ready( function( $ ) {
 		 * @param {string} messageID message identifier
 		 */
 		static enableMessage( messageID ) {
-			Messages.handleMessage( messageID, 'sv_wc_jilt_enable_message', 'sv_wc_jilt_prompt_install.nonces.enable_message' )
+			Messages.handleMessage( messageID, 'sv_wc_jilt_enable_message', window.sv_wc_jilt_prompt_install.nonces.enable_message )
 		}
 
 
@@ -180,7 +180,7 @@ jQuery( document ).ready( function( $ ) {
 		 * @param {string} messageID message identifier
 		 */
 		static dismissMessage( messageID ) {
-			Messages.handleMessage( messageID, 'sv_wc_jilt_dismiss_message', 'sv_wc_jilt_prompt_install.nonces.dismiss_message' )
+			Messages.handleMessage( messageID, 'sv_wc_jilt_dismiss_message', window.sv_wc_jilt_prompt_install.nonces.dismiss_message )
 		}
 
 
