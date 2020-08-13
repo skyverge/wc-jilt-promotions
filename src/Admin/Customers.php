@@ -87,6 +87,10 @@ final class Customers extends Prompt {
 
 			wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
 			wp_enqueue_script( 'sv-wc-jilt-prompt-customers', Package::get_assets_url() . '/js/admin/customers.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION, true );
+
+			wp_localize_script( 'sv-wc-jilt-prompt-customers', 'sv_wc_jilt_prompt_customers', [
+				'download_message_id' => $this->download_message_id,
+			] );
 		}
 	}
 
