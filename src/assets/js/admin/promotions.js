@@ -72,6 +72,7 @@ jQuery( document ).ready( function( $ ) {
 
 			new $.WCBackboneModal.View( {
 				target: this.options.target,
+				string: '',
 			} );
 		}
 
