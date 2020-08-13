@@ -99,7 +99,7 @@ jQuery( document ).ready( function( $ ) {
 				ajaxurl,
 				{
 					action:   'sv_wc_jilt_install_jilt',
-					nonce:     sv_wc_jilt_prompt_install.nonces.install_plugin,
+					nonce:     window.sv_wc_jilt_prompt_install.nonces.install_plugin,
 					prompt_id: this.options.messageID,
 				}
 
