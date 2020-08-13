@@ -18,19 +18,17 @@ jQuery( function( $ ) {
 		 */
 		constructor( options ) {
 
-			options = {
-				messageID : options.messageID || '',
-				target    : options.target    || '',
-				onClose   : options.onClose   || '',
-			}
+			this.messageID = options.messageID || '';
+			this.target    = options.target    || '';
+			this.onClose   = options.onClose   || '';
 
-			if ( '' === options.messageID ) {
-				console.log( 'missing messageID' )
+			if ( '' === this.messageID ) {
+				console.log( 'InstallPluginModal: missing messageID' )
 				return;
 			}
 
-			if ( '' === options.target ) {
-				options.target = 'tmpl-sv-wc-jilt-promotions-' + options.messageID + '-modal';
+			if ( '' === this.target ) {
+				this.target = 'tmpl-sv-wc-jilt-promotions-' + options.messageID + '-modal';
 			}
 
 			this.initialize();
@@ -45,6 +43,8 @@ jQuery( function( $ ) {
 		 */
 		initialize() {
 
+			// ensures there are no other modals opened
+			$( '#wc-backbone-modal-dialog .modal-close' ).trigger( 'click' );
 		}
 
 
