@@ -1,0 +1,15 @@
+.sv-wc-jilt-promotional-notice .sv-wc-jilt-promotional-notice-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-top: 0;
+}
+
+.sv-wc-jilt-promotional-notice .sv-wc-jilt-promotional-notice-action {
+	flex: 0 0 auto;
+	margin: 0 8px;
+}
+.sv-wc-jilt-promotional-notice .sv-wc-jilt-promotional-notice-action:first-child,
+.sv-wc-jilt-promotional-notice .sv-wc-jilt-promotional-notice-action:last-child {
+	margin-left: 0;
+}
