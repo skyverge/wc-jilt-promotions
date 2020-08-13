@@ -278,7 +278,7 @@ final class Orders extends Prompt {
 						<article><?php echo $modal_message; ?></article>
 						<footer>
 							<div class="inner">
-								<a href="https://www.skyverge.com/go/customer-communication" target="_blank"><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
+								<a href="https://www.skyverge.com/go/abandoned-cart-recovery" target="_blank"><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
 								<button id="sv-wc-jilt-install-button-install" class="button button-large button-primary"><?php esc_html_e( 'I want to recover carts', 'sv-wc-jilt-promotions' ); ?></button>
 							</div>
 						</footer>
