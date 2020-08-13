@@ -234,6 +234,38 @@ final class Orders extends Prompt {
 			return;
 		}
 
+		/* translators: Placeholders: %1$s - <strong> tag, %2$s - abandoned cart estimate, %3$s - </strong> tag, %4$.2f - recovered revenue estimate */
+		$modal_message = sprintf( esc_html__( 'Stores like yours recover an average of %1$s%2$s%3$s carts for %1$s$%4$.2f recovered revenue%3$s per month. Do you want to install Jilt for WooCommerce to start recovering carts? You can then connect to Jilt with one click!', 'sv-wc-jilt-promotions' ),
+			'<strong>',
+			$abandoned_carts_count,
+			'</strong>',
+			$recovered_revenue
+		);
+
+		?>
+		<script type="text/template" id="tmpl-sv-wc-jilt-promotions-<?php esc_attr_e( $this->abandoned_carts_filter_message_id ); ?>-modal">
+			<div class="sv-wc-jilt-install-modal wc-backbone-modal">
+				<div class="wc-backbone-modal-content">
+					<section class="wc-backbone-modal-main" role="main">
+						<header class="wc-backbone-modal-header">
+							<h1><?php esc_html_e( 'Start recovering abandoned carts with Jilt!', 'sv-wc-jilt-promotions' ); ?></h1>
+							<button class="modal-close modal-close-link dashicons dashicons-no-alt">
+								<span class="screen-reader-text"><?php esc_html_e( 'Close modal panel', 'sv-wc-jilt-promotions' ); ?></span>
+							</button>
+						</header>
+						<article><?php echo $modal_message; ?></article>
+						<footer>
+							<div class="inner">
+								<a href="https://www.skyverge.com/go/customer-communication" target="_blank"><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
+								<button id="sv-wc-jilt-install-button-install" class="button button-large button-primary"><?php esc_html_e( 'I want to recover carts', 'sv-wc-jilt-promotions' ); ?></button>
+							</div>
+						</footer>
+					</section>
+				</div>
+			</div>
+			<div class="wc-backbone-modal-backdrop modal-close"></div>
+		</script>
+		<?php
 	}
 
 
