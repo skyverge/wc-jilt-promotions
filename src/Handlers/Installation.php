@@ -131,7 +131,7 @@ class Installation {
 
 		wp_register_style( self::INSTALL_SCRIPT_HANDLE, $style_src, [ 'woocommerce_admin_styles' ], Package::VERSION );
 
-		wp_register_script( self::INSTALL_SCRIPT_HANDLE, $script_src, [ 'jquery', 'backbone', 'wc-backbone-modal' ], Package::VERSION, true);
+		wp_register_script( self::INSTALL_SCRIPT_HANDLE, $script_src, [ 'jquery', 'backbone', 'wc-backbone-modal' ], Package::VERSION, true );
 
 		wp_localize_script( self::INSTALL_SCRIPT_HANDLE, str_replace( '-', '_', self::INSTALL_SCRIPT_HANDLE ), [
 			'nonces' => [
