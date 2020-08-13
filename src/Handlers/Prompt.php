@@ -17,12 +17,12 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Handlers;
 
-use SkyVerge\WooCommerce\Jilt_Promotions\Admin\Emails;
-
 defined( 'ABSPATH' ) or exit;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Admin\Emails;
+
 /**
- * The base prompts handler.
+ * The base prompt handler.
  *
  * @since 1.1.0-dev.1
  */
