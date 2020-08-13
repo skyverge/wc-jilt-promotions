@@ -202,9 +202,7 @@ class Messages {
 					$exception->getMessage()
 				),
 			] );
-
 		}
-
 	}
 
 
@@ -244,9 +242,7 @@ class Messages {
 					$exception->getMessage()
 				),
 			] );
-
 		}
-
 	}
 
 
