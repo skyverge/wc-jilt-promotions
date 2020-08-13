@@ -162,10 +162,18 @@ class Orders extends Prompt {
 	 */
 	private function get_sales_data() {
 
-		return [
-			'number_of_orders' => 0,
-			'gross_sales'      => 0.0,
-		];
+		$transient_key = sprintf( '%s_sales_data', $this->abandoned_carts_filter_message_id );
+
+		$sales_data = get_transient( $transient_key );
+
+		if( ! isset( $sales_data ) ) {
+
+			$sales_data = $this->get_woocommerce_report_data();
+
+			set_transient( $transient_key, $sales_data, 24 * 60 * 60 );
+		}
+
+		return $sales_data;
 	}
 
 
