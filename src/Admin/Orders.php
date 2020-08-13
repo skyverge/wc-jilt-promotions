@@ -116,7 +116,9 @@ class Orders extends Prompt {
 	 */
 	private function get_orders_revenue() {
 
-		return 0.0;
+		$sales_data = $this->get_sales_data();
+
+		return $sales_data['gross_sales'];
 	}
 
 
