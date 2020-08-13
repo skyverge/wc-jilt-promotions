@@ -50,12 +50,12 @@ jQuery( function( $ ) {
 
 			// when the install button is clicked
 			$( '#sv-wc-jilt-install-button-install' ).on( 'click', function( event ) {
-				$.JiltPromotions.InstallPluginModal.onInstall( event )
+				InstallPluginModal.onInstall( event )
 			} );
 
 			// when the newly opened modal is closed
 			$( '#sv-wc-jilt-install-modal .modal-close' ).on( 'click', function( event ) {
-				$.JiltPromotions.InstallPluginModal.onClose( event );
+				InstallPluginModal.onClose( event );
 			} );
 		}
 
