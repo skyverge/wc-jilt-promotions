@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since 1.1.0-dev.1
  */
-class Orders extends Prompt {
+final class Orders extends Prompt {
 
 
 	/** @var string the id associated with the message */
