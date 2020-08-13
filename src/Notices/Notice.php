@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) or exit;
 /**
  * The notice object.
  *
- * @since 1.1.0
+ * @since 1.1.0-dev.1
  */
 class Notice {
 
@@ -50,7 +50,7 @@ class Notice {
 	/**
 	 * Sets the notice message ID.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 *
 	 * @param string $message_id message identifier
 	 */
@@ -63,7 +63,7 @@ class Notice {
 	/**
 	 * Gets the notice message ID.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 *
 	 * @return string
 	 */
@@ -76,7 +76,7 @@ class Notice {
 	/**
 	 * Sets the notice title.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 *
 	 * @param string $title the notice title
 	 */
@@ -89,7 +89,7 @@ class Notice {
 	/**
 	 * Gets the notice title.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 *
 	 * @return string
 	 */
@@ -102,7 +102,7 @@ class Notice {
 	/**
 	 * Sets the notice content.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 *
 	 * @param string $content the notice content
 	 */
@@ -115,7 +115,7 @@ class Notice {
 	/**
 	 * Gets the notice content.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 *
 	 * @return string
 	 */
@@ -128,7 +128,7 @@ class Notice {
 	/**
 	 * Parses a set of actions.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 *
 	 * @param array $actions actions to parse
 	 * @return array
@@ -148,7 +148,7 @@ class Notice {
 	/**
 	 * Sets the notice actions.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 *
 	 * @param array $actions the notice actions
 	 */
@@ -161,7 +161,7 @@ class Notice {
 	/**
 	 * Gets the notice actions.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 *
 	 * @return array
 	 */
@@ -174,7 +174,7 @@ class Notice {
 	/**
 	 * Outputs the notice.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 */
 	public function render() {
 
@@ -184,7 +184,7 @@ class Notice {
 	/**
 	 * Outputs the notice content.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 */
 	private function render_content() {
 
@@ -194,7 +194,7 @@ class Notice {
 	/**
 	 * Outputs the notice actions.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 */
 	private function render_actions() {
 

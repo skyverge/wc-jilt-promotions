@@ -31,7 +31,7 @@ class Package {
 	const ID = 'sv-wc-jilt-promotions';
 
 	/** @var string the package version */
-	const VERSION = '1.1.0';
+	const VERSION = '1.1.0-dev.1';
 
 	/** @var string the minimum required version of WooCommerce */
 	const MINIMUM_WOOCOMMERCE_VERSION = '3.0';
