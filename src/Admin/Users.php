@@ -73,7 +73,7 @@ class Users extends Prompt {
 	protected function add_prompt_hooks() {
 
 		if ( ! Messages::is_message_dismissed( $this->customer_role_message_id ) ) {
-			add_action( 'admin_notices', array( $this, 'add_admin_notices' ), 15 );
+			add_action( 'admin_notices', [ $this, 'add_admin_notices' ], 15 );
 		}
 	}
 
