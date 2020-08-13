@@ -170,6 +170,48 @@ class Orders extends Prompt {
 
 
 	/**
+	 * Returns the result of a queried sales report from WooCommerce.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @see https://github.com/woocommerce/woocommerce/blob/9eae43c0d4dde8916608c45b7bf44b893bca1107/includes/admin/class-wc-admin-dashboard.php#L92-L102
+	 *
+	 * @return array
+	 */
+	private function get_woocommerce_report_data() {
+
+		$report_data = [
+			'number_of_orders' => 0,
+			'gross_sales'      => 0,
+		];
+
+		$woocommerce_plugin_path = WC()->plugin_path();
+
+		$admin_report_file = "/{$woocommerce_plugin_path}/includes/admin/reports/class-wc-admin-report.php";
+		$report_file       = "/{$woocommerce_plugin_path}/includes/admin/reports/class-wc-report-sales-by-date.php";
+
+		if ( is_readable( $admin_report_file ) && is_readable( $report_file ) ) {
+
+			include_once $admin_report_file;
+			include_once $report_file;
+
+			$sales_by_date                 = new \WC_Report_Sales_By_Date();
+			$sales_by_date->start_date     = strtotime( '-30 days' );
+			$sales_by_date->end_date       = strtotime( 'now' );
+			$sales_by_date->chart_groupby  = 'day';
+			$sales_by_date->group_by_query = 'YEAR(posts.post_date), MONTH(posts.post_date), DAY(posts.post_date)';
+
+			$report_data = $sales_by_date->get_report_data();
+
+			$report_data['number_of_orders'] = $report_data->total_orders;
+			$report_data['gross_sales']      = $report_data->total_sales;
+		}
+
+		return $report_data;
+	}
+
+
+	/**
 	 * Retrieves the abandoned carts count and the recovered revenue to render the recover carts modal.
 	 *
 	 * @since 1.1.0-dev.1
