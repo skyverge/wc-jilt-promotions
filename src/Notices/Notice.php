@@ -135,13 +135,16 @@ class Notice {
 	 */
 	private function parse_actions( array $actions ) {
 
-		return wp_parse_args( $actions, [
-			'label'   => '',
-			'name'    => '',
-			'url'     => '',
-			'primary' => false,
-			'type'    => self::ACTION_TYPE_LINK,
-		] );
+		return array_map( function( $action ) {
+
+			return wp_parse_args( $action, [
+				'label'   => '',
+				'name'    => '',
+				'url'     => '',
+				'primary' => false,
+				'type'    => self::ACTION_TYPE_LINK,
+			] );
+		}, $actions );
 	}
 
 
