@@ -93,11 +93,6 @@ final class Emails {
 
 			// hide the Jilt install prompt via AJAX
 			add_action( 'wp_ajax_' . self::AJAX_ACTION_HIDE_PROMPT, [ $this, 'ajax_hide_prompt' ] );
-
-			// add the modal markup
-			add_action( 'admin_footer', function() {
-				include_once( Package::get_package_path() . '/views/admin/html-install-plugin-modal.php' );
-			} );
 		}
 
 		// add the connection redirect args if the plugin was installed from this prompt
