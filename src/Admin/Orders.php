@@ -63,7 +63,12 @@ final class Orders extends Prompt {
 		$orders_count         = $this->get_orders_count();
 
 		if( $orders_count > 10 && ! $is_message_dismissed ) {
+
 			add_filter( 'views_edit-shop_order', [ $this, 'add_abandoned_carts_view' ] );
+
+			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+
+			add_action( 'admin_footer', [ $this, 'render_recover_carts_modal' ] );
 		}
 	}
 
