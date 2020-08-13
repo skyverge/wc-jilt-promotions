@@ -150,6 +150,7 @@ class Messages {
 		return in_array( $message_id, $enabled_messages, true );
 	}
 
+
 	/**
 	 * Determines whether a message has been dismissed for the current user.
 	 *
