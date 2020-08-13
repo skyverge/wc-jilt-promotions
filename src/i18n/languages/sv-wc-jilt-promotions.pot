@@ -35,7 +35,7 @@ msgstr ""
 msgid "Communicate with your customers in minutes!"
 msgstr ""
 
-#: src/Admin/Customers.php:114, src/Handlers/Installation.php:158, src/views/admin/html-install-plugin-modal.php:26
+#: src/Admin/Customers.php:114, src/Handlers/Installation.php:165, src/views/admin/html-install-plugin-modal.php:26
 msgid "Close modal panel"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "This setting is shown because you currently have a SkyVerge plugin active."
 msgstr ""
 
-#: src/Admin/Emails.php:364, src/Handlers/Installation.php:156, src/views/admin/html-install-plugin-modal.php:24
+#: src/Admin/Emails.php:364, src/Handlers/Installation.php:163, src/views/admin/html-install-plugin-modal.php:24
 msgid "Install Jilt"
 msgstr ""
 
@@ -133,14 +133,14 @@ msgstr ""
 msgid "User cannot install plugins"
 msgstr ""
 
-#: src/Handlers/Installation.php:161, src/views/admin/html-install-plugin-modal.php:29
+#: src/Handlers/Installation.php:168, src/views/admin/html-install-plugin-modal.php:29
 msgid "Click \"install\" to automatically install Jilt for WooCommerce and activate the plugin. You can then connect to Jilt with one click!"
 msgstr ""
 
-#: src/Handlers/Installation.php:164, src/views/admin/html-install-plugin-modal.php:32
+#: src/Handlers/Installation.php:171, src/views/admin/html-install-plugin-modal.php:32
 msgid "Cancel"
 msgstr ""
 
-#: src/Handlers/Installation.php:165, src/views/admin/html-install-plugin-modal.php:33
+#: src/Handlers/Installation.php:172, src/views/admin/html-install-plugin-modal.php:33
 msgid "Install"
 msgstr ""
