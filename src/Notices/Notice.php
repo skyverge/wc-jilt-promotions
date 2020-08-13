@@ -181,6 +181,12 @@ class Notice {
 	 */
 	public function render() {
 
+		?>
+		<div class="sv-wc-jilt-promotional-notice notice notice-info is-dismissible" data-message-id="<?php esc_attr( $this->get_message_id() ); ?>">
+			<p><?php $this->render_content(); ?></p>
+			<?php $this->render_actions(); ?>
+		</div>
+		<?php
 	}
 
 
@@ -191,6 +197,14 @@ class Notice {
 	 */
 	private function render_content() {
 
+		echo sprintf(
+			/** translators: Placeholders: %1$s - <strong> opening HTML tag, %2$s - the title for the notice, %3$s - <strong> closing HTML tag, %4$s - the content of the notice */
+			esc_html__( '%1$s%2$s%3$s %4$s', 'sv-wc-jilt-promotions' ),
+			'<strong>',
+			$this->get_title(),
+			'</strong>',
+			$this->get_content()
+		);
 	}
 
 
@@ -201,6 +215,21 @@ class Notice {
 	 */
 	private function render_actions() {
 
+		?>
+		<ul class="sv-wc-jilt-promotional-notice-actions">
+			<?php foreach ( $this->get_actions() as $action ) : ?>
+
+				<?php $classes = $action['primary'] ? 'sv-wc-jilt-promotional-notice-action sv-wc-jilt-promotional-notice-primary-action' : 'sv-wc-jilt-promotional-notice-action'; ?>
+
+				<?php if ( self::ACTION_TYPE_LINK === $action['type'] ) : ?>
+					<a class="<?php echo esc_attr( $classes ); ?>" href="" target="_blank" data-action="<?php echo esc_attr( $action['name'] ); ?>"><?php echo esc_html( $action['label'] ); ?></a>
+				<?php else : ?>
+					<button class="<?php echo esc_attr( $classes ); ?> button<?php echo $action['primary'] ? ' button-primary' : ''; ?>" data-action="<?php echo esc_attr( $action['name'] ); ?>"><?php echo esc_html( $action['label'] ); ?></button>
+				<?php endif; ?>
+
+			<?php endforeach; ?>
+		</ul>
+		<?php
 	}
 
 
