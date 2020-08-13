@@ -55,6 +55,47 @@ final class Customers extends Prompt {
 
 
 	/**
+	 * Outputs the template for the I want to try Jilt modal.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0
+	 */
+	public function render_try_jilt_modal() {
+
+		// bail if this is not the WooCommerce Customers page
+		if ( ! $this->is_woocommerce_customers_page() ) {
+			return;
+		}
+
+		?>
+		<script type="text/template" id="tmpl-sv-wc-jilt-promotions-<?php esc_attr_e( $this->download_message_id ); ?>-modal">
+			<div class="sv-wc-jilt-install-modal wc-backbone-modal">
+				<div class="wc-backbone-modal-content">
+					<section class="wc-backbone-modal-main" role="main">
+						<header class="wc-backbone-modal-header">
+							<h1><?php esc_html_e( 'Communicate with your customers in minutes!', 'sv-wc-jilt-promotions' ); ?></h1>
+							<button class="modal-close modal-close-link dashicons dashicons-no-alt">
+								<span class="screen-reader-text"><?php esc_html_e( 'Close modal panel', 'sv-wc-jilt-promotions' ); ?></span>
+							</button>
+						</header>
+						<article><?php esc_html_e( 'Jilt automatically syncs your store and customer data, so you can send powerful, personalized messages to your customers with just a few clicks.', 'sv-wc-jilt-promotions' ); ?></article>
+						<footer>
+							<div class="inner">
+								<a href=""><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
+								<button id="sv-wc-jilt-install-button-install" class="button button-large button-primary"><?php esc_html_e( 'I want to try Jilt', 'sv-wc-jilt-promotions' ); ?></button>
+							</div>
+						</footer>
+					</section>
+				</div>
+			</div>
+			<div class="wc-backbone-modal-backdrop modal-close"></div>
+		</script>
+		<?php
+	}
+
+
+	/**
 	 * Determines whether the current page is the WooCommerce Customers admin page.
 	 *
 	 * @since 1.1.0
