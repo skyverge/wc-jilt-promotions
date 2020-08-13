@@ -18,6 +18,23 @@ jQuery( function( $ ) {
 		 */
 		constructor( options ) {
 
+			options = {
+				messageID : options.messageID || '',
+				target    : options.target    || '',
+				onClose   : options.onClose   || '',
+			}
+
+			if ( '' === options.messageID ) {
+				console.log( 'missing messageID' )
+				return;
+			}
+
+			if ( '' === options.target ) {
+				options.target = 'tmpl-sv-wc-jilt-promotions-' + options.messageID + '-modal';
+			}
+
+			this.initialize();
+			this.open();
 		}
 
 
