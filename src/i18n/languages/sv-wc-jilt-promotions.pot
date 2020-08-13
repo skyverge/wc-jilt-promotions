@@ -35,7 +35,7 @@ msgstr ""
 msgid "Communicate with your customers in minutes!"
 msgstr ""
 
-#: src/Admin/Customers.php:114, src/Handlers/Installation.php:168, src/views/admin/html-install-plugin-modal.php:26
+#: src/Admin/Customers.php:114, src/Handlers/Installation.php:168
 msgid "Close modal panel"
 msgstr ""
 
@@ -52,80 +52,80 @@ msgid "I want to try Jilt"
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:175
+#: src/Admin/Emails.php:170
 msgid "Whoops, looks like there was an error installing Jilt for WooCommerce - please install manually %1$sfrom the Plugins menu%2$s."
 msgstr ""
 
-#: src/Admin/Emails.php:204, src/Handlers/Installation.php:91
+#: src/Admin/Emails.php:199, src/Handlers/Installation.php:91
 msgid "Jilt for WooCommerce"
 msgstr ""
 
-#: src/Admin/Emails.php:214, src/Handlers/Installation.php:102
+#: src/Admin/Emails.php:209, src/Handlers/Installation.php:102
 msgid "Jilt for WooCommerce successfully installed"
 msgstr ""
 
 #. translators: Placeholders: %s - install error message
 #. translators: Placeholders: %s - install error message
-#: src/Admin/Emails.php:223, src/Handlers/Installation.php:111
+#: src/Admin/Emails.php:218, src/Handlers/Installation.php:111
 msgid "Could not install Jilt for WooCommerce. %s"
 msgstr ""
 
 #. translators: Placeholders; %1$s - <a> tag, %2$s - </a> tag, %3$s - <a> tag, %4$s - </a> tag, %5$s - <a> tag, %6$s - </a> tag
-#: src/Admin/Emails.php:258
+#: src/Admin/Emails.php:253
 msgid "Create beautiful automated, transactional, and marketing emails using a drag-and-drop editor with %1$sJilt%2$s. Learn more about free and paid plans in the %3$sdocumentation%4$s. Brought to you by %5$sSkyVerge%6$s."
 msgstr ""
 
-#: src/Admin/Emails.php:275
+#: src/Admin/Emails.php:270
 msgid "Advanced emails"
 msgstr ""
 
-#: src/Admin/Emails.php:315
+#: src/Admin/Emails.php:310
 msgid "Customize this email"
 msgstr ""
 
-#: src/Admin/Emails.php:334
+#: src/Admin/Emails.php:329
 msgid "Enhanced emails with Jilt"
 msgstr ""
 
-#: src/Admin/Emails.php:354
+#: src/Admin/Emails.php:349
 msgid "This setting is shown because you currently have a SkyVerge plugin active."
 msgstr ""
 
-#: src/Admin/Emails.php:364, src/Handlers/Installation.php:166, src/views/admin/html-install-plugin-modal.php:24
+#: src/Admin/Emails.php:359, src/Handlers/Installation.php:166
 msgid "Install Jilt"
 msgstr ""
 
-#: src/Admin/Emails.php:365
+#: src/Admin/Emails.php:360
 msgid "Hide this setting"
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:485
+#: src/Admin/Emails.php:480
 msgid "Personalize your receipts using a drag-and-drop editor with %1$sJilt%2$s. Send different versions of your receipt based on customer or order details (change it for international orders!), cross-sell other products, include a dynamic coupon for the next order, and more."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:495
+#: src/Admin/Emails.php:490
 msgid "Personalize your shipment notifications using a drag-and-drop editor with %1$sJilt%2$s. Send beautiful transactional emails, change customer messaging, cross-sell other products, include a dynamic coupon for the next order, and more."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:505
+#: src/Admin/Emails.php:500
 msgid "Save the sale! Create beautiful, personalized transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Show refund details, sell related products, or include a discount for the next order."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:520
+#: src/Admin/Emails.php:515
 msgid "Keep your subscribers in the loop: create personalized, automated emails using a drag-and-drop editor with %1$sJilt%2$s. Send welcome or winback series, pre-renewal notifications, subscriber newsletters, and more."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:533
+#: src/Admin/Emails.php:528
 msgid "Brought to you by %1$sSkyVerge%2$s."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:560
+#: src/Admin/Emails.php:555
 msgid "Create beautiful automated and transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Personalize email content with customer and order details — include cross-sells, remind customers to complete payment, or easily share vital order information."
 msgstr ""
 
@@ -133,14 +133,14 @@ msgstr ""
 msgid "User cannot install plugins"
 msgstr ""
 
-#: src/Handlers/Installation.php:171, src/views/admin/html-install-plugin-modal.php:29
+#: src/Handlers/Installation.php:171
 msgid "Click \"install\" to automatically install Jilt for WooCommerce and activate the plugin. You can then connect to Jilt with one click!"
 msgstr ""
 
-#: src/Handlers/Installation.php:174, src/views/admin/html-install-plugin-modal.php:32
+#: src/Handlers/Installation.php:174
 msgid "Cancel"
 msgstr ""
 
-#: src/Handlers/Installation.php:175, src/views/admin/html-install-plugin-modal.php:33
+#: src/Handlers/Installation.php:175
 msgid "Install"
 msgstr ""
