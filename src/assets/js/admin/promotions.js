@@ -49,13 +49,13 @@ jQuery( document ).ready( function( $ ) {
 		initialize() {
 
 			// when the install button is clicked
-			$( '#sv-wc-jilt-install-button-install' ).on( 'click', function( event ) {
-				InstallPluginModal.onInstall( event )
+			$( document ).on( 'click', '#sv-wc-jilt-install-button-install', ( event ) => {
+				this.onInstall( event );
 			} );
 
 			// when the newly opened modal is closed
-			$( '#sv-wc-jilt-install-modal .modal-close' ).on( 'click', function( event ) {
-				InstallPluginModal.onClose( event );
+			$( document ).on( 'click', '#sv-wc-jilt-install-modal .modal-close', ( event ) => {
+				this.onClose( event );
 			} );
 		}
 
@@ -83,7 +83,8 @@ jQuery( document ).ready( function( $ ) {
 		 *
 		 * @param {_Event} event install click event
 		 */
-		static onInstall( event ) {
+		onInstall( event ) {
+
 			event.preventDefault();
 
 			$( '#sv-wc-jilt-install-modal .wc-backbone-modal-content' ).block( {
@@ -138,7 +139,8 @@ jQuery( document ).ready( function( $ ) {
 		 *
 		 * @param {_Event} event modal close event
 		 */
-		static onClose( event ) {
+		onClose( event ) {
+
 			event.preventDefault();
 
 			if ( this.options.onClose ) {
