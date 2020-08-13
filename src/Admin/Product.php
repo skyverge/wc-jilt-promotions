@@ -20,6 +20,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
+use SkyVerge\WooCommerce\Jilt_Promotions\Notices\Notice;
 use WP_Post;
 
 defined( 'ABSPATH' ) or exit;
@@ -46,6 +47,37 @@ class Product extends Prompt {
 		if ( ! Messages::is_message_enabled( $this->new_product_notice_message_id ) ) {
 
 			add_action( 'wp_insert_post', [ $this, 'maybe_enable_new_product_notice' ], 10, 3 );
+
+		}
+
+		add_action( 'admin_notices', [ $this, 'add_admin_notices' ] );
+
+	}
+
+	/**
+	 * Renders a Notice object if new product message is enabled.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function add_admin_notices() {
+
+		if ( Messages::is_message_enabled( $this->new_product_notice_message_id ) ) {
+
+			$new_product_notice = new Notice();
+			$new_product_notice->set_message_id( $this->new_product_notice_message_id );
+			$new_product_notice->set_actions( [
+				'label'   => __( 'Start promoting my products', 'sv-wc-jilt-promotions' ),
+				'name'    => 'start-promoting-my-products',
+				'url'     => 'https://www.skyverge.com/go/promote-products',
+				'primary' => true,
+				'type'    => Notice::ACTION_TYPE_LINK,
+			] );
+			$new_product_notice->set_title( __( 'Let customers know about your new products!', 'sv-wc-jilt-promotions' ) );
+			$new_product_notice->set_content( __( 'With Jilt, you can send broadcast emails to all customers to let them know about the great new products available in your store.', 'sv-wc-jilt-promotions' ) );
+
+			$new_product_notice->render();
 
 		}
 
