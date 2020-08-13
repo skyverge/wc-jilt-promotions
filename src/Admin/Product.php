@@ -17,6 +17,7 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 use WP_Post;
@@ -48,7 +49,6 @@ class Product extends Prompt {
 
 		}
 
-
 	}
 
 	/**
@@ -79,13 +79,23 @@ class Product extends Prompt {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
+	 *
+	 * @see Prompt::add_connection_redirect_args()
 	 *
 	 * @since 1.1.0-dev.1
+	 *
+	 * @return array
 	 */
 	protected function get_connection_redirect_args() {
 
-		return [];
+		$args = [];
+
+		if ( $this->new_product_notice_message_id === Installation::get_jilt_installed_from() ) {
+			$args = [ 'utm_term' => $this->new_product_notice_message_id ];
+		}
+
+		return $args;
 	}
 
 }
