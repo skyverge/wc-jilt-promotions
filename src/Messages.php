@@ -58,6 +58,10 @@ class Messages {
 	 */
 	private function add_hooks() {
 
+		add_action( 'wp_ajax_' . self::AJAX_ACTION_ENABLE_MESSAGE, [ $this, 'ajax_enable_message' ] );
+
+		add_action( 'wp_ajax_' . self::AJAX_ACTION_DISMISS_MESSAGE, [ $this, 'ajax_dismiss_message' ] );
+
 	}
 
 
@@ -67,18 +71,19 @@ class Messages {
 	 * @since 1.1.0
 	 *
 	 * @param string $message_id message identifier
+	 * @return bool
 	 */
 	public static function enable_message( $message_id ) {
 
 		if ( ! is_string( $message_id ) || self::is_message_enabled( $message_id ) ) {
 
-			return;
+			return false;
 		}
 
 		$enabled_messages   = self::get_enabled_messages();
 		$enabled_messages[] = $message_id;
 
-		update_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES, $enabled_messages );
+		return (bool) update_user_meta( get_current_user_id(), self::META_KEY_ENABLED_MESSAGES, $enabled_messages );
 	}
 
 
@@ -88,18 +93,19 @@ class Messages {
 	 * @since 1.1.0
 	 *
 	 * @param string $message_id message identifier
+	 * @return bool
 	 */
 	public static function dismiss_message( $message_id ) {
 
 		if ( ! is_string( $message_id ) || self::is_message_dismissed( $message_id ) ) {
 
-			return;
+			return false;
 		}
 
 		$dismissed_messages   = self::get_dismissed_messages();
 		$dismissed_messages[] = $message_id;
 
-		update_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES, $dismissed_messages );
+		return (bool) update_user_meta( get_current_user_id(), self::META_KEY_DISMISSED_MESSAGES, $dismissed_messages );
 	}
 
 
@@ -169,6 +175,36 @@ class Messages {
 	 */
 	public function ajax_enable_message() {
 
+		check_ajax_referer( self::AJAX_ACTION_ENABLE_MESSAGE, 'nonce' );
+
+		$message_id = ! empty( $_POST['message_id'] ) ? wc_clean( $_POST['message_id'] ) : '';
+
+		try {
+
+			if ( '' === $message_id || empty( $message_id ) ) {
+				throw new \Exception( __( 'Message ID is required', 'sv-wc-jilt-promotions' ) );
+			}
+
+			if ( self::is_message_enabled( $message_id ) ) {
+				throw new \Exception( __( 'Message already enabled', 'sv-wc-jilt-promotions' ) );
+			}
+
+			wp_send_json_success( [
+				'is_enabled' => self::enable_message( $message_id ),
+			] );
+
+		} catch ( \Exception $exception ) {
+
+			wp_send_json_error( [
+				'message' => sprintf(
+					/* translators: Placeholder: %s - enable message */
+					__( 'Could not enable promotion message. %s', 'sv-wc-jilt-promotions' ),
+					$exception->getMessage()
+				),
+			] );
+
+		}
+
 	}
 
 
@@ -180,6 +216,36 @@ class Messages {
 	 * @since 1.1.0
 	 */
 	public function ajax_dismiss_message() {
+
+		check_ajax_referer( self::AJAX_ACTION_DISMISS_MESSAGE, 'nonce' );
+
+		$message_id = ! empty( $_POST['message_id'] ) ? wc_clean( $_POST['message_id'] ) : '';
+
+		try {
+
+			if ( '' === $message_id || empty( $message_id ) ) {
+				throw new \Exception( __( 'Message ID is required', 'sv-wc-jilt-promotions' ) );
+			}
+
+			if ( self::is_message_dismissed( $message_id ) ) {
+				throw new \Exception( __( 'Message already dismissed', 'sv-wc-jilt-promotions' ) );
+			}
+
+			wp_send_json_success( [
+				'is_dismissed' => self::dismiss_message( $message_id ),
+			] );
+
+		} catch ( \Exception $exception ) {
+
+			wp_send_json_error( [
+				'message' => sprintf(
+					/* translators: Placeholder: %s - enable message */
+					__( 'Could not enable promotion message. %s', 'sv-wc-jilt-promotions' ),
+					$exception->getMessage()
+				),
+			] );
+
+		}
 
 	}
 
