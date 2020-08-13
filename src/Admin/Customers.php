@@ -32,5 +32,8 @@ final class Customers extends Prompt {
 	/** @var string the ID of the customers download message */
 	private $download_message_id = 'wc-customers-download';
 
+	/** @var string the ID of the Customers page */
+	private $customers_page_id = 'woocommerce-analytics-customers';
+
 
 }
