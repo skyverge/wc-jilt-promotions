@@ -71,7 +71,6 @@ class Messages {
 	 * @since 1.1.0
 	 *
 	 * @param string $message_id message identifier
-	 *
 	 * @return bool
 	 */
 	public static function enable_message( $message_id ) {
