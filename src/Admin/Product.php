@@ -62,7 +62,15 @@ class Product extends Prompt {
 	 */
 	public function maybe_enable_new_product_notice( $post_id, $post, $is_update ) {
 
-		if ( $is_update && in_array( get_post_type( $post ), wc_get_product_types(), true ) ) {
+		if ( $is_update ) {
+
+			return;
+
+		}
+
+		$post_type = get_post_type( $post );
+
+		if ( 'product' === $post_type || in_array( $post_type, wc_get_product_types(), true ) ) {
 
 			Messages::enable_message( $this->new_product_notice_message_id );
 
