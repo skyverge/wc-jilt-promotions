@@ -84,6 +84,8 @@ final class Customers extends Prompt {
 	public function enqueue_assets() {
 
 		if ( $this->is_woocommerce_js_page() ) {
+
+			wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
 			wp_enqueue_script( 'sv-wc-jilt-prompt-customers', Package::get_assets_url() . '/js/admin/customers.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION, true );
 		}
 	}
