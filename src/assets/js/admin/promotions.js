@@ -1,12 +1,15 @@
 jQuery( function( $ ) {
 
 
+	$.JiltPromotions = {}
+
+
 	/**
 	 * Jilt Plugin Installation modal handler.
 	 *
 	 * @since 1.1.0-dev.1
 	 */
-	$.JiltPromotions = class InstallPluginModal {
+	$.JiltPromotions.InstallPluginModal = class InstallPluginModal {
 
 
 		/**
