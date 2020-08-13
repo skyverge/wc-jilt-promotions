@@ -29,5 +29,8 @@ use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 final class Customers extends Prompt {
 
 
-}
+	/** @var string the ID of the customers download message */
+	private $download_message_id = 'wc-customers-download';
 
+
+}
