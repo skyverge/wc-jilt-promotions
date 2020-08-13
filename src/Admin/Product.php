@@ -38,6 +38,11 @@ class Product extends Prompt {
 	private $new_product_notice_message_id = 'new-product-notice';
 
 	/**
+	 * @var string
+	 */
+	private $product_sale_notice_message_id = 'product-sale-notice';
+
+	/**
 	 * {@inheritDoc}
 	 *
 	 * @since 1.1.0-dev.1
