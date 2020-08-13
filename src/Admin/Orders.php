@@ -133,7 +133,11 @@ class Orders extends Prompt {
 	 */
 	private function get_recovered_revenue() {
 
-		return 0.0;
+		$abandoned_carts_count = $this->get_abandoned_carts_count();
+		$orders_revenue        = $this->get_orders_revenue();
+		$orders_count          = $this->get_orders_count();
+
+		return ( $orders_revenue / $orders_count ) * $abandoned_carts_count;
 	}
 
 
