@@ -18,13 +18,15 @@
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
+use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
+use WP_Post;
 
 defined( 'ABSPATH' ) or exit;
 
 /**
  * Handles the notices shown when new product is created and when sale price changes
  *
- * @since 1.1.0
+ * @since 1.1.0-dev.1
  */
 class Product extends Prompt {
 
@@ -36,16 +38,42 @@ class Product extends Prompt {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 */
 	protected function add_prompt_hooks() {
+
+		if ( ! Messages::is_message_enabled( $this->new_product_notice_message_id ) ) {
+
+			add_action( 'wp_insert_post', [ $this, 'maybe_enable_new_product_notice' ], 10, 3 );
+
+		}
+
+
+	}
+
+	/**
+	 * Determine
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @param int     $post_id
+	 * @param WP_Post $post
+	 * @param bool    $is_update
+	 */
+	public function maybe_enable_new_product_notice( $post_id, $post, $is_update ) {
+
+		if ( $is_update && in_array( get_post_type( $post ), wc_get_product_types(), true ) ) {
+
+			Messages::enable_message( $this->new_product_notice_message_id );
+
+		}
 
 	}
 
 	/**
 	 * {@inheritDoc}
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.0-dev.1
 	 */
 	protected function get_connection_redirect_args() {
 
