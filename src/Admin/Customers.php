@@ -117,7 +117,7 @@ final class Customers extends Prompt {
 						<article><?php esc_html_e( 'Jilt automatically syncs your store and customer data, so you can send powerful, personalized messages to your customers with just a few clicks.', 'sv-wc-jilt-promotions' ); ?></article>
 						<footer>
 							<div class="inner">
-								<a href=""><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
+								<a href="https://www.skyverge.com/go/customer-communication" target="_blank"><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
 								<button id="sv-wc-jilt-install-button-install" class="button button-large button-primary"><?php esc_html_e( 'I want to try Jilt', 'sv-wc-jilt-promotions' ); ?></button>
 							</div>
 						</footer>
