@@ -46,6 +46,9 @@ class Orders extends Prompt {
 	 */
 	public function add_abandoned_carts_view( $views ) {
 
+		$views[ $this->abandoned_carts_filter_message_id ] = sprintf( '<a href="#">%s</a>', __( 'Abandoned Carts', 'sv-wc-jilt-promotions' ) );
+
+		return $views;
 	}
 
 
