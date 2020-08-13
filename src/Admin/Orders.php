@@ -226,6 +226,13 @@ final class Orders extends Prompt {
 	 */
 	public function render_recover_carts_modal() {
 
+		$abandoned_carts_count = $this->get_abandoned_carts_count();
+		$recovered_revenue     = $this->get_recovered_revenue();
+
+		// bail if this is not a React-based WooCommerce page
+		if ( ! $this->is_woocommerce_js_page() ) {
+			return;
+		}
 
 	}
 
