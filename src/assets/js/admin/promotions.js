@@ -33,7 +33,7 @@ jQuery( document ).ready( function( $ ) {
 			}
 
 			if ( '' === this.options.target ) {
-				this.options.target = 'tmpl-sv-wc-jilt-promotions-' + this.options.messageID + '-modal';
+				this.options.target = 'sv-wc-jilt-promotions-' + this.options.messageID + '-modal';
 			}
 
 			this.initialize();

@@ -31,23 +31,23 @@ msgstr ""
 msgid "Message already dismissed"
 msgstr ""
 
-#: src/Admin/Customers.php:112
+#: src/Admin/Customers.php:114
 msgid "Communicate with your customers in minutes!"
 msgstr ""
 
-#: src/Admin/Customers.php:114, src/Handlers/Installation.php:168
+#: src/Admin/Customers.php:116, src/Handlers/Installation.php:168
 msgid "Close modal panel"
 msgstr ""
 
-#: src/Admin/Customers.php:117
+#: src/Admin/Customers.php:119
 msgid "Jilt automatically syncs your store and customer data, so you can send powerful, personalized messages to your customers with just a few clicks."
 msgstr ""
 
-#: src/Admin/Customers.php:120
+#: src/Admin/Customers.php:122
 msgid "Learn more"
 msgstr ""
 
-#: src/Admin/Customers.php:121
+#: src/Admin/Customers.php:123
 msgid "I want to try Jilt"
 msgstr ""
 
