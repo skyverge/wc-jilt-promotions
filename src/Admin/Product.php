@@ -185,8 +185,14 @@ class Product extends Prompt {
 
 		$args = [];
 
-		if ( $this->new_product_notice_message_id === Installation::get_jilt_installed_from() ) {
+		$jilt_installed_from = Installation::get_jilt_installed_from();
+
+		if ( $this->new_product_notice_message_id === $jilt_installed_from ) {
 			$args = [ 'utm_term' => $this->new_product_notice_message_id ];
+		}
+
+		if ( $this->product_sale_notice_message_id === $jilt_installed_from ) {
+			$args = [ 'utm_term' => $this->product_sale_notice_message_id ];
 		}
 
 		return $args;
