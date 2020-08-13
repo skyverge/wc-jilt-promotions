@@ -65,7 +65,15 @@ class Orders extends Prompt {
 	 */
 	private function get_abandoned_carts_count() {
 
-		return 0.0;
+		$orders_count = $this->get_orders_count();
+
+		// 70% of carts are abandoned
+		$carts_abandoned_rate = 0.7;
+
+		// 15% of carts are recovered
+		$carts_recovered_rate = 0.15;
+
+		return ( $orders_count / ( 1 - $carts_abandoned_rate ) ) * $carts_abandoned_rate * $carts_recovered_rate;
 	}
 
 
