@@ -151,4 +151,25 @@ jQuery( function( $ ) {
 
 	}
 
+
+	/**
+	 * Messages handler.
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	$.JiltPromotions.Messages = class Messages {
+
+
+		static enableMessage( messageID ) {
+
+		}
+
+
+		static dismissMessage( messageID ) {
+
+		}
+
+	}
+
+
 } );
