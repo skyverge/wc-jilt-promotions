@@ -22,6 +22,7 @@ defined( 'ABSPATH' ) or exit;
 use Automattic\WooCommerce\Admin\PageController;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
+use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 use SkyVerge\WooCommerce\Jilt_Promotions\Package;
 
 /**
@@ -37,6 +38,22 @@ final class Customers extends Prompt {
 
 	/** @var string the ID of the Customers page */
 	private $customers_page_id = 'woocommerce-analytics-customers';
+
+
+	/**
+	 * Adds the necessary action & filter hooks.
+	 *
+	 * @since 1.1.0
+	 */
+	protected function add_prompt_hooks() {
+
+		if ( ! Messages::is_message_enabled( $this->download_message_id ) ) {
+
+			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+
+			add_action( 'admin_footer', [ $this, 'render_try_jilt_modal' ] );
+		}
+	}
 
 
 	/**
