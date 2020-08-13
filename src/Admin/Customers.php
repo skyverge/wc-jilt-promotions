@@ -57,6 +57,27 @@ final class Customers extends Prompt {
 
 
 	/**
+	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
+	 *
+	 * @see Prompt::add_connection_redirect_args()
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return array
+	 */
+	protected function get_connection_redirect_args() {
+
+		$args = [];
+
+		if ( $this->download_message_id === Installation::get_jilt_installed_from() ) {
+			$args = [ 'utm_term' => $this->download_message_id ];
+		}
+
+		return $args;
+	}
+
+
+	/**
 	 * Enqueues the assets.
 	 *
 	 * @internal
