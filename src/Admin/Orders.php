@@ -70,7 +70,7 @@ class Orders extends Prompt {
 	 *
 	 * @since 1.1.0-dev.1
 	 *
-	 * @retun float
+	 * @retun int
 	 */
 	private function get_abandoned_carts_count() {
 
@@ -82,7 +82,7 @@ class Orders extends Prompt {
 		// 15% of carts are recovered
 		$carts_recovered_rate = 0.15;
 
-		return ( $orders_count / ( 1 - $carts_abandoned_rate ) ) * $carts_abandoned_rate * $carts_recovered_rate;
+		return ceil( ( $orders_count / ( 1 - $carts_abandoned_rate ) ) * $carts_abandoned_rate * $carts_recovered_rate );
 	}
 
 
