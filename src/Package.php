@@ -76,6 +76,7 @@ class Package {
 		require_once( self::get_package_path() . '/Admin/Orders.php' );
 
 		new Messages();
+		new Handlers\Installation();
 		new Admin\Customers();
 		new Admin\Emails();
 	}
