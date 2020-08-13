@@ -19,6 +19,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
+use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -37,6 +38,8 @@ class Orders extends Prompt {
 	/**
 	 * Callback for the views_edit-shop_order filter.
 	 *
+	 * @internal
+	 *
 	 * @since 1.1.0-dev.1
 	 *
 	 * @param array $views
@@ -53,6 +56,12 @@ class Orders extends Prompt {
 	 */
 	protected function add_prompt_hooks() {
 
+		$is_message_dismissed = Messages::is_message_dismissed( $this->abandoned_carts_filter_message_id );
+		$orders_count         = $this->get_orders_count();
+
+		if( $orders_count > 10 && ! $is_message_dismissed ) {
+			add_filter( 'views_edit-shop_order', [ $this, 'add_abandoned_carts_view' ] );
+		}
 	}
 
 
