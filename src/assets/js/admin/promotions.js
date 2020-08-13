@@ -70,9 +70,11 @@ jQuery( document ).ready( function( $ ) {
 			// ensures there are no other modals opened
 			$( '#wc-backbone-modal-dialog .modal-close' ).trigger( 'click' );
 
+			console.log( this.options.target );
+
 			new $.WCBackboneModal.View( {
 				target: this.options.target,
-				string: [],
+				string: {},
 			} );
 		}
 
