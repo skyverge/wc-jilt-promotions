@@ -92,7 +92,7 @@ abstract class Prompt {
 	public function add_connection_redirect_args( $args ) {
 
 		// use an empty UTM_TERM if the installed from value matches the default campaign identifier
-		if ( Prompt::UTM_CAMPAIGN === Installation::get_jilt_installed_from() ) {
+		if ( self::UTM_CAMPAIGN === Installation::get_jilt_installed_from() ) {
 			$new_args = [ 'utm_term' => '' ];
 		} else {
 			$new_args = $this->get_connection_redirect_args();
