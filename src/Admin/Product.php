@@ -29,6 +29,11 @@ defined( 'ABSPATH' ) or exit;
 class Product extends Prompt {
 
 	/**
+	 * @var string
+	 */
+	private $new_product_notice_message_id = 'new-product-notice';
+
+	/**
 	 * {@inheritDoc}
 	 *
 	 * @since 1.1.0
