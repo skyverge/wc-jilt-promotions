@@ -20,7 +20,9 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 defined( 'ABSPATH' ) or exit;
 
 use Automattic\WooCommerce\Admin\PageController;
+use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
+use SkyVerge\WooCommerce\Jilt_Promotions\Package;
 
 /**
  * The prompt handler for the Customers page.
@@ -35,6 +37,21 @@ final class Customers extends Prompt {
 
 	/** @var string the ID of the Customers page */
 	private $customers_page_id = 'woocommerce-analytics-customers';
+
+
+	/**
+	 * Enqueues the assets.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0
+	 */
+	public function enqueue_assets() {
+
+		if ( $this->is_woocommerce_customers_page() ) {
+			wp_enqueue_script( 'sv-wc-jilt-prompt-customers', Package::get_assets_url() . '/js/admin/customers.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION, true );
+		}
+	}
 
 
 	/**
