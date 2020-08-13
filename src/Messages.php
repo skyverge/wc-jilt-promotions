@@ -61,7 +61,6 @@ class Messages {
 		add_action( 'wp_ajax_' . self::AJAX_ACTION_ENABLE_MESSAGE, [ $this, 'ajax_enable_message' ] );
 
 		add_action( 'wp_ajax_' . self::AJAX_ACTION_DISMISS_MESSAGE, [ $this, 'ajax_dismiss_message' ] );
-
 	}
 
 
