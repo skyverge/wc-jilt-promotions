@@ -19,6 +19,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
 defined( 'ABSPATH' ) or exit;
 
+use Automattic\WooCommerce\Admin\PageController;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 
 /**
@@ -34,6 +35,28 @@ final class Customers extends Prompt {
 
 	/** @var string the ID of the Customers page */
 	private $customers_page_id = 'woocommerce-analytics-customers';
+
+
+	/**
+	 * Determines whether the current page is the WooCommerce Customers admin page.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return bool
+	 */
+	private function is_woocommerce_customers_page() {
+
+		$is_customers_page = false;
+
+		if ( class_exists( PageController::class ) && is_callable( PageController::class, 'instance' ) && $page_controller = PageController::get_instance() ) {
+
+			if ( is_callable( [ $page_controller, 'get_current_page' ] ) && $current_page = $page_controller->get_current_page() ) {
+				$is_customers_page = isset( $current_page['id'] ) && $current_page['id'] === $this->customers_page_id;
+			}
+		}
+
+		return $is_customers_page;
+	}
 
 
 }
