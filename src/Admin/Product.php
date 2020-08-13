@@ -21,6 +21,7 @@ use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 use SkyVerge\WooCommerce\Jilt_Promotions\Notices\Notice;
+use WC_Product;
 use WP_Post;
 
 defined( 'ABSPATH' ) or exit;
@@ -55,7 +56,45 @@ class Product extends Prompt {
 
 		}
 
+		if ( ! Messages::is_message_enabled( $this->product_sale_notice_message_id ) ) {
+
+			add_action( 'woocommerce_product_bulk_and_quick_edit', [ $this, 'add_enable_product_sale_notice_hooks' ], 5 );
+
+			add_action( 'woocommerce_admin_process_product_object', [ $this, 'maybe_enable_product_sale_notice' ] );
+
+		}
+
 		add_action( 'admin_notices', [ $this, 'add_admin_notices' ] );
+
+	}
+
+	/**
+	 * Adds action to maybe enable product sale message
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function add_enable_product_sale_notice_hooks() {
+
+		add_action( 'woocommerce_before_product_object_save', [ $this, 'maybe_enable_product_sale_notice' ] );
+
+	}
+
+	/**
+	 * Enabled product sale message if sale price changes
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @param WC_Product $product
+	 */
+	public function maybe_enable_product_sale_notice( $product ) {
+
+		$changes = $product->get_changes();
+
+		if ( ! empty( $changes['sale_price'] ) ) {
+
+			Messages::enable_message( $this->product_sale_notice_message_id );
+
+		}
 
 	}
 
