@@ -99,7 +99,7 @@ class Product extends Prompt {
 	}
 
 	/**
-	 * Renders a Notice object if new product message is enabled.
+	 * Renders a Notice object if new product and/or product sale message is enabled.
 	 *
 	 * @internal
 	 *
@@ -122,6 +122,24 @@ class Product extends Prompt {
 			$new_product_notice->set_content( __( 'With Jilt, you can send broadcast emails to all customers to let them know about the great new products available in your store.', 'sv-wc-jilt-promotions' ) );
 
 			$new_product_notice->render();
+
+		}
+
+		if ( Messages::is_message_enabled( $this->product_sale_notice_message_id ) ) {
+
+			$product_sale_notice = new Notice();
+			$product_sale_notice->set_message_id( $this->product_sale_notice_message_id );
+			$product_sale_notice->set_actions( [
+				'label'   => __( 'Broadcast my sale', 'sv-wc-jilt-promotions' ),
+				'name'    => 'broadcast-my-sale',
+				'url'     => 'https://www.skyverge.com/go/promote-sale',
+				'primary' => true,
+				'type'    => Notice::ACTION_TYPE_LINK,
+			] );
+			$product_sale_notice->set_title( __( 'Share your sale!', 'sv-wc-jilt-promotions' ) );
+			$product_sale_notice->set_content( __( 'Jilt helps you communicate important events like product sales with your customers so they stay informed and interested in your store.', 'sv-wc-jilt-promotions' ) );
+
+			$product_sale_notice->render();
 
 		}
 
