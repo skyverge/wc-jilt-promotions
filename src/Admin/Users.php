@@ -47,7 +47,7 @@ class Users extends Prompt {
 	 *
 	 * @since 1.1.0-dev.1
 	 */
-	private function add_admin_notices() {
+	public function add_admin_notices() {
 
 		$notice = new Notice();
 		$notice->set_message_id( $this->customer_role_message_id );
