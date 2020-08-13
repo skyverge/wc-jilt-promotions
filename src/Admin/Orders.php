@@ -17,6 +17,7 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 
 defined( 'ABSPATH' ) or exit;
@@ -69,13 +70,19 @@ class Orders extends Prompt {
 
 
 	/**
-	 * {@inheritDoc}
+	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
 	 *
 	 * @since 1.1.0-dev.1
 	 */
 	protected function get_connection_redirect_args() {
 
-		return [];
+		$redirect_args = [];
+
+		if( Installation::get_jilt_installed_from() === $this->abandoned_carts_filter_message_id ) {
+			$redirect_args['utm_term'] = $this->abandoned_carts_filter_message_id;
+		}
+
+		return $redirect_args;
 	}
 
 
