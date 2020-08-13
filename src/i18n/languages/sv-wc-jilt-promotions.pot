@@ -31,23 +31,23 @@ msgstr ""
 msgid "Message already dismissed"
 msgstr ""
 
-#: src/Admin/Customers.php:112
+#: src/Admin/Customers.php:114
 msgid "Communicate with your customers in minutes!"
 msgstr ""
 
-#: src/Admin/Customers.php:114, src/Handlers/Installation.php:165
+#: src/Admin/Customers.php:116, src/Handlers/Installation.php:168
 msgid "Close modal panel"
 msgstr ""
 
-#: src/Admin/Customers.php:117
+#: src/Admin/Customers.php:119
 msgid "Jilt automatically syncs your store and customer data, so you can send powerful, personalized messages to your customers with just a few clicks."
 msgstr ""
 
-#: src/Admin/Customers.php:120
+#: src/Admin/Customers.php:122
 msgid "Learn more"
 msgstr ""
 
-#: src/Admin/Customers.php:121
+#: src/Admin/Customers.php:123
 msgid "I want to try Jilt"
 msgstr ""
 
@@ -56,17 +56,17 @@ msgstr ""
 msgid "Whoops, looks like there was an error installing Jilt for WooCommerce - please install manually %1$sfrom the Plugins menu%2$s."
 msgstr ""
 
-#: src/Admin/Emails.php:199, src/Handlers/Installation.php:90
+#: src/Admin/Emails.php:199, src/Handlers/Installation.php:91
 msgid "Jilt for WooCommerce"
 msgstr ""
 
-#: src/Admin/Emails.php:209, src/Handlers/Installation.php:101
+#: src/Admin/Emails.php:209, src/Handlers/Installation.php:102
 msgid "Jilt for WooCommerce successfully installed"
 msgstr ""
 
 #. translators: Placeholders: %s - install error message
 #. translators: Placeholders: %s - install error message
-#: src/Admin/Emails.php:218, src/Handlers/Installation.php:110
+#: src/Admin/Emails.php:218, src/Handlers/Installation.php:111
 msgid "Could not install Jilt for WooCommerce. %s"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "This setting is shown because you currently have a SkyVerge plugin active."
 msgstr ""
 
-#: src/Admin/Emails.php:359, src/Handlers/Installation.php:163
+#: src/Admin/Emails.php:359, src/Handlers/Installation.php:166
 msgid "Install Jilt"
 msgstr ""
 
@@ -129,18 +129,18 @@ msgstr ""
 msgid "Create beautiful automated and transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Personalize email content with customer and order details — include cross-sells, remind customers to complete payment, or easily share vital order information."
 msgstr ""
 
-#: src/Handlers/Installation.php:86
+#: src/Handlers/Installation.php:87
 msgid "User cannot install plugins"
 msgstr ""
 
-#: src/Handlers/Installation.php:168
+#: src/Handlers/Installation.php:171
 msgid "Click \"install\" to automatically install Jilt for WooCommerce and activate the plugin. You can then connect to Jilt with one click!"
 msgstr ""
 
-#: src/Handlers/Installation.php:171
+#: src/Handlers/Installation.php:174
 msgid "Cancel"
 msgstr ""
 
-#: src/Handlers/Installation.php:172
+#: src/Handlers/Installation.php:175
 msgid "Install"
 msgstr ""
