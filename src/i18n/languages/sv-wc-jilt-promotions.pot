@@ -13,6 +13,44 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: src/Messages.php:185, src/Messages.php:225
+msgid "Message ID is required"
+msgstr ""
+
+#: src/Messages.php:189
+msgid "Message already enabled"
+msgstr ""
+
+#. translators: Placeholder: %s - enable message
+#. translators: Placeholder: %s - enable message
+#: src/Messages.php:201, src/Messages.php:241
+msgid "Could not enable promotion message. %s"
+msgstr ""
+
+#: src/Messages.php:229
+msgid "Message already dismissed"
+msgstr ""
+
+#: src/Admin/Customers.php:112
+msgid "Communicate with your customers in minutes!"
+msgstr ""
+
+#: src/Admin/Customers.php:114, src/Handlers/Installation.php:158, src/views/admin/html-install-plugin-modal.php:26
+msgid "Close modal panel"
+msgstr ""
+
+#: src/Admin/Customers.php:117
+msgid "Jilt automatically syncs your store and customer data, so you can send powerful, personalized messages to your customers with just a few clicks."
+msgstr ""
+
+#: src/Admin/Customers.php:120
+msgid "Learn more"
+msgstr ""
+
+#: src/Admin/Customers.php:121
+msgid "I want to try Jilt"
+msgstr ""
+
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
 #: src/Admin/Emails.php:175
 msgid "Whoops, looks like there was an error installing Jilt for WooCommerce - please install manually %1$sfrom the Plugins menu%2$s."
@@ -22,13 +60,13 @@ msgstr ""
 msgid "Jilt for WooCommerce"
 msgstr ""
 
-#: src/Admin/Emails.php:214, src/Handlers/Installation.php:100
+#: src/Admin/Emails.php:214, src/Handlers/Installation.php:101
 msgid "Jilt for WooCommerce successfully installed"
 msgstr ""
 
 #. translators: Placeholders: %s - install error message
 #. translators: Placeholders: %s - install error message
-#: src/Admin/Emails.php:223, src/Handlers/Installation.php:109
+#: src/Admin/Emails.php:223, src/Handlers/Installation.php:110
 msgid "Could not install Jilt for WooCommerce. %s"
 msgstr ""
 
@@ -53,7 +91,7 @@ msgstr ""
 msgid "This setting is shown because you currently have a SkyVerge plugin active."
 msgstr ""
 
-#: src/Admin/Emails.php:364, src/Handlers/Installation.php:155, src/views/admin/html-install-plugin-modal.php:24
+#: src/Admin/Emails.php:364, src/Handlers/Installation.php:156, src/views/admin/html-install-plugin-modal.php:24
 msgid "Install Jilt"
 msgstr ""
 
@@ -95,36 +133,14 @@ msgstr ""
 msgid "User cannot install plugins"
 msgstr ""
 
-#: src/Handlers/Installation.php:157, src/views/admin/html-install-plugin-modal.php:26
-msgid "Close modal panel"
-msgstr ""
-
-#: src/Handlers/Installation.php:160, src/views/admin/html-install-plugin-modal.php:29
+#: src/Handlers/Installation.php:161, src/views/admin/html-install-plugin-modal.php:29
 msgid "Click \"install\" to automatically install Jilt for WooCommerce and activate the plugin. You can then connect to Jilt with one click!"
 msgstr ""
 
-#: src/Handlers/Installation.php:163, src/views/admin/html-install-plugin-modal.php:32
+#: src/Handlers/Installation.php:164, src/views/admin/html-install-plugin-modal.php:32
 msgid "Cancel"
 msgstr ""
 
-#: src/Handlers/Installation.php:164, src/views/admin/html-install-plugin-modal.php:33
+#: src/Handlers/Installation.php:165, src/views/admin/html-install-plugin-modal.php:33
 msgid "Install"
-msgstr ""
-
-#: src/Messages.php:183, src/Messages.php:227
-msgid "Message ID is required"
-msgstr ""
-
-#: src/Messages.php:187
-msgid "Message already enabled"
-msgstr ""
-
-#. translators: Placeholders: %s - enable message
-#. translators: Placeholders: %s - enable message
-#: src/Messages.php:201, src/Messages.php:245
-msgid "Could not enable promotion message. %s"
-msgstr ""
-
-#: src/Messages.php:231
-msgid "Message already dismissed"
 msgstr ""
