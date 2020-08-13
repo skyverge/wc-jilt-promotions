@@ -45,6 +45,8 @@ class Users extends Prompt {
 	/**
 	 * Renders a Notice object if the users customer role message is enabled.
 	 *
+	 * @internal
+	 *
 	 * @since 1.1.0-dev.1
 	 */
 	public function add_admin_notices() {
@@ -66,7 +68,7 @@ class Users extends Prompt {
 
 
 	/**
-	 * {@inheritDoc}
+	 * Adds the necessary action & filter hooks.
 	 *
 	 * @since 1.1.0-dev.1
 	 */
@@ -79,7 +81,7 @@ class Users extends Prompt {
 
 
 	/**
-	 * {@inheritDoc}
+	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
 	 *
 	 * @since 1.1.0-dev.1
 	 */
