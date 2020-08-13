@@ -17,6 +17,7 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Handlers;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 use SkyVerge\WooCommerce\Jilt_Promotions\Package;
 
 defined( 'ABSPATH' ) or exit;
@@ -134,7 +135,9 @@ class Installation {
 
 		wp_localize_script( self::INSTALL_SCRIPT_HANDLE, str_replace( '-', '_', self::INSTALL_SCRIPT_HANDLE ), [
 			'nonces' => [
-				'install_plugin' => wp_create_nonce( self::AJAX_ACTION_INSTALL_JILT ),
+				'install_plugin'  => wp_create_nonce( self::AJAX_ACTION_INSTALL_JILT ),
+				'enable_message'  => wp_create_nonce( Messages::AJAX_ACTION_ENABLE_MESSAGE ),
+				'dismiss_message' => wp_create_nonce( Messages::AJAX_ACTION_DISMISS_MESSAGE ),
 			]
 		] );
 	}

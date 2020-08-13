@@ -160,14 +160,54 @@ jQuery( function( $ ) {
 	$.JiltPromotions.Messages = class Messages {
 
 
+		/**
+		 * Enables a message in AJAX.
+		 *
+		 * @since 1.1.0-dev.1
+		 *
+		 * @param {string} messageID message identifier
+		 */
 		static enableMessage( messageID ) {
-
+			$.JiltPromotions.Messages.handleMessage( messageID, 'sv_wc_jilt_enable_message', 'sv_wc_jilt_prompt_install.nonces.enable_message' )
 		}
 
 
+		/**
+		 * Dismisses a message in AJAX.
+		 *
+		 * @since 1.1.0-dev.1
+		 *
+		 * @param {string} messageID message identifier
+		 */
 		static dismissMessage( messageID ) {
-
+			$.JiltPromotions.Messages.handleMessage( messageID, 'sv_wc_jilt_dismiss_message', 'sv_wc_jilt_prompt_install.nonces.dismiss_message' )
 		}
+
+
+		/**
+		 * Handles a message status (helper method).
+		 *
+		 * @since 1.1.0-dev.1
+		 *
+		 * @param {string} messageID message identifier
+		 * @param {string} action AJAX action
+		 * @param {string} nonce security key
+		 */
+		static handleMessage( messageID, action, nonce ) {
+
+			var data = {
+				action:     action,
+				nonce:      nonce,
+				message_id: messageID,
+			}
+
+			$.post( ajaxurl, data, function( response ) {
+				if ( ! response.success ) {
+					console.error( response );
+				}
+			} );
+		}
+
 
 	}
 
