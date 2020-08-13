@@ -69,6 +69,23 @@ final class Orders extends Prompt {
 
 
 	/**
+	 * Enqueues the assets.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function enqueue_assets() {
+
+		if ( $this->is_woocommerce_js_page() ) {
+
+			wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
+			wp_enqueue_script( 'sv-wc-jilt-prompt-orders', Package::get_assets_url() . '/js/admin/orders.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION, true );
+		}
+	}
+
+
+	/**
 	 * Returns the estimated number of abandoned carts for the last 30 days.
 	 *
 	 * @since 1.1.0-dev.1
