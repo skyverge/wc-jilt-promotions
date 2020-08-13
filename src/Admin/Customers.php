@@ -36,9 +36,6 @@ final class Customers extends Prompt {
 	/** @var string the ID of the customers download message */
 	private $download_message_id = 'wc-customers-download';
 
-	/** @var string the ID of the Customers page */
-	private $customers_page_id = 'woocommerce-analytics-customers';
-
 
 	/**
 	 * Adds the necessary action & filter hooks.
@@ -86,7 +83,7 @@ final class Customers extends Prompt {
 	 */
 	public function enqueue_assets() {
 
-		if ( $this->is_woocommerce_customers_page() ) {
+		if ( $this->is_woocommerce_js_page() ) {
 			wp_enqueue_script( 'sv-wc-jilt-prompt-customers', Package::get_assets_url() . '/js/admin/customers.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION, true );
 		}
 	}
@@ -101,8 +98,8 @@ final class Customers extends Prompt {
 	 */
 	public function render_try_jilt_modal() {
 
-		// bail if this is not the WooCommerce Customers page
-		if ( ! $this->is_woocommerce_customers_page() ) {
+		// bail if this is not a React-based WooCommerce page
+		if ( ! $this->is_woocommerce_js_page() ) {
 			return;
 		}
 
@@ -134,24 +131,24 @@ final class Customers extends Prompt {
 
 
 	/**
-	 * Determines whether the current page is the WooCommerce Customers admin page.
+	 * Determines whether the current page is a React-based WooCommerce page.
 	 *
 	 * @since 1.1.0
 	 *
 	 * @return bool
 	 */
-	private function is_woocommerce_customers_page() {
+	private function is_woocommerce_js_page() {
 
-		$is_customers_page = false;
+		$is_js_page = false;
 
 		if ( class_exists( PageController::class ) && is_callable( PageController::class, 'instance' ) && $page_controller = PageController::get_instance() ) {
 
 			if ( is_callable( [ $page_controller, 'get_current_page' ] ) && $current_page = $page_controller->get_current_page() ) {
-				$is_customers_page = isset( $current_page['id'] ) && $current_page['id'] === $this->customers_page_id;
+				$is_js_page = isset( $current_page['js_page'] ) && $current_page['js_page'];
 			}
 		}
 
-		return $is_customers_page;
+		return $is_js_page;
 	}
 
 
