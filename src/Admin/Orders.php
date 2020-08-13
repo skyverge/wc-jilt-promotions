@@ -103,7 +103,9 @@ class Orders extends Prompt {
 	 */
 	private function get_orders_count() {
 
-		return 0;
+		$sales_data = $this->get_sales_data();
+
+		return $sales_data['number_of_orders'];
 	}
 
 
