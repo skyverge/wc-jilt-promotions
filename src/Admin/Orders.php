@@ -54,11 +54,25 @@ final class Orders extends Prompt {
 
 
 	/**
-	 * {@inheritDoc}
+	 * Adds the necessary action & filter hooks.
 	 *
 	 * @since 1.1.0-dev.1
 	 */
 	protected function add_prompt_hooks() {
+
+		add_action( 'admin_init', [ $this, 'admin_init' ] );
+	}
+
+
+	/**
+	 * Adds the render_recover_carts_modal filters and hooks in the init stage since WooCommerce uses wc_get_order_types()
+	 * to generate the reports and they're not ready before that.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function admin_init() {
 
 		$is_message_enabled = Messages::is_message_enabled( $this->abandoned_carts_filter_message_id );
 		$orders_count       = $this->get_orders_count();
