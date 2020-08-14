@@ -182,7 +182,7 @@ class Notice {
 	public function render() {
 
 		?>
-		<div class="sv-wc-jilt-promotional-notice notice notice-success is-dismissible" data-message-id="<?php esc_attr( $this->get_message_id() ); ?>">
+		<div class="sv-wc-jilt-promotional-notice notice notice-success is-dismissible" data-message-id="<?php echo esc_attr( $this->get_message_id() ); ?>">
 			<p><?php $this->render_content(); ?></p>
 			<?php $this->render_actions(); ?>
 		</div>
