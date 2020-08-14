@@ -239,6 +239,28 @@ jQuery( document ).ready( function( $ ) {
 				console.log( 'Notice: missing data-message-id attribute' );
 				return;
 			}
+
+			this.initialize();
+		}
+
+
+		/**
+		 * Initializes the notice
+		 *
+		 * @since 1.1.0-dev.1
+		 */
+		initialize() {
+
+			// remove all existing promotional notice event handlers
+			this.$element.off( 'click.jilt-promotional-notice' );
+
+			this.$element.on( 'click.jilt-promotional-notice', '.sv-wc-jilt-prompt-primary-action', ( event ) =>  {
+				this.onInstall( event );
+			} );
+
+			this.$element.on( 'click.jilt-promotional-notice', '.notice-dismiss', ( event ) => {
+				this.onDismiss( event );
+			} );
 		}
 
 
