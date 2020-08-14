@@ -82,15 +82,12 @@ final class Orders extends Prompt {
 	 */
 	public function enqueue_assets() {
 
-		if ( $this->is_woocommerce_js_page() ) {
+		wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
+		wp_enqueue_script( 'sv-wc-jilt-prompt-orders', Package::get_assets_url() . '/js/admin/orders.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION, true );
 
-			wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
-			wp_enqueue_script( 'sv-wc-jilt-prompt-orders', Package::get_assets_url() . '/js/admin/orders.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION, true );
-
-			wp_localize_script( 'sv-wc-jilt-prompt-orders', 'sv_wc_jilt_prompt_orders', [
-					'abandoned_carts_id' => $this->abandoned_carts_filter_message_id,
-			] );
-		}
+		wp_localize_script( 'sv-wc-jilt-prompt-orders', 'sv_wc_jilt_prompt_orders', [
+				'abandoned_carts_id' => $this->abandoned_carts_filter_message_id,
+		] );
 	}
 
 
