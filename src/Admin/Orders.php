@@ -20,6 +20,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
+use SkyVerge\WooCommerce\Jilt_Promotions\Package;
 
 defined( 'ABSPATH' ) or exit;
 
