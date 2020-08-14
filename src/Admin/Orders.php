@@ -20,6 +20,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
+use SkyVerge\WooCommerce\Jilt_Promotions\Package;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -28,7 +29,7 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since 1.1.0-dev.1
  */
-class Orders extends Prompt {
+final class Orders extends Prompt {
 
 
 	/** @var string the id associated with the message */
@@ -53,18 +54,55 @@ class Orders extends Prompt {
 
 
 	/**
-	 * {@inheritDoc}
+	 * Adds the necessary action & filter hooks.
 	 *
 	 * @since 1.1.0-dev.1
 	 */
 	protected function add_prompt_hooks() {
 
-		$is_message_dismissed = Messages::is_message_dismissed( $this->abandoned_carts_filter_message_id );
-		$orders_count         = $this->get_orders_count();
+		add_action( 'admin_init', [ $this, 'admin_init' ] );
+	}
 
-		if( $orders_count > 10 && ! $is_message_dismissed ) {
+
+	/**
+	 * Adds the render_recover_carts_modal filters and hooks in the init stage since WooCommerce uses wc_get_order_types()
+	 * to generate the reports and they're not ready before that.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function admin_init() {
+
+		$is_message_enabled = Messages::is_message_enabled( $this->abandoned_carts_filter_message_id );
+		$orders_count       = $this->get_orders_count();
+
+		if( $orders_count > 10 && ! $is_message_enabled ) {
+
 			add_filter( 'views_edit-shop_order', [ $this, 'add_abandoned_carts_view' ] );
+
+			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+
+			add_action( 'admin_footer', [ $this, 'render_recover_carts_modal' ] );
 		}
+	}
+
+
+	/**
+	 * Enqueues the assets.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function enqueue_assets() {
+
+		wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
+		wp_enqueue_script( 'sv-wc-jilt-prompt-orders', Package::get_assets_url() . '/js/admin/orders.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION, true );
+
+		wp_localize_script( 'sv-wc-jilt-prompt-orders', 'sv_wc_jilt_prompt_orders', [
+			'abandoned_carts_id' => $this->abandoned_carts_filter_message_id,
+		] );
 	}
 
 
@@ -166,7 +204,7 @@ class Orders extends Prompt {
 
 		$sales_data = get_transient( $transient_key );
 
-		if( ! isset( $sales_data ) ) {
+		if( ! $sales_data ) {
 
 			$sales_data = $this->get_woocommerce_report_data();
 
@@ -209,10 +247,10 @@ class Orders extends Prompt {
 			$sales_by_date->chart_groupby  = 'day';
 			$sales_by_date->group_by_query = 'YEAR(posts.post_date), MONTH(posts.post_date), DAY(posts.post_date)';
 
-			$report_data = $sales_by_date->get_report_data();
+			$query_result = $sales_by_date->get_report_data();
 
-			$report_data['number_of_orders'] = $report_data->total_orders;
-			$report_data['gross_sales']      = $report_data->total_sales;
+			$report_data['number_of_orders'] = $query_result->total_orders;
+			$report_data['gross_sales']      = $query_result->total_sales;
 		}
 
 		return $report_data;
@@ -226,7 +264,43 @@ class Orders extends Prompt {
 	 */
 	public function render_recover_carts_modal() {
 
+		$abandoned_carts_count = $this->get_abandoned_carts_count();
+		$recovered_revenue     = $this->get_recovered_revenue();
 
+		/* translators: Placeholders: %1$s - <strong> tag, %2$s - abandoned cart estimate, %3$s - </strong> tag, %4$s - <strong> tag, %5$s - recovered revenue estimate, %6$s - </strong> tag */
+		$modal_message = sprintf( esc_html__( 'Stores like yours recover an average of %1$s%2$s%3$s carts for %4$s%5$s recovered revenue%6$s per month. Do you want to install Jilt for WooCommerce to start recovering carts? You can then connect to Jilt with one click!', 'sv-wc-jilt-promotions' ),
+			'<strong>',
+			$abandoned_carts_count,
+			'</strong>',
+			'<strong>',
+			wc_price( $recovered_revenue ),
+			'</strong>'
+		);
+
+		?>
+		<script type="text/template" id="tmpl-sv-wc-jilt-promotions-<?php esc_attr_e( $this->abandoned_carts_filter_message_id ); ?>-modal">
+			<div id="sv-wc-jilt-install-modal" class="wc-backbone-modal">
+				<div class="wc-backbone-modal-content">
+					<section class="wc-backbone-modal-main" role="main">
+						<header class="wc-backbone-modal-header">
+							<h1><?php esc_html_e( 'Start recovering abandoned carts with Jilt!', 'sv-wc-jilt-promotions' ); ?></h1>
+							<button class="modal-close modal-close-link dashicons dashicons-no-alt">
+								<span class="screen-reader-text"><?php esc_html_e( 'Close modal panel', 'sv-wc-jilt-promotions' ); ?></span>
+							</button>
+						</header>
+						<article><?php echo $modal_message; ?></article>
+						<footer>
+							<div class="sv-wc-jilt-prompt-actions inner">
+								<a class="sv-wc-jilt-prompt-action" href="https://www.skyverge.com/go/abandoned-cart-recovery" target="_blank"><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
+								<button id="sv-wc-jilt-install-button-install" class="sv-wc-jilt-prompt-action button button-large button-primary"><?php esc_html_e( 'I want to recover carts', 'sv-wc-jilt-promotions' ); ?></button>
+							</div>
+						</footer>
+					</section>
+				</div>
+			</div>
+			<div class="wc-backbone-modal-backdrop modal-close"></div>
+		</script>
+		<?php
 	}
 
 
