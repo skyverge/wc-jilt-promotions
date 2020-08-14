@@ -59,10 +59,10 @@ final class Orders extends Prompt {
 	 */
 	protected function add_prompt_hooks() {
 
-		$is_message_dismissed = Messages::is_message_dismissed( $this->abandoned_carts_filter_message_id );
-		$orders_count         = $this->get_orders_count();
+		$is_message_enabled = Messages::is_message_enabled( $this->abandoned_carts_filter_message_id );
+		$orders_count       = $this->get_orders_count();
 
-		if( $orders_count > 10 && ! $is_message_dismissed ) {
+		if( $orders_count > 10 && ! $is_message_enabled ) {
 
 			add_filter( 'views_edit-shop_order', [ $this, 'add_abandoned_carts_view' ] );
 
