@@ -190,7 +190,7 @@ final class Orders extends Prompt {
 
 		$sales_data = get_transient( $transient_key );
 
-		if( ! isset( $sales_data ) ) {
+		if( ! $sales_data ) {
 
 			$sales_data = $this->get_woocommerce_report_data();
 
@@ -233,10 +233,10 @@ final class Orders extends Prompt {
 			$sales_by_date->chart_groupby  = 'day';
 			$sales_by_date->group_by_query = 'YEAR(posts.post_date), MONTH(posts.post_date), DAY(posts.post_date)';
 
-			$report_data = $sales_by_date->get_report_data();
+			$query_result = $sales_by_date->get_report_data();
 
-			$report_data['number_of_orders'] = $report_data->total_orders;
-			$report_data['gross_sales']      = $report_data->total_sales;
+			$report_data['number_of_orders'] = $query_result->total_orders;
+			$report_data['gross_sales']      = $query_result->total_sales;
 		}
 
 		return $report_data;
