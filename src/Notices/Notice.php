@@ -216,10 +216,10 @@ class Notice {
 	private function render_actions() {
 
 		?>
-		<ul class="sv-wc-jilt-promotional-notice-actions">
+		<div class="sv-wc-jilt-prompt-actions">
 			<?php foreach ( $this->get_actions() as $action ) : ?>
 
-				<?php $classes = $action['primary'] ? 'sv-wc-jilt-promotional-notice-action sv-wc-jilt-promotional-notice-primary-action' : 'sv-wc-jilt-promotional-notice-action'; ?>
+				<?php $classes = $action['primary'] ? 'sv-wc-jilt-prompt-action sv-wc-jilt-prompt-primary-action' : 'sv-wc-jilt-prompt-action'; ?>
 
 				<?php if ( self::ACTION_TYPE_LINK === $action['type'] ) : ?>
 					<a class="<?php echo esc_attr( $classes ); ?>" href="<?php echo esc_url( $action['url'] ); ?>" target="_blank" data-action="<?php echo esc_attr( $action['name'] ); ?>"><?php echo esc_html( $action['label'] ); ?></a>
@@ -228,7 +228,7 @@ class Notice {
 				<?php endif; ?>
 
 			<?php endforeach; ?>
-		</ul>
+		</div>
 		<?php
 	}
 
