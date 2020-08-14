@@ -222,7 +222,7 @@ class Notice {
 				<?php $classes = $action['primary'] ? 'sv-wc-jilt-promotional-notice-action sv-wc-jilt-promotional-notice-primary-action' : 'sv-wc-jilt-promotional-notice-action'; ?>
 
 				<?php if ( self::ACTION_TYPE_LINK === $action['type'] ) : ?>
-					<a class="<?php echo esc_attr( $classes ); ?>" href="" target="_blank" data-action="<?php echo esc_attr( $action['name'] ); ?>"><?php echo esc_html( $action['label'] ); ?></a>
+					<a class="<?php echo esc_attr( $classes ); ?>" href="<?php echo esc_url( $action['url'] ); ?>" target="_blank" data-action="<?php echo esc_attr( $action['name'] ); ?>"><?php echo esc_html( $action['label'] ); ?></a>
 				<?php else : ?>
 					<button class="<?php echo esc_attr( $classes ); ?> button<?php echo $action['primary'] ? ' button-primary' : ''; ?>" data-action="<?php echo esc_attr( $action['name'] ); ?>"><?php echo esc_html( $action['label'] ); ?></button>
 				<?php endif; ?>
