@@ -282,6 +282,19 @@ jQuery( document ).ready( function( $ ) {
 		}
 
 
+		/**
+		 * Fires when the user dismisses the notice.
+		 *
+		 * @since 1.1.0-dev.1
+		 *
+		 * @param {_Event} event click event
+		 */
+		onDismiss( event ) {
+
+			$.JiltPromotions.Messages.dismissMessage( this.messageID );
+		}
+
+
 	}
 
 
