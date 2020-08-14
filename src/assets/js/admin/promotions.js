@@ -217,4 +217,32 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 
+	/**
+	 * Notice handler
+	 */
+	$.JiltPromotions.Notice = class Notice {
+
+
+		/**
+		 * Constructor.
+		 *
+		 * @since 1.1.0-dev.1
+		 *
+		 * @param {jQuery} $element a jQuery element that represents a notice
+		 */
+		constructor( $element ) {
+
+			this.$element = $element;
+			this.messageID = $element.data( 'message-id' );
+
+			if ( ! this.messageID ) {
+				console.log( 'Notice: missing data-message-id attribute' );
+				return;
+			}
+		}
+
+
+	}
+
+
 } );
