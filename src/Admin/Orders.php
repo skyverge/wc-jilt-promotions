@@ -251,11 +251,6 @@ final class Orders extends Prompt {
 		$abandoned_carts_count = $this->get_abandoned_carts_count();
 		$recovered_revenue     = $this->get_recovered_revenue();
 
-		// bail if this is not a React-based WooCommerce page
-		if ( ! $this->is_woocommerce_js_page() ) {
-			return;
-		}
-
 		/* translators: Placeholders: %1$s - <strong> tag, %2$s - abandoned cart estimate, %3$s - </strong> tag, %4$.2f - recovered revenue estimate */
 		$modal_message = sprintf( esc_html__( 'Stores like yours recover an average of %1$s%2$s%3$s carts for %1$s$%4$.2f recovered revenue%3$s per month. Do you want to install Jilt for WooCommerce to start recovering carts? You can then connect to Jilt with one click!', 'sv-wc-jilt-promotions' ),
 			'<strong>',
