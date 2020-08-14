@@ -298,4 +298,10 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 
+	// initialize all promotional notices on the page
+	$( '.sv-wc-jilt-promotional-notice' ).each( function() {
+		new jQuery.JiltPromotions.Notice( $( this ) );
+	} );
+
+
 } );
