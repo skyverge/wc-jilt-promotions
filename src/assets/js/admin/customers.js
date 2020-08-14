@@ -4,7 +4,7 @@ jQuery( document ).ready( function ($) {
 	let shouldDisplayModal = true;
 
 	// open a promotional modal when the merchant clicks the Download button in the Customers page
-	$( document ).on('click', '.woocommerce-table__download-button', function ( event ) {
+	$( document ).on( 'click', '.woocommerce-table__download-button', function ( event ) {
 
 		if ( shouldDisplayModal && '/customers' === wc?.navigation?.getPath?.() ) {
 
