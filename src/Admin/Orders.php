@@ -263,7 +263,7 @@ final class Orders extends Prompt {
 
 		?>
 		<script type="text/template" id="tmpl-sv-wc-jilt-promotions-<?php esc_attr_e( $this->abandoned_carts_filter_message_id ); ?>-modal">
-			<div class="sv-wc-jilt-install-modal wc-backbone-modal">
+			<div id="sv-wc-jilt-install-modal" class="wc-backbone-modal">
 				<div class="wc-backbone-modal-content">
 					<section class="wc-backbone-modal-main" role="main">
 						<header class="wc-backbone-modal-header">
