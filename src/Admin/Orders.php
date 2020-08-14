@@ -267,12 +267,14 @@ final class Orders extends Prompt {
 		$abandoned_carts_count = $this->get_abandoned_carts_count();
 		$recovered_revenue     = $this->get_recovered_revenue();
 
-		/* translators: Placeholders: %1$s - <strong> tag, %2$s - abandoned cart estimate, %3$s - </strong> tag, %4$.2f - recovered revenue estimate */
-		$modal_message = sprintf( esc_html__( 'Stores like yours recover an average of %1$s%2$s%3$s carts for %1$s$%4$.2f recovered revenue%3$s per month. Do you want to install Jilt for WooCommerce to start recovering carts? You can then connect to Jilt with one click!', 'sv-wc-jilt-promotions' ),
+		/* translators: Placeholders: %1$s - <strong> tag, %2$s - abandoned cart estimate, %3$s - </strong> tag, %4$s - <strong> tag, %5$s - recovered revenue estimate, %6$s - </strong> tag */
+		$modal_message = sprintf( esc_html__( 'Stores like yours recover an average of %1$s%2$s%3$s carts for %4$s%5$s recovered revenue%6$s per month. Do you want to install Jilt for WooCommerce to start recovering carts? You can then connect to Jilt with one click!', 'sv-wc-jilt-promotions' ),
 			'<strong>',
 			$abandoned_carts_count,
 			'</strong>',
-			$recovered_revenue
+			'<strong>',
+			wc_price( $recovered_revenue ),
+			'</strong>'
 		);
 
 		?>
