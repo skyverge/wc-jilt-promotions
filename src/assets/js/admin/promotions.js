@@ -48,13 +48,16 @@ jQuery( document ).ready( function( $ ) {
 		 */
 		initialize() {
 
+			// remove any existing install modal event handlers
+			$( document ).off( 'click.jilt-install-modal' );
+
 			// when the install button is clicked
-			$( document ).on( 'click', '#sv-wc-jilt-install-button-install', ( event ) => {
+			$( document ).on( 'click.jilt-install-modal', '#sv-wc-jilt-install-button-install', ( event ) => {
 				this.onInstall( event );
 			} );
 
 			// when the newly opened modal is closed
-			$( document ).on( 'click', '#sv-wc-jilt-install-modal .modal-close', ( event ) => {
+			$( document ).on( 'click.jilt-install-modal', '#sv-wc-jilt-install-modal .modal-close', ( event ) => {
 				this.onClose( event );
 			} );
 		}
