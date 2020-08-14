@@ -2,9 +2,10 @@ jQuery( document ).ready( function ($) {
 
 
 	let shouldDisplayModal = true;
+	let modalClass         = 'orders-abandoned-carts-filter';
 
 	// open a promotional modal when the merchant clicks the Abandoned Carts button in the Orders page
-	$( document ).on( 'click', '.orders-abandoned-carts-filter', function ( event ) {
+	$( document ).on( 'click', `.${modalClass}`, function ( event ) {
 
 		if ( shouldDisplayModal ) {
 
@@ -21,6 +22,8 @@ jQuery( document ).ready( function ($) {
 			$( document ).on( onCloseEventName, function() {
 
 				$.JiltPromotions.Messages.dismissMessage( sv_wc_jilt_prompt_orders.abandoned_carts_id );
+
+				$( `.${modalClass}` ).remove();
 			} );
 
 			shouldDisplayModal = false;
