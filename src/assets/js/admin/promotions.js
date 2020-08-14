@@ -264,6 +264,24 @@ jQuery( document ).ready( function( $ ) {
 		}
 
 
+		/**
+		 * Fires when the user clicks on the primary action for the notice.
+		 *
+		 * @since 1.1.0-dev.1
+		 *
+		 * @param {_Event} event click event
+		 */
+		onInstall( event ) {
+
+			event.preventDefault();
+
+			new $.JiltPromotions.InstallPluginModal( {
+				messageID: this.messageID,
+				target: 'sv-wc-jilt-promotions-install-plugin-modal',
+			} );
+		}
+
+
 	}
 
 
