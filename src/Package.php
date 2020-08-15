@@ -74,6 +74,7 @@ class Package {
 
 		new Messages();
 		new Admin\Emails();
+		new Admin\Users();
 	}
 
 
