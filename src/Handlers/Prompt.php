@@ -17,12 +17,13 @@
 
 namespace SkyVerge\WooCommerce\Jilt_Promotions\Handlers;
 
-use SkyVerge\WooCommerce\Jilt_Promotions\Admin\Emails;
-
 defined( 'ABSPATH' ) or exit;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Admin\Emails;
+use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
+
 /**
- * The base prompts handler.
+ * The base prompt handler.
  *
  * @since 1.1.0-dev.1
  */
@@ -91,7 +92,15 @@ abstract class Prompt {
 	 */
 	public function add_connection_redirect_args( $args ) {
 
-		if ( $new_args = $this->get_connection_redirect_args() && ! empty( $new_args['utm_term'] ) ) {
+		// use an empty UTM_TERM if the installed from value matches the default campaign identifier
+		if ( self::UTM_CAMPAIGN === Installation::get_jilt_installed_from() ) {
+			$new_args = [ 'utm_term' => '' ];
+		} else {
+			$new_args = $this->get_connection_redirect_args();
+		}
+
+		// add the connection redirect args if the utm_term is defined, even if it's empty
+		if ( isset( $new_args['utm_term'] ) ) {
 
 			$utm_campaign = isset( $new_args['utm_campaign'] ) ? $new_args['utm_campaign'] : self::UTM_CAMPAIGN;
 
@@ -133,7 +142,8 @@ abstract class Prompt {
 
 		$display = $display && ! wc_string_to_bool( get_user_meta( get_current_user_id(), Emails::META_KEY_HIDE_PROMPT, true ) );
 
-		// TODO: check that Messages::get_dismissed_messages() returns an empty array {WV 2020-08-11}
+		// do not display the prompt if the there is at least one message dismissed
+		$display = $display && ! Messages::get_dismissed_messages();
 
 		/**
 		 * Filters whether the Jilt install prompt should be displayed.
