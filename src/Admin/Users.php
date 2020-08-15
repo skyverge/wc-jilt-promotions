@@ -66,7 +66,7 @@ class Users extends Prompt {
 				'primary' => true,
 				'type'    => Notice::ACTION_TYPE_BUTTON
 			]
-	   ] );
+		] );
 		$notice->set_title( __( 'Show your customers you care by keeping in touch!', 'sv-wc-jilt-promotions' ) );
 		$notice->set_content( __( 'Use Jilt to send welcome emails, thank customers for purchases, and encourage lapsed customers to shop again. Do you want to install Jilt for WooCommerce to start emailing customers? You’ll be able to connect with one click!', 'sv-wc-jilt-promotions' ) );
 
