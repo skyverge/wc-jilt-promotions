@@ -146,16 +146,14 @@ final class Emails extends Prompt {
 		// admin styles
 		add_action( 'admin_init', function() {
 
-			wp_enqueue_style( 'sv-wc-jilt-prompt-email-styles', Package::get_assets_url() . '/css/admin/emails.css', [], Package::VERSION );
+			wp_enqueue_style( 'sv-wc-jilt-prompt-email-styles', Package::get_assets_url() . '/css/admin/emails.css', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION );
 
 		} );
 
 		// admin scripts
 		add_action( 'admin_enqueue_scripts', function() {
 
-			wp_enqueue_script( 'wc-backbone-modal', null, [ 'backbone' ] );
-
-			wp_enqueue_script( 'sv-wc-jilt-prompt-email-scripts', Package::get_assets_url() . '/js/admin/emails.min.js', [ 'jquery', 'wc-backbone-modal' ], Package::VERSION );
+			wp_enqueue_script( 'sv-wc-jilt-prompt-email-scripts', Package::get_assets_url() . '/js/admin/emails.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION );
 
 			wp_localize_script( 'sv-wc-jilt-prompt-email-scripts', 'sv_wc_jilt_email_prompt', [
 				'prompt_id' => ! empty( $_GET['section'] ) ? 'emails:' . wc_clean( str_replace( '_', '-', $_GET['section'] ) ) : self::UTM_TERM_GLOBAL,
