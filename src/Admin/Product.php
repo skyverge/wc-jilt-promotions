@@ -48,6 +48,7 @@ class Product extends Prompt {
 	 */
 	const META_KEY_NEW_PRODUCT_FLAG = '_sv_wc_jilt_is_new_product';
 
+
 	/**
 	 * {@inheritDoc}
 	 *
@@ -56,7 +57,11 @@ class Product extends Prompt {
 	protected function add_prompt_hooks() {
 
 		if ( ! Messages::is_message_enabled( $this->new_product_notice_message_id ) ) {
+
 			add_action( 'wp_insert_post', [ $this, 'maybe_flag_new_product' ], 10, 3 );
+
+			add_action( 'transition_post_status', [ $this, 'maybe_enable_new_product_notice' ], 10, 3 );
+
 		}
 
 		if ( ! Messages::is_message_enabled( $this->product_sale_notice_message_id ) ) {
@@ -81,6 +86,36 @@ class Product extends Prompt {
 	public function add_enable_product_sale_notice_hooks() {
 
 		add_action( 'woocommerce_before_product_object_save', [ $this, 'maybe_enable_product_sale_notice' ] );
+
+	}
+
+
+	/**
+	 * Enable new product message if product flagged as new and status changed to publish
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @param string $new_status New post status.
+	 * @param string $old_status Old post status.
+	 * @param \WP_Post $post Post object.
+	 */
+	public function maybe_enable_new_product_notice( $new_status, $old_status, $post ) {
+
+		// bail if post/product isn't flagged as new product
+		if ( 'yes' !== get_post_meta( $post->ID, self::META_KEY_NEW_PRODUCT_FLAG, true ) ) {
+			return;
+		}
+
+		// bail if the new status isn't publish
+		if ( 'publish' !== $new_status ) {
+			return;
+		}
+
+		// enable the new product message
+		Messages::enable_message( $this->new_product_notice_message_id );
+
+		// clean up after
+		delete_post_meta( $post->ID, self::META_KEY_NEW_PRODUCT_FLAG );
 
 	}
 
