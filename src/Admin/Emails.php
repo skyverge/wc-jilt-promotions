@@ -44,17 +44,8 @@ final class Emails extends Prompt {
 	/** @var string the option name to flag whether Jilt was installed via a prompt */
 	const OPTION_INSTALLED_FROM_PROMPT = 'sv_wc_jilt_installed_from_emails_prompt';
 
-	/** @var string the source value for the connection arguments */
-	const UTM_SOURCE = 'jilt-for-woocommerce';
-
-	/** @var string the medium value for the connection arguments */
-	const UTM_MEDIUM = 'oauth';
-
 	/** @var string the campaign value for the connection arguments */
 	const UTM_CAMPAIGN = 'wc-email-settings';
-
-	/** @var string the content value for the connection arguments */
-	const UTM_CONTENT = 'install-jilt-button';
 
 	/** @var string the global term value for the connection arguments */
 	const UTM_TERM_GLOBAL = 'global-email-settings';
