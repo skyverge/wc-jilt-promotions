@@ -31,10 +31,12 @@ defined( 'ABSPATH' ) or exit;
  */
 class Product extends Prompt {
 
+
 	/**
 	 * @var string
 	 */
 	private $new_product_notice_message_id = 'new-product-notice';
+
 
 	/**
 	 * @var string
@@ -191,12 +193,9 @@ class Product extends Prompt {
 			return;
 		}
 
-		$post_type = get_post_type( $post );
-
-		if ( 'product' === $post_type || in_array( $post_type, wc_get_product_types(), true ) ) {
+		if ( 'product' === get_post_type( $post ) ) {
 			Messages::enable_message( $this->new_product_notice_message_id );
 		}
-
 	}
 
 
@@ -225,5 +224,6 @@ class Product extends Prompt {
 
 		return $args;
 	}
+
 
 }
