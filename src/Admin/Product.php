@@ -90,7 +90,7 @@ class Product extends Prompt {
 	 * @since 1.1.0-dev.1
 	 *
 	 * @param int     $post_id
-	 * @param WP_Post $post
+	 * @param \WP_Post $post
 	 * @param bool    $is_update
 	 */
 	public function maybe_enable_new_product_notice( $post_id, $post, $is_update ) {
