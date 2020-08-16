@@ -19,6 +19,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
 defined( 'ABSPATH' ) or exit;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Package;
 
@@ -104,6 +105,57 @@ final class Emails extends Prompt {
 		}
 
 		return $args;
+	}
+
+
+	/**
+	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @return array
+	 */
+	protected function get_connection_redirect_args() {
+
+		$args = [];
+
+		if ( $email_id = $this->get_installed_from_email_id() ) {
+
+			$args = [
+				'utm_campaign' => self::UTM_CAMPAIGN,
+				'utm_term'     => $email_id,
+			];
+		}
+
+		return $args;
+	}
+
+
+	/**
+	 * Gets the ID of the email prompt that triggered the installation of Jilt for WooCommerce.
+	 *
+	 * The email ID will be used as the utm_term query parameter for the connection redirect.
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @return string
+	 */
+	private function get_installed_from_email_id() {
+
+		$email_id = '';
+
+		if ( $installed_from = get_option( self::OPTION_INSTALLED_FROM_PROMPT ) ) {
+
+			$email_id = $installed_from;
+
+		} elseif ( $installed_from = Installation::get_jilt_installed_from() ) {
+
+			if ( self::UTM_TERM_GLOBAL === $installed_from || 'emails:' === substr( $installed_from, 0, 7 ) ) {
+				$email_id = str_replace( 'emails:', '', $installed_from );
+			}
+		}
+
+		return $email_id;
 	}
 
 
