@@ -39,6 +39,12 @@ class Product extends Prompt {
 
 
 	/**
+	 * @var string
+	 */
+	private $product_sale_notice_message_id = 'product-sale-notice';
+
+
+	/**
 	 * {@inheritDoc}
 	 *
 	 * @since 1.1.0-dev.1
@@ -49,13 +55,69 @@ class Product extends Prompt {
 			add_action( 'wp_insert_post', [ $this, 'maybe_enable_new_product_notice' ], 10, 3 );
 		}
 
+		if ( ! Messages::is_message_enabled( $this->product_sale_notice_message_id ) ) {
+
+			add_action( 'woocommerce_product_bulk_and_quick_edit', [ $this, 'add_enable_product_sale_notice_hooks' ], 5 );
+
+			add_action( 'woocommerce_admin_process_product_object', [ $this, 'maybe_enable_product_sale_notice' ] );
+
+		}
+
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		add_action( 'admin_notices', [ $this, 'add_admin_notices' ] );
 
 	}
 
 
 	/**
-	 * Renders a Notice object if new product message is enabled.
+	 * Adds action to maybe enable product sale message
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function add_enable_product_sale_notice_hooks() {
+
+		add_action( 'woocommerce_before_product_object_save', [ $this, 'maybe_enable_product_sale_notice' ] );
+
+	}
+
+
+	/**
+	 * Enabled product sale message if sale price changes
+	 *
+	 * @since 1.1.0-dev.1
+	 *
+	 * @param \WC_Product $product
+	 */
+	public function maybe_enable_product_sale_notice( $product ) {
+
+		$changes = $product->get_changes();
+
+		if ( ! empty( $changes['sale_price'] ) ) {
+			Messages::enable_message( $this->product_sale_notice_message_id );
+		}
+
+	}
+
+
+	/**
+	 * Enqueues the assets.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function enqueue_assets() {
+
+		if ( Messages::is_message_enabled( $this->new_product_notice_message_id ) || Messages::is_message_enabled( $this->product_sale_notice_message_id ) ) {
+
+			wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
+			wp_enqueue_script( Installation::INSTALL_SCRIPT_HANDLE );
+		}
+	}
+
+
+	/**
+	 * Renders a Notice object if new product and/or product sale message is enabled.
 	 *
 	 * @internal
 	 *
@@ -88,6 +150,31 @@ class Product extends Prompt {
 
 		}
 
+		if ( Messages::is_message_enabled( $this->product_sale_notice_message_id ) ) {
+
+			$product_sale_notice = new Notice();
+			$product_sale_notice->set_message_id( $this->product_sale_notice_message_id );
+			$product_sale_notice->set_actions( [
+				[
+					'label' => __( 'Learn more', 'sv-wc-jilt-promotions' ),
+					'name'  => 'broadcast-my-sale-learn-more',
+					'url'   => 'https://www.skyverge.com/go/promote-sale',
+					'type'  => Notice::ACTION_TYPE_LINK,
+				],
+				[
+					'label'   => __( 'Broadcast my sale', 'sv-wc-jilt-promotions' ),
+					'name'    => 'broadcast-my-sale-cta',
+					'primary' => true,
+					'type'    => Notice::ACTION_TYPE_BUTTON,
+				],
+			] );
+			$product_sale_notice->set_title( __( 'Share your sale!', 'sv-wc-jilt-promotions' ) );
+			$product_sale_notice->set_content( __( 'Jilt helps you communicate important events like product sales with your customers so they stay informed and interested in your store.', 'sv-wc-jilt-promotions' ) );
+
+			$product_sale_notice->render();
+
+		}
+
 	}
 
 
@@ -109,7 +196,6 @@ class Product extends Prompt {
 		if ( 'product' === get_post_type( $post ) ) {
 			Messages::enable_message( $this->new_product_notice_message_id );
 		}
-
 	}
 
 
@@ -126,8 +212,14 @@ class Product extends Prompt {
 
 		$args = [];
 
-		if ( $this->new_product_notice_message_id === Installation::get_jilt_installed_from() ) {
+		$jilt_installed_from = Installation::get_jilt_installed_from();
+
+		if ( $this->new_product_notice_message_id === $jilt_installed_from ) {
 			$args = [ 'utm_term' => $this->new_product_notice_message_id ];
+		}
+
+		if ( $this->product_sale_notice_message_id === $jilt_installed_from ) {
+			$args = [ 'utm_term' => $this->product_sale_notice_message_id ];
 		}
 
 		return $args;
