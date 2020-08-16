@@ -61,6 +61,7 @@ class Product extends Prompt {
 
 		}
 
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		add_action( 'admin_notices', [ $this, 'add_admin_notices' ] );
 
 	}
@@ -93,6 +94,23 @@ class Product extends Prompt {
 			Messages::enable_message( $this->product_sale_notice_message_id );
 		}
 
+	}
+
+
+	/**
+	 * Enqueues the assets.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function enqueue_assets() {
+
+		if ( Messages::is_message_enabled( $this->new_product_notice_message_id ) || Messages::is_message_enabled( $this->product_sale_notice_message_id ) ) {
+
+			wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
+			wp_enqueue_script( Installation::INSTALL_SCRIPT_HANDLE );
+		}
 	}
 
 
