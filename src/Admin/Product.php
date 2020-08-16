@@ -96,9 +96,7 @@ class Product extends Prompt {
 	public function maybe_enable_new_product_notice( $post_id, $post, $is_update ) {
 
 		if ( $is_update ) {
-
 			return;
-
 		}
 
 		$post_type = get_post_type( $post );
