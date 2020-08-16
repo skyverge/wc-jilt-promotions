@@ -43,6 +43,7 @@ class Product extends Prompt {
 	 */
 	private $product_sale_notice_message_id = 'product-sale-notice';
 
+
 	/**
 	 * {@inheritDoc}
 	 *
@@ -68,6 +69,7 @@ class Product extends Prompt {
 
 	}
 
+
 	/**
 	 * Adds action to maybe enable product sale message
 	 *
@@ -78,6 +80,7 @@ class Product extends Prompt {
 		add_action( 'woocommerce_before_product_object_save', [ $this, 'maybe_enable_product_sale_notice' ] );
 
 	}
+
 
 	/**
 	 * Enabled product sale message if sale price changes
@@ -91,12 +94,11 @@ class Product extends Prompt {
 		$changes = $product->get_changes();
 
 		if ( ! empty( $changes['sale_price'] ) ) {
-
 			Messages::enable_message( $this->product_sale_notice_message_id );
-
 		}
 
 	}
+
 
 	/**
 	 * Renders a Notice object if new product and/or product sale message is enabled.
@@ -130,11 +132,18 @@ class Product extends Prompt {
 			$product_sale_notice = new Notice();
 			$product_sale_notice->set_message_id( $this->product_sale_notice_message_id );
 			$product_sale_notice->set_actions( [
-				'label'   => __( 'Broadcast my sale', 'sv-wc-jilt-promotions' ),
-				'name'    => 'broadcast-my-sale',
-				'url'     => 'https://www.skyverge.com/go/promote-sale',
-				'primary' => true,
-				'type'    => Notice::ACTION_TYPE_LINK,
+				[
+					'label'   => __( 'Broadcast my sale', 'sv-wc-jilt-promotions' ),
+					'name'    => 'broadcast-my-sale-cta',
+					'primary' => true,
+					'type'    => Notice::ACTION_TYPE_BUTTON,
+				],
+				[
+					'label' => __( 'Learn more', 'sv-wc-jilt-promotions' ),
+					'name'  => 'broadcast-my-sale-learn-more',
+					'url'   => 'https://www.skyverge.com/go/promote-sale',
+					'type'  => Notice::ACTION_TYPE_LINK,
+				],
 			] );
 			$product_sale_notice->set_title( __( 'Share your sale!', 'sv-wc-jilt-promotions' ) );
 			$product_sale_notice->set_content( __( 'Jilt helps you communicate important events like product sales with your customers so they stay informed and interested in your store.', 'sv-wc-jilt-promotions' ) );
@@ -145,14 +154,15 @@ class Product extends Prompt {
 
 	}
 
+
 	/**
 	 * Determine
 	 *
 	 * @since 1.1.0-dev.1
 	 *
-	 * @param int     $post_id
+	 * @param int $post_id
 	 * @param WP_Post $post
-	 * @param bool    $is_update
+	 * @param bool $is_update
 	 */
 	public function maybe_enable_new_product_notice( $post_id, $post, $is_update ) {
 
@@ -171,6 +181,7 @@ class Product extends Prompt {
 		}
 
 	}
+
 
 	/**
 	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
