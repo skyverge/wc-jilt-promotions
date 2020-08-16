@@ -48,14 +48,17 @@ jQuery( document ).ready( function( $ ) {
 		 */
 		initialize() {
 
+			// remove any existing install modal event handlers
+			$( document ).off( 'click.jilt-install-modal' );
+
 			// when the install button is clicked
-			$( '#sv-wc-jilt-install-button-install' ).on( 'click', function( event ) {
-				InstallPluginModal.onInstall( event )
+			$( document ).on( 'click.jilt-install-modal', '#sv-wc-jilt-install-button-install', ( event ) => {
+				this.onInstall( event );
 			} );
 
 			// when the newly opened modal is closed
-			$( '#sv-wc-jilt-install-modal .modal-close' ).on( 'click', function( event ) {
-				InstallPluginModal.onClose( event );
+			$( document ).on( 'click.jilt-install-modal', '#sv-wc-jilt-install-modal .modal-close', ( event ) => {
+				this.onClose( event );
 			} );
 		}
 
@@ -83,7 +86,8 @@ jQuery( document ).ready( function( $ ) {
 		 *
 		 * @param {_Event} event install click event
 		 */
-		static onInstall( event ) {
+		onInstall( event ) {
+
 			event.preventDefault();
 
 			$( '#sv-wc-jilt-install-modal .wc-backbone-modal-content' ).block( {
@@ -138,7 +142,8 @@ jQuery( document ).ready( function( $ ) {
 		 *
 		 * @param {_Event} event modal close event
 		 */
-		static onClose( event ) {
+		onClose( event ) {
+
 			event.preventDefault();
 
 			if ( this.options.onClose ) {
@@ -210,6 +215,93 @@ jQuery( document ).ready( function( $ ) {
 
 
 	}
+
+
+	/**
+	 * Notice handler
+	 */
+	$.JiltPromotions.Notice = class Notice {
+
+
+		/**
+		 * Constructor.
+		 *
+		 * @since 1.1.0-dev.1
+		 *
+		 * @param {jQuery} $element a jQuery element that represents a notice
+		 */
+		constructor( $element ) {
+
+			this.$element = $element;
+			this.messageID = $element.data( 'message-id' );
+
+			if ( ! this.messageID ) {
+				console.log( 'Notice: missing data-message-id attribute' );
+				return;
+			}
+
+			this.initialize();
+		}
+
+
+		/**
+		 * Initializes the notice
+		 *
+		 * @since 1.1.0-dev.1
+		 */
+		initialize() {
+
+			// remove all existing promotional notice event handlers
+			this.$element.off( 'click.jilt-promotional-notice' );
+
+			this.$element.on( 'click.jilt-promotional-notice', '.sv-wc-jilt-prompt-primary-action', ( event ) =>  {
+				this.onInstall( event );
+			} );
+
+			this.$element.on( 'click.jilt-promotional-notice', '.notice-dismiss', ( event ) => {
+				this.onDismiss( event );
+			} );
+		}
+
+
+		/**
+		 * Fires when the user clicks on the primary action for the notice.
+		 *
+		 * @since 1.1.0-dev.1
+		 *
+		 * @param {_Event} event click event
+		 */
+		onInstall( event ) {
+
+			event.preventDefault();
+
+			new $.JiltPromotions.InstallPluginModal( {
+				messageID: this.messageID,
+				target: 'sv-wc-jilt-promotions-install-plugin-modal',
+			} );
+		}
+
+
+		/**
+		 * Fires when the user dismisses the notice.
+		 *
+		 * @since 1.1.0-dev.1
+		 *
+		 * @param {_Event} event click event
+		 */
+		onDismiss( event ) {
+
+			$.JiltPromotions.Messages.dismissMessage( this.messageID );
+		}
+
+
+	}
+
+
+	// initializes all promotional notices on the page
+	$( '.sv-wc-jilt-promotional-notice' ).each( function() {
+		new jQuery.JiltPromotions.Notice( $( this ) );
+	} );
 
 
 } );

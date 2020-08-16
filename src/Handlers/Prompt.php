@@ -20,6 +20,7 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Handlers;
 defined( 'ABSPATH' ) or exit;
 
 use SkyVerge\WooCommerce\Jilt_Promotions\Admin\Emails;
+use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 
 /**
  * The base prompt handler.
@@ -141,7 +142,8 @@ abstract class Prompt {
 
 		$display = $display && ! wc_string_to_bool( get_user_meta( get_current_user_id(), Emails::META_KEY_HIDE_PROMPT, true ) );
 
-		// TODO: check that Messages::get_dismissed_messages() returns an empty array {WV 2020-08-11}
+		// do not display the prompt if the there is at least one message dismissed
+		$display = $display && ! Messages::get_dismissed_messages();
 
 		/**
 		 * Filters whether the Jilt install prompt should be displayed.

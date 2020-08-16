@@ -81,6 +81,7 @@ class Package {
 		new Admin\Customers();
 		new Admin\Emails();
 		new Admin\Product();
+		new Admin\Orders();
 	}
 
 
