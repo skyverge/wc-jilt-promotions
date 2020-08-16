@@ -57,47 +57,26 @@ final class Emails extends Prompt {
 
 
 	/**
-	 * Emails constructor.
-	 *
-	 * @since 1.0.0
-	 */
-	public function __construct() {
-
-		$this->add_hooks();
-	}
-
-
-	/**
 	 * Adds the necessary action & filter hooks.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0-dev.1
 	 */
-	private function add_hooks() {
+	protected function add_prompt_hooks() {
 
-		// add the Jilt install prompt hooks
-		if ( is_admin() && $this->should_display_prompt() ) {
+		// enqueue the assets
+		$this->enqueue_assets();
 
-			// enqueue the assets
-			$this->enqueue_assets();
+		// render the Jilt install prompt setting HTML for the general Emails settings page
+		add_action( 'woocommerce_admin_field_jilt_prompt', [ $this, 'render_general_setting_html'] );
 
-			// render the Jilt install prompt setting HTML for the general Emails settings page
-			add_action( 'woocommerce_admin_field_jilt_prompt', [ $this, 'render_general_setting_html'] );
+		// render the Jilt install prompt setting HTML for the individual email settings page
+		add_action( 'woocommerce_email_settings_after', [ $this, 'render_email_setting_html' ] );
 
-			// render the Jilt install prompt setting HTML for the individual email settings page
-			add_action( 'woocommerce_email_settings_after', [ $this, 'render_email_setting_html' ] );
+		// add the Jilt install "setting" to the existing general emails settings
+		add_filter( 'woocommerce_email_settings', [ $this, 'add_emails_setting' ] );
 
-			// add the Jilt install "setting" to the existing general emails settings
-			add_filter( 'woocommerce_email_settings', [ $this, 'add_emails_setting' ] );
-
-			// install Jilt via AJAX
-			add_action( 'wp_ajax_' . self::AJAX_ACTION_INSTALL, [ $this, 'ajax_install_plugin' ] );
-
-			// hide the Jilt install prompt via AJAX
-			add_action( 'wp_ajax_' . self::AJAX_ACTION_HIDE_PROMPT, [ $this, 'ajax_hide_prompt' ] );
-		}
-
-		// add the connection redirect args if the plugin was installed from this prompt
-		add_filter( 'wc_jilt_app_connection_redirect_args', [ $this, 'add_connection_redirect_args' ] );
+		// hide the Jilt install prompt via AJAX
+		add_action( 'wp_ajax_' . self::AJAX_ACTION_HIDE_PROMPT, [ $this, 'ajax_hide_prompt' ] );
 	}
 
 
