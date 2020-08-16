@@ -76,33 +76,6 @@ final class Emails extends Prompt {
 
 
 	/**
-	 * Adds the connection redirect args if the plugin was installed from this prompt.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param array $args redirect args
-	 * @return array
-	 */
-	public function add_connection_redirect_args( $args ) {
-
-		if ( $email_id = get_option( self::OPTION_INSTALLED_FROM_PROMPT, false ) ) {
-
-			$utm_term = str_replace( '_', '-', wc_clean( $email_id ) );
-
-			$args['utm_source']   = self::UTM_SOURCE;
-			$args['utm_medium']   = self::UTM_MEDIUM;
-			$args['utm_campaign'] = self::UTM_CAMPAIGN;
-			$args['utm_content']  = self::UTM_CONTENT;
-			$args['utm_term']     = $utm_term;
-			$args['partner']      = '1';
-			$args['campaign']     = self::UTM_CAMPAIGN;
-		}
-
-		return $args;
-	}
-
-
-	/**
 	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
 	 *
 	 * @since 1.1.0-dev.1
