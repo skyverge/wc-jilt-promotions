@@ -405,19 +405,6 @@ final class Emails extends Prompt {
 	}
 
 
-	/**
-	 * Whether Jilt is already installed.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return bool
-	 */
-	private function is_plugin_installed() {
-
-		return function_exists( 'wc_jilt' );
-	}
-
-
 	/** Getter methods ************************************************************************************************/
 
 
