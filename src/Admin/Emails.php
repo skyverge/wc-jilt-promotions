@@ -19,12 +19,13 @@ namespace SkyVerge\WooCommerce\Jilt_Promotions\Admin;
 
 defined( 'ABSPATH' ) or exit;
 
+use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Package;
 
 /**
  * The emails handler.
  */
-final class Emails {
+final class Emails extends Prompt {
 
 
 	/** @var string the "hide jilt prompt" meta key */
