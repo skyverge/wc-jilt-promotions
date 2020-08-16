@@ -80,6 +80,7 @@ class Package {
 		new Handlers\Installation();
 		new Admin\Customers();
 		new Admin\Emails();
+		new Admin\Orders();
 		new Admin\Product();
 	}
 

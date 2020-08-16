@@ -87,6 +87,10 @@ final class Customers extends Prompt {
 
 			wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
 			wp_enqueue_script( 'sv-wc-jilt-prompt-customers', Package::get_assets_url() . '/js/admin/customers.min.js', [ Installation::INSTALL_SCRIPT_HANDLE ], Package::VERSION, true );
+
+			wp_localize_script( 'sv-wc-jilt-prompt-customers', 'sv_wc_jilt_prompt_customers', [
+				'download_message_id' => $this->download_message_id,
+			] );
 		}
 	}
 
@@ -107,7 +111,7 @@ final class Customers extends Prompt {
 
 		?>
 		<script type="text/template" id="tmpl-sv-wc-jilt-promotions-<?php esc_attr_e( $this->download_message_id ); ?>-modal">
-			<div class="sv-wc-jilt-install-modal wc-backbone-modal">
+			<div id="sv-wc-jilt-install-modal" class="wc-backbone-modal">
 				<div class="wc-backbone-modal-content">
 					<section class="wc-backbone-modal-main" role="main">
 						<header class="wc-backbone-modal-header">
@@ -118,9 +122,9 @@ final class Customers extends Prompt {
 						</header>
 						<article><?php esc_html_e( 'Jilt automatically syncs your store and customer data, so you can send powerful, personalized messages to your customers with just a few clicks.', 'sv-wc-jilt-promotions' ); ?></article>
 						<footer>
-							<div class="inner">
-								<a href="https://www.skyverge.com/go/customer-communication" target="_blank"><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
-								<button id="sv-wc-jilt-install-button-install" class="button button-large button-primary"><?php esc_html_e( 'I want to try Jilt', 'sv-wc-jilt-promotions' ); ?></button>
+							<div class="sv-wc-jilt-prompt-actions inner">
+								<a class="sv-wc-jilt-prompt-action" href="https://www.skyverge.com/go/customer-communication" target="_blank"><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
+								<button id="sv-wc-jilt-install-button-install" class="sv-wc-jilt-prompt-action button button-large button-primary"><?php esc_html_e( 'I want to try Jilt', 'sv-wc-jilt-promotions' ); ?></button>
 							</div>
 						</footer>
 					</section>
