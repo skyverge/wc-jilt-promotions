@@ -43,6 +43,10 @@ class Product extends Prompt {
 	 */
 	private $product_sale_notice_message_id = 'product-sale-notice';
 
+	/**
+	 * @var string
+	 */
+	const META_KEY_NEW_PRODUCT_FLAG = '_sv_wc_jilt_is_new_product';
 
 	/**
 	 * {@inheritDoc}
@@ -52,7 +56,7 @@ class Product extends Prompt {
 	protected function add_prompt_hooks() {
 
 		if ( ! Messages::is_message_enabled( $this->new_product_notice_message_id ) ) {
-			add_action( 'wp_insert_post', [ $this, 'maybe_enable_new_product_notice' ], 10, 3 );
+			add_action( 'wp_insert_post', [ $this, 'maybe_flag_new_product' ], 10, 3 );
 		}
 
 		if ( ! Messages::is_message_enabled( $this->product_sale_notice_message_id ) ) {
@@ -179,7 +183,7 @@ class Product extends Prompt {
 
 
 	/**
-	 * Determine
+	 * Flag product as new to look for when status changes
 	 *
 	 * @since 1.1.0-dev.1
 	 *
@@ -187,14 +191,14 @@ class Product extends Prompt {
 	 * @param \WP_Post $post
 	 * @param bool $is_update
 	 */
-	public function maybe_enable_new_product_notice( $post_id, $post, $is_update ) {
+	public function maybe_flag_new_product( $post_id, $post, $is_update ) {
 
 		if ( $is_update ) {
 			return;
 		}
 
 		if ( 'product' === get_post_type( $post ) ) {
-			Messages::enable_message( $this->new_product_notice_message_id );
+			update_post_meta( $post_id, self::META_KEY_NEW_PRODUCT_FLAG, 'yes' );
 		}
 	}
 
