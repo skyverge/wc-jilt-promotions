@@ -5,9 +5,10 @@ jQuery( document ).ready( function( $ ) {
 
 		event.preventDefault();
 
-		new $.WCBackboneModal.View( {
-			target: 'sv-wc-jilt-promotions-install-plugin-modal'
-		} );
+		new $.JiltPromotions.InstallPluginModal({
+			messageID: sv_wc_jilt_email_prompt.prompt_id,
+			target   : 'sv-wc-jilt-promotions-install-plugin-modal'
+		});
 
 	} );
 
