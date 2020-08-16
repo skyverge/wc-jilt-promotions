@@ -32,6 +32,7 @@ defined( 'ABSPATH' ) or exit;
  */
 class Product extends Prompt {
 
+
 	/**
 	 * @var string
 	 */
