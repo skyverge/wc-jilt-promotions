@@ -21,8 +21,6 @@ use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Installation;
 use SkyVerge\WooCommerce\Jilt_Promotions\Handlers\Prompt;
 use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 use SkyVerge\WooCommerce\Jilt_Promotions\Notices\Notice;
-use WC_Product;
-use WP_Post;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -52,9 +50,7 @@ class Product extends Prompt {
 	protected function add_prompt_hooks() {
 
 		if ( ! Messages::is_message_enabled( $this->new_product_notice_message_id ) ) {
-
 			add_action( 'wp_insert_post', [ $this, 'maybe_enable_new_product_notice' ], 10, 3 );
-
 		}
 
 		if ( ! Messages::is_message_enabled( $this->product_sale_notice_message_id ) ) {
@@ -87,7 +83,7 @@ class Product extends Prompt {
 	 *
 	 * @since 1.1.0-dev.1
 	 *
-	 * @param WC_Product $product
+	 * @param \WC_Product $product
 	 */
 	public function maybe_enable_product_sale_notice( $product ) {
 
@@ -114,11 +110,18 @@ class Product extends Prompt {
 			$new_product_notice = new Notice();
 			$new_product_notice->set_message_id( $this->new_product_notice_message_id );
 			$new_product_notice->set_actions( [
-				'label'   => __( 'Start promoting my products', 'sv-wc-jilt-promotions' ),
-				'name'    => 'start-promoting-my-products',
-				'url'     => 'https://www.skyverge.com/go/promote-products',
-				'primary' => true,
-				'type'    => Notice::ACTION_TYPE_LINK,
+				[
+					'label' => __( 'Learn more', 'sv-wc-jilt-promotions' ),
+					'name'  => 'start-promoting-my-products-learn-more',
+					'url'   => 'https://www.skyverge.com/go/promote-products',
+					'type'  => Notice::ACTION_TYPE_LINK,
+				],
+				[
+					'label'   => __( 'Start promoting my products', 'sv-wc-jilt-promotions' ),
+					'name'    => 'start-promoting-my-products-cta',
+					'primary' => true,
+					'type'    => Notice::ACTION_TYPE_BUTTON,
+				],
 			] );
 			$new_product_notice->set_title( __( 'Let customers know about your new products!', 'sv-wc-jilt-promotions' ) );
 			$new_product_notice->set_content( __( 'With Jilt, you can send broadcast emails to all customers to let them know about the great new products available in your store.', 'sv-wc-jilt-promotions' ) );
@@ -161,23 +164,19 @@ class Product extends Prompt {
 	 * @since 1.1.0-dev.1
 	 *
 	 * @param int $post_id
-	 * @param WP_Post $post
+	 * @param \WP_Post $post
 	 * @param bool $is_update
 	 */
 	public function maybe_enable_new_product_notice( $post_id, $post, $is_update ) {
 
 		if ( $is_update ) {
-
 			return;
-
 		}
 
 		$post_type = get_post_type( $post );
 
 		if ( 'product' === $post_type || in_array( $post_type, wc_get_product_types(), true ) ) {
-
 			Messages::enable_message( $this->new_product_notice_message_id );
-
 		}
 
 	}
