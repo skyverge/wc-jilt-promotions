@@ -154,16 +154,16 @@ class Product extends Prompt {
 			$product_sale_notice->set_message_id( $this->product_sale_notice_message_id );
 			$product_sale_notice->set_actions( [
 				[
-					'label'   => __( 'Broadcast my sale', 'sv-wc-jilt-promotions' ),
-					'name'    => 'broadcast-my-sale-cta',
-					'primary' => true,
-					'type'    => Notice::ACTION_TYPE_BUTTON,
-				],
-				[
 					'label' => __( 'Learn more', 'sv-wc-jilt-promotions' ),
 					'name'  => 'broadcast-my-sale-learn-more',
 					'url'   => 'https://www.skyverge.com/go/promote-sale',
 					'type'  => Notice::ACTION_TYPE_LINK,
+				],
+				[
+					'label'   => __( 'Broadcast my sale', 'sv-wc-jilt-promotions' ),
+					'name'    => 'broadcast-my-sale-cta',
+					'primary' => true,
+					'type'    => Notice::ACTION_TYPE_BUTTON,
 				],
 			] );
 			$product_sale_notice->set_title( __( 'Share your sale!', 'sv-wc-jilt-promotions' ) );
