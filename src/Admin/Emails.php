@@ -351,30 +351,6 @@ final class Emails extends Prompt {
 
 
 	/**
-	 * Whether the Jilt install prompt should be displayed.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return bool
-	 */
-	private function should_display_prompt() {
-
-		$display = current_user_can( 'install_plugins' ) && ! $this->is_plugin_installed();
-
-		$display = $display && ! wc_string_to_bool( get_user_meta( get_current_user_id(), self::META_KEY_HIDE_PROMPT, true ) );
-
-		/**
-		 * Filters whether the Jilt install prompt should be displayed.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @param bool $should_display whether the Jilt install prompt should be displayed
-		 */
-		return (bool) apply_filters( 'sv_wc_jilt_prompt_should_display', $display );
-	}
-
-
-	/**
 	 * Determines whether the Jilt install prompt should be shown in the given email's screen.
 	 *
 	 * @since 1.0.0
