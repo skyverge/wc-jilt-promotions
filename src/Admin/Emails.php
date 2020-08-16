@@ -158,7 +158,7 @@ final class Emails extends Prompt {
 			wp_enqueue_script( 'sv-wc-jilt-prompt-email-scripts', Package::get_assets_url() . '/js/admin/emails.min.js', [ 'jquery', 'wc-backbone-modal' ], Package::VERSION );
 
 			wp_localize_script( 'sv-wc-jilt-prompt-email-scripts', 'sv_wc_jilt_email_prompt', [
-				'email_id' => ! empty( $_GET['section'] ) ? wc_clean( str_replace( '_', '-', $_GET['section'] ) ) : self::UTM_TERM_GLOBAL,
+				'prompt_id' => ! empty( $_GET['section'] ) ? 'emails:' . wc_clean( str_replace( '_', '-', $_GET['section'] ) ) : self::UTM_TERM_GLOBAL,
 				'nonces'   => [
 					'install_plugin' => wp_create_nonce( self::AJAX_ACTION_INSTALL ),
 					'hide_prompt'    => wp_create_nonce( self::AJAX_ACTION_HIDE_PROMPT ),
