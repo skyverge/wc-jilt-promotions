@@ -94,6 +94,23 @@ class Users extends Prompt {
 
 
 	/**
+	 * Enqueues the assets.
+	 *
+	 * @internal
+	 *
+	 * @since 1.1.0-dev.1
+	 */
+	public function enqueue_assets() {
+
+		if ( Messages::is_message_enabled( $this->customer_role_message_id ) ) {
+
+			wp_enqueue_style( Installation::INSTALL_SCRIPT_HANDLE );
+			wp_enqueue_script( Installation::INSTALL_SCRIPT_HANDLE );
+		}
+	}
+
+
+	/**
 	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
 	 *
 	 * @since 1.1.0-dev.1
