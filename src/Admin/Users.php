@@ -88,6 +88,9 @@ class Users extends Prompt {
 
 			add_action( 'admin_enqueue_scripts', [ $this, 'maybe_enable_users_customer_role_message' ] );
 		}
+
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+		add_action( 'admin_notices', [ $this, 'add_admin_notices' ], 15 );
 	}
 
 
