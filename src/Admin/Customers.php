@@ -120,7 +120,7 @@ final class Customers extends Prompt {
 								<span class="screen-reader-text"><?php esc_html_e( 'Close modal panel', 'sv-wc-jilt-promotions' ); ?></span>
 							</button>
 						</header>
-						<article><?php esc_html_e( 'Jilt automatically syncs your store and customer data, so you can send powerful, personalized messages to your customers with just a few clicks.', 'sv-wc-jilt-promotions' ); ?></article>
+						<article><?php esc_html_e( 'Jilt automatically syncs your store and customer data, so you can send powerful, personalized messages to your customers. Do you want to install Jilt for WooCommerce to start emailing customers? You’ll be able to connect with one click!', 'sv-wc-jilt-promotions' ); ?></article>
 						<footer>
 							<div class="sv-wc-jilt-prompt-actions inner">
 								<a class="sv-wc-jilt-prompt-action" href="https://www.skyverge.com/go/customer-communication" target="_blank"><?php esc_html_e( 'Learn more', 'sv-wc-jilt-promotions' ); ?></a>
