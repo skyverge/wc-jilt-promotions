@@ -13,24 +13,6 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Messages.php:185, src/Messages.php:225
-msgid "Message ID is required"
-msgstr ""
-
-#: src/Messages.php:189
-msgid "Message already enabled"
-msgstr ""
-
-#. translators: Placeholder: %s - enable message
-#. translators: Placeholder: %s - enable message
-#: src/Messages.php:201, src/Messages.php:241
-msgid "Could not enable promotion message. %s"
-msgstr ""
-
-#: src/Messages.php:229
-msgid "Message already dismissed"
-msgstr ""
-
 #: src/Admin/Customers.php:114
 msgid "Communicate with your customers in minutes!"
 msgstr ""
@@ -129,6 +111,18 @@ msgstr ""
 msgid "Create beautiful automated and transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Personalize email content with customer and order details — include cross-sells, remind customers to complete payment, or easily share vital order information."
 msgstr ""
 
+#: src/Admin/Product.php:71
+msgid "Start promoting my products"
+msgstr ""
+
+#: src/Admin/Product.php:77
+msgid "Let customers know about your new products!"
+msgstr ""
+
+#: src/Admin/Product.php:78
+msgid "With Jilt, you can send broadcast emails to all customers to let them know about the great new products available in your store."
+msgstr ""
+
 #: src/Handlers/Installation.php:87
 msgid "User cannot install plugins"
 msgstr ""
@@ -143,4 +137,22 @@ msgstr ""
 
 #: src/Handlers/Installation.php:175
 msgid "Install"
+msgstr ""
+
+#: src/Messages.php:185, src/Messages.php:225
+msgid "Message ID is required"
+msgstr ""
+
+#: src/Messages.php:189
+msgid "Message already enabled"
+msgstr ""
+
+#. translators: Placeholder: %s - enable message
+#. translators: Placeholder: %s - enable message
+#: src/Messages.php:201, src/Messages.php:241
+msgid "Could not enable promotion message. %s"
+msgstr ""
+
+#: src/Messages.php:229
+msgid "Message already dismissed"
 msgstr ""

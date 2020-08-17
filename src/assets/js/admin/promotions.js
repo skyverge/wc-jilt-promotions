@@ -117,14 +117,14 @@ jQuery( document ).ready( function( $ ) {
 
 					console.error( response );
 
-					$( '#sv-wc-jilt-install-modal article' ).html( sv_wc_jilt_email_prompt.i18n.install_error );
+					$( '#sv-wc-jilt-install-modal article' ).html( sv_wc_jilt_prompt_install.i18n.install_error );
 
 					$( '#sv-wc-jilt-install-button-install' ).hide();
 				}
 
 			} ).fail( function() {
 
-				$( '#sv-wc-jilt-install-modal article' ).html( sv_wc_jilt_email_prompt.i18n.install_error );
+				$( '#sv-wc-jilt-install-modal article' ).html( sv_wc_jilt_prompt_install.i18n.install_error );
 
 				$( '#sv-wc-jilt-install-button-install' ).hide();
 
