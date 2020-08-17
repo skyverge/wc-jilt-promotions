@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) or exit;
 /**
  * The Jilt installation handler.
  *
- * @since 1.1.0-dev.1
+ * @since 1.1.0
  */
 class Installation {
 
@@ -43,7 +43,7 @@ class Installation {
 	/**
 	 * Jilt installation constructor.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function __construct() {
 
@@ -54,7 +54,7 @@ class Installation {
 	/**
 	 * Taps into WordPress hooks.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	private function add_hooks() {
 
@@ -74,7 +74,7 @@ class Installation {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function ajax_install_jilt_plugin() {
 
@@ -126,7 +126,7 @@ class Installation {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function register_assets() {
 
@@ -160,7 +160,7 @@ class Installation {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function render_install_jilt_plugin_modal() {
 
@@ -199,7 +199,7 @@ class Installation {
 	/**
 	 * Gets the information where Jilt was installed from.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return string empty string if Jilt wasn't installed from Jilt Promotions
 	 */

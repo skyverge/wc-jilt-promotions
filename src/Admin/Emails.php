@@ -54,7 +54,7 @@ final class Emails extends Prompt {
 	/**
 	 * Adds the necessary action & filter hooks.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	protected function add_prompt_hooks() {
 
@@ -78,7 +78,7 @@ final class Emails extends Prompt {
 	/**
 	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return array
 	 */
@@ -103,7 +103,7 @@ final class Emails extends Prompt {
 	 *
 	 * The email ID will be used as the utm_term query parameter for the connection redirect.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return string
 	 */
