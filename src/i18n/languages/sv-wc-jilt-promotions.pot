@@ -13,95 +13,146 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: src/Admin/Customers.php:114
+msgid "Communicate with your customers in minutes!"
+msgstr ""
+
+#: src/Admin/Customers.php:116, src/Handlers/Installation.php:168
+msgid "Close modal panel"
+msgstr ""
+
+#: src/Admin/Customers.php:119
+msgid "Jilt automatically syncs your store and customer data, so you can send powerful, personalized messages to your customers with just a few clicks."
+msgstr ""
+
+#: src/Admin/Customers.php:122
+msgid "Learn more"
+msgstr ""
+
+#: src/Admin/Customers.php:123
+msgid "I want to try Jilt"
+msgstr ""
+
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:175
+#: src/Admin/Emails.php:170
 msgid "Whoops, looks like there was an error installing Jilt for WooCommerce - please install manually %1$sfrom the Plugins menu%2$s."
 msgstr ""
 
-#: src/Admin/Emails.php:204
+#: src/Admin/Emails.php:199, src/Handlers/Installation.php:91
 msgid "Jilt for WooCommerce"
 msgstr ""
 
-#: src/Admin/Emails.php:214
+#: src/Admin/Emails.php:209, src/Handlers/Installation.php:102
 msgid "Jilt for WooCommerce successfully installed"
 msgstr ""
 
 #. translators: Placeholders: %s - install error message
-#: src/Admin/Emails.php:223
+#. translators: Placeholders: %s - install error message
+#: src/Admin/Emails.php:218, src/Handlers/Installation.php:111
 msgid "Could not install Jilt for WooCommerce. %s"
 msgstr ""
 
 #. translators: Placeholders; %1$s - <a> tag, %2$s - </a> tag, %3$s - <a> tag, %4$s - </a> tag, %5$s - <a> tag, %6$s - </a> tag
-#: src/Admin/Emails.php:258
+#: src/Admin/Emails.php:253
 msgid "Create beautiful automated, transactional, and marketing emails using a drag-and-drop editor with %1$sJilt%2$s. Learn more about free and paid plans in the %3$sdocumentation%4$s. Brought to you by %5$sSkyVerge%6$s."
 msgstr ""
 
-#: src/Admin/Emails.php:275
+#: src/Admin/Emails.php:270
 msgid "Advanced emails"
 msgstr ""
 
-#: src/Admin/Emails.php:315
+#: src/Admin/Emails.php:310
 msgid "Customize this email"
 msgstr ""
 
-#: src/Admin/Emails.php:334
+#: src/Admin/Emails.php:329
 msgid "Enhanced emails with Jilt"
 msgstr ""
 
-#: src/Admin/Emails.php:354
+#: src/Admin/Emails.php:349
 msgid "This setting is shown because you currently have a SkyVerge plugin active."
 msgstr ""
 
-#: src/Admin/Emails.php:364, src/views/admin/html-install-plugin-modal.php:24
+#: src/Admin/Emails.php:359, src/Handlers/Installation.php:166
 msgid "Install Jilt"
 msgstr ""
 
-#: src/Admin/Emails.php:365
+#: src/Admin/Emails.php:360
 msgid "Hide this setting"
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:485
+#: src/Admin/Emails.php:480
 msgid "Personalize your receipts using a drag-and-drop editor with %1$sJilt%2$s. Send different versions of your receipt based on customer or order details (change it for international orders!), cross-sell other products, include a dynamic coupon for the next order, and more."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:495
+#: src/Admin/Emails.php:490
 msgid "Personalize your shipment notifications using a drag-and-drop editor with %1$sJilt%2$s. Send beautiful transactional emails, change customer messaging, cross-sell other products, include a dynamic coupon for the next order, and more."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:505
+#: src/Admin/Emails.php:500
 msgid "Save the sale! Create beautiful, personalized transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Show refund details, sell related products, or include a discount for the next order."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:520
+#: src/Admin/Emails.php:515
 msgid "Keep your subscribers in the loop: create personalized, automated emails using a drag-and-drop editor with %1$sJilt%2$s. Send welcome or winback series, pre-renewal notifications, subscriber newsletters, and more."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:533
+#: src/Admin/Emails.php:528
 msgid "Brought to you by %1$sSkyVerge%2$s."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-#: src/Admin/Emails.php:560
+#: src/Admin/Emails.php:555
 msgid "Create beautiful automated and transactional emails using a drag-and-drop editor with %1$sJilt%2$s. Personalize email content with customer and order details — include cross-sells, remind customers to complete payment, or easily share vital order information."
 msgstr ""
 
-#: src/views/admin/html-install-plugin-modal.php:26
-msgid "Close modal panel"
+#: src/Admin/Product.php:71
+msgid "Start promoting my products"
 msgstr ""
 
-#: src/views/admin/html-install-plugin-modal.php:29
+#: src/Admin/Product.php:77
+msgid "Let customers know about your new products!"
+msgstr ""
+
+#: src/Admin/Product.php:78
+msgid "With Jilt, you can send broadcast emails to all customers to let them know about the great new products available in your store."
+msgstr ""
+
+#: src/Handlers/Installation.php:87
+msgid "User cannot install plugins"
+msgstr ""
+
+#: src/Handlers/Installation.php:171
 msgid "Click \"install\" to automatically install Jilt for WooCommerce and activate the plugin. You can then connect to Jilt with one click!"
 msgstr ""
 
-#: src/views/admin/html-install-plugin-modal.php:32
+#: src/Handlers/Installation.php:174
 msgid "Cancel"
 msgstr ""
 
-#: src/views/admin/html-install-plugin-modal.php:33
+#: src/Handlers/Installation.php:175
 msgid "Install"
+msgstr ""
+
+#: src/Messages.php:185, src/Messages.php:225
+msgid "Message ID is required"
+msgstr ""
+
+#: src/Messages.php:189
+msgid "Message already enabled"
+msgstr ""
+
+#. translators: Placeholder: %s - enable message
+#. translators: Placeholder: %s - enable message
+#: src/Messages.php:201, src/Messages.php:241
+msgid "Could not enable promotion message. %s"
+msgstr ""
+
+#: src/Messages.php:229
+msgid "Message already dismissed"
 msgstr ""
