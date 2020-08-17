@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Handler for the notice shown when the merchant filters users by the Customer role.
  *
- * @since 1.1.0-dev.1
+ * @since 1.1.0
  */
 class Users extends Prompt {
 
@@ -47,7 +47,7 @@ class Users extends Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function add_admin_notices() {
 
@@ -80,7 +80,7 @@ class Users extends Prompt {
 	/**
 	 * Adds the necessary action & filter hooks.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	protected function add_prompt_hooks() {
 
@@ -99,7 +99,7 @@ class Users extends Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function enqueue_assets() {
 
@@ -114,7 +114,7 @@ class Users extends Prompt {
 	/**
 	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	protected function get_connection_redirect_args() {
 
@@ -133,7 +133,7 @@ class Users extends Prompt {
 	 *
 	 * Enables the customer role message, if the ID of the current screen is the Users screen ID and the role parameter is set to customer.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function maybe_enable_users_customer_role_message() {
 

@@ -7,7 +7,7 @@ jQuery( document ).ready( function( $ ) {
 	/**
 	 * Jilt Plugin Installation modal handler.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	$.JiltPromotions.InstallPluginModal = class InstallPluginModal {
 
@@ -15,7 +15,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Constructor.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 *
 		 * @param {object} options
 		 */
@@ -44,7 +44,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Initializes the modal.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 */
 		initialize() {
 
@@ -70,7 +70,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Opens the modal.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 */
 		open() {
 
@@ -86,7 +86,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Fires when the user clicks on the install button from the modal prompt.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 *
 		 * @param {_Event} event install click event
 		 */
@@ -142,7 +142,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Fires when the user closes the install prompt modal.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 *
 		 * @param {_Event} event modal close event
 		 */
@@ -164,7 +164,7 @@ jQuery( document ).ready( function( $ ) {
 	/**
 	 * Messages handler.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	$.JiltPromotions.Messages = class Messages {
 
@@ -172,7 +172,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Enables a message in AJAX.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 *
 		 * @param {string} messageID message identifier
 		 */
@@ -184,7 +184,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Dismisses a message in AJAX.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 *
 		 * @param {string} messageID message identifier
 		 */
@@ -196,7 +196,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Handles a message status (helper method).
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 *
 		 * @param {string} messageID message identifier
 		 * @param {string} action AJAX action
@@ -230,7 +230,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Constructor.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 *
 		 * @param {jQuery} $element a jQuery element that represents a notice
 		 */
@@ -251,7 +251,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Initializes the notice
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 */
 		initialize() {
 
@@ -271,7 +271,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Fires when the user clicks on the primary action for the notice.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 *
 		 * @param {_Event} event click event
 		 */
@@ -289,7 +289,7 @@ jQuery( document ).ready( function( $ ) {
 		/**
 		 * Fires when the user dismisses the notice.
 		 *
-		 * @since 1.1.0-dev.1
+		 * @since 1.1.0
 		 *
 		 * @param {_Event} event click event
 		 */

@@ -25,7 +25,7 @@ use SkyVerge\WooCommerce\Jilt_Promotions\Messages;
 /**
  * The base prompt handler.
  *
- * @since 1.1.0-dev.1
+ * @since 1.1.0
  */
 abstract class Prompt {
 
@@ -46,7 +46,7 @@ abstract class Prompt {
 	/**
 	 * Constructor.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function __construct() {
 
@@ -57,7 +57,7 @@ abstract class Prompt {
 	/**
 	 * Adds the necessary action & filter hooks.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	private function add_hooks() {
 
@@ -75,7 +75,7 @@ abstract class Prompt {
 	 *
 	 * Subclasses can use this method to setup hooks only when the prompt should be displayed.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	abstract protected function add_prompt_hooks();
 
@@ -85,7 +85,7 @@ abstract class Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @param array $args redirect args
 	 * @return array
@@ -122,7 +122,7 @@ abstract class Prompt {
 	 *
 	 * The returned array will be used only if it includes the utm_term arg.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return array
 	 */
@@ -132,7 +132,7 @@ abstract class Prompt {
 	/**
 	 * Whether the Jilt install prompt should be displayed.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return bool
 	 */
@@ -159,7 +159,7 @@ abstract class Prompt {
 	/**
 	 * Whether Jilt is already installed.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return bool
 	 */

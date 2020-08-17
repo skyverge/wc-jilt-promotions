@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) or exit;
 /**
  * The messages handler class.
  *
- * @since 1.1.0-dev.1
+ * @since 1.1.0
  */
 class Messages {
 
@@ -43,7 +43,7 @@ class Messages {
 	/**
 	 * Messages constructor.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function __construct() {
 
@@ -54,7 +54,7 @@ class Messages {
 	/**
 	 * Adds hooks.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	private function add_hooks() {
 
@@ -67,7 +67,7 @@ class Messages {
 	/**
 	 * Marks a message as enabled for the current user.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @param string $message_id message identifier
 	 * @return bool
@@ -89,7 +89,7 @@ class Messages {
 	/**
 	 * Marks a message as dismissed for the current user.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @param string $message_id message identifier
 	 * @return bool
@@ -111,7 +111,7 @@ class Messages {
 	/**
 	 * Gets the enabled messages for the current user.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return array
 	 */
@@ -124,7 +124,7 @@ class Messages {
 	/**
 	 * Gets the dismissed messages for the current user.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return array
 	 */
@@ -137,7 +137,7 @@ class Messages {
 	/**
 	 * Determines whether a message is enabled for the current user.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @param string $message_id message identifier
 	 * @return bool
@@ -153,7 +153,7 @@ class Messages {
 	/**
 	 * Determines whether a message has been dismissed for the current user.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @param string $message_id message identifier
 	 * @return bool
@@ -171,7 +171,7 @@ class Messages {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function ajax_enable_message() {
 
@@ -211,7 +211,7 @@ class Messages {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function ajax_dismiss_message() {
 

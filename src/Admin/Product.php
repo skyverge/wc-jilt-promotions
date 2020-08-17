@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Handles the notices shown when new product is created and when sale price changes
  *
- * @since 1.1.0-dev.1
+ * @since 1.1.0
  */
 class Product extends Prompt {
 
@@ -52,7 +52,7 @@ class Product extends Prompt {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	protected function add_prompt_hooks() {
 
@@ -81,7 +81,7 @@ class Product extends Prompt {
 	/**
 	 * Adds action to maybe enable product sale message
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function add_enable_product_sale_notice_hooks() {
 
@@ -93,7 +93,7 @@ class Product extends Prompt {
 	/**
 	 * Enable new product message if product flagged as new and status changed to publish
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @param string $new_status New post status.
 	 * @param string $old_status Old post status.
@@ -123,7 +123,7 @@ class Product extends Prompt {
 	/**
 	 * Enabled product sale message if sale price changes
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @param \WC_Product $product
 	 */
@@ -143,7 +143,7 @@ class Product extends Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function enqueue_assets() {
 
@@ -160,7 +160,7 @@ class Product extends Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function add_admin_notices() {
 
@@ -220,7 +220,7 @@ class Product extends Prompt {
 	/**
 	 * Flag product as new to look for when status changes
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @param int $post_id
 	 * @param \WP_Post $post
@@ -243,7 +243,7 @@ class Product extends Prompt {
 	 *
 	 * @see Prompt::add_connection_redirect_args()
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return array
 	 */

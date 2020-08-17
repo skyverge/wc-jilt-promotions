@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Handles the modal shown when merchants select the Abandoned Carts filter view on the Orders page.
  *
- * @since 1.1.0-dev.1
+ * @since 1.1.0
  */
 final class Orders extends Prompt {
 
@@ -41,7 +41,7 @@ final class Orders extends Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @param array $views
 	 */
@@ -56,7 +56,7 @@ final class Orders extends Prompt {
 	/**
 	 * Adds the necessary action & filter hooks.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	protected function add_prompt_hooks() {
 
@@ -70,7 +70,7 @@ final class Orders extends Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function admin_init() {
 
@@ -93,7 +93,7 @@ final class Orders extends Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function enqueue_assets() {
 
@@ -109,7 +109,7 @@ final class Orders extends Prompt {
 	/**
 	 * Returns the estimated number of abandoned carts for the last 30 days.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @retun int
 	 */
@@ -130,7 +130,7 @@ final class Orders extends Prompt {
 	/**
 	 * Gets the connection redirect args to attribute the plugin installation to this prompt.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	protected function get_connection_redirect_args() {
 
@@ -147,7 +147,7 @@ final class Orders extends Prompt {
 	/**
 	 * Returns the number of orders placed in the last 30 days.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return int
 	 */
@@ -162,7 +162,7 @@ final class Orders extends Prompt {
 	/**
 	 * Returns the gross sales for the last 30 days.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return float
 	 */
@@ -177,7 +177,7 @@ final class Orders extends Prompt {
 	/**
 	 * Returns the estimated recovered revenue from abandoned carts fort the last 30 days.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return float
 	 */
@@ -194,7 +194,7 @@ final class Orders extends Prompt {
 	/**
 	 * Returns the number of orders placed in the last 30 days and the gross sales for that period.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return array
 	 */
@@ -218,7 +218,7 @@ final class Orders extends Prompt {
 	/**
 	 * Returns the result of a queried sales report from WooCommerce.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/9eae43c0d4dde8916608c45b7bf44b893bca1107/includes/admin/class-wc-admin-dashboard.php#L92-L102
 	 *
@@ -260,7 +260,7 @@ final class Orders extends Prompt {
 	/**
 	 * Retrieves the abandoned carts count and the recovered revenue to render the recover carts modal.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function render_recover_carts_modal() {
 

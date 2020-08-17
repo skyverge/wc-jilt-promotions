@@ -28,7 +28,7 @@ use SkyVerge\WooCommerce\Jilt_Promotions\Package;
 /**
  * The prompt handler for the Customers page.
  *
- * @since 1.1.0-dev.1
+ * @since 1.1.0
  */
 final class Customers extends Prompt {
 
@@ -40,7 +40,7 @@ final class Customers extends Prompt {
 	/**
 	 * Adds the necessary action & filter hooks.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	protected function add_prompt_hooks() {
 
@@ -58,7 +58,7 @@ final class Customers extends Prompt {
 	 *
 	 * @see Prompt::add_connection_redirect_args()
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return array
 	 */
@@ -79,7 +79,7 @@ final class Customers extends Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function enqueue_assets() {
 
@@ -100,7 +100,7 @@ final class Customers extends Prompt {
 	 *
 	 * @internal
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 */
 	public function render_try_jilt_modal() {
 
@@ -139,7 +139,7 @@ final class Customers extends Prompt {
 	/**
 	 * Determines whether the current page is a React-based WooCommerce page.
 	 *
-	 * @since 1.1.0-dev.1
+	 * @since 1.1.0
 	 *
 	 * @return bool
 	 */
