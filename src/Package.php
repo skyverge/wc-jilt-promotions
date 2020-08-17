@@ -75,6 +75,7 @@ class Package {
 		require_once( self::get_package_path() . '/Admin/Emails.php' );
 		require_once( self::get_package_path() . '/Admin/Orders.php' );
 		require_once( self::get_package_path() . '/Admin/Product.php' );
+		require_once( self::get_package_path() . '/Admin/Users.php' );
 
 		new Messages();
 		new Handlers\Installation();
@@ -82,6 +83,7 @@ class Package {
 		new Admin\Emails();
 		new Admin\Orders();
 		new Admin\Product();
+		new Admin\Users();
 	}
 
 
