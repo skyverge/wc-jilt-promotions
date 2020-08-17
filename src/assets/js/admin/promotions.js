@@ -50,6 +50,7 @@ jQuery( document ).ready( function( $ ) {
 
 			// remove any existing install modal event handlers
 			$( document ).off( 'click.jilt-install-modal' );
+			$( document ).off( 'wc_backbone_modal_removed.jilt-install-modal' );
 
 			// when the install button is clicked
 			$( document ).on( 'click.jilt-install-modal', '#sv-wc-jilt-install-button-install', ( event ) => {
@@ -57,8 +58,11 @@ jQuery( document ).ready( function( $ ) {
 			} );
 
 			// when the newly opened modal is closed
-			$( document ).on( 'click.jilt-install-modal', '#sv-wc-jilt-install-modal .modal-close', ( event ) => {
-				this.onClose( event );
+			$( document.body ).on( 'wc_backbone_modal_removed.jilt-install-modal', ( event, target ) => {
+
+				if ( target === this.options.target ) {
+					this.onClose( event );
+				}
 			} );
 		}
 
