@@ -233,8 +233,8 @@ final class Orders extends Prompt {
 
 		$woocommerce_plugin_path = WC()->plugin_path();
 
-		$admin_report_file = "/{$woocommerce_plugin_path}/includes/admin/reports/class-wc-admin-report.php";
-		$report_file       = "/{$woocommerce_plugin_path}/includes/admin/reports/class-wc-report-sales-by-date.php";
+		$admin_report_file = "{$woocommerce_plugin_path}/includes/admin/reports/class-wc-admin-report.php";
+		$report_file       = "{$woocommerce_plugin_path}/includes/admin/reports/class-wc-report-sales-by-date.php";
 
 		if ( is_readable( $admin_report_file ) && is_readable( $report_file ) ) {
 
