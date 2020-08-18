@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.1.0 - 2020.nn.nn
+## v1.1.0 - 2020.08.17
 * Add support for contextual messages to promote Jilt to WooCommerce customers
 
 ## v1.0.2 - 2020.07.09
